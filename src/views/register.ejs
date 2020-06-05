@@ -1,0 +1,62 @@
+<%- include('includes/head.ejs'); %>
+
+<body>
+    <%- include('includes/header.ejs'); %>
+    <main>
+        <section class="register">
+            <div>
+                <form id="sign-up_form" action="/signup" method="POST">
+                    <fieldset>
+                        <legend>Register</legend>
+                        <span class="sign-up--failed">The username <span class="takenUsername"><% if (locals.data) { %>
+                                <%= data.signupUser %>
+                                <% } %></span> is already taken, please choose a
+                            different one.</span>
+                        <span id="form-error-message" class="no-error-message">Please check if you have (correctly)
+                            filled in all fields.</span>
+                        <label for="signupFirst">First name</label>
+                        <input class="no-error" type="text" name="signupFirst" id="signupFirst" placeholder="First name">
+                        <span class="no-error-message"></span>
+                        <label for="signupLast">Last name</label>
+                        <input class="no-error" type="text" name="signupLast" id="signupLast" placeholder="Last name">
+                        <span class="no-error-message"></span>
+                        <label for="signupAge">Age</label>
+                        <input class="no-error" type="text" name="signupAge" id="signupAge" placeholder="Age">
+                        <span class="no-error-message"></span>
+                        <label for="signupLocation">Location</label>
+                        <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location">
+                        <span class="no-error-message"></span>
+                        <label for="signupInterests">Interests</label>
+                        <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests">
+                        <span class="no-error-message"></span>
+                        <label for="signupDescription">Description</label>
+                        <textarea name="signupDescription" id="signupDescription" placeholder="Description"></textarea>
+                        <span class="no-error-message"></span>
+                        <label for="signupAvatar" class="pictureLabel">Upload your photo!
+                            <p id="fileInfoText"></p></label>
+                        <input type="file" name="signupAvatar" id="signupAvatar" accept="image/*">
+                        <label for="signupUser">Username</label>
+                        <input class="no-error" type="text" name="signupUser" id="signupUser" placeholder="Username">
+                        <label for="signupEmail">E-mail adress</label>
+                        <input class="no-error" type="text" name="signupEmail" id="signupEmail"
+                            placeholder="E-mail adress">
+                        <span class="no-error-message"></span>
+                        <label for="signupPassword">Password</label>
+                        <input class="no-error" type="password" name="signupPassword" id="signupPassword"
+                            placeholder="Password">
+                        <span class="no-error-message"></span>
+                        <label for="signupPasswordRepeat">Repeat password</label>
+                        <input class="no-error" type="password" name="signupPasswordRepeat" id="signupPasswordRepeat"
+                            placeholder="Repeat password">
+                        <span class="no-error-message"></span>
+                        <button form="sign-up_form" type="submit" value="submit">
+                            Sign Up
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </main>
+    <%- include('includes/footer.ejs'); %>
+    <%- include('includes/scripts.ejs'); %>
+</body>

@@ -1,0 +1,38 @@
+<section class="boardGames">
+    <div>
+        <img src="images/hotrod-die-cast-model-on-board-1422673.jpg" alt="Monopoly board game - Starting point">
+        <!-- Hazelwood, S. (2018). Bedrijf bestuur binnen binnenshuis [Foto]. 
+            Geraadpleegd van https://www.pexels.com/nl-nl/foto/bedrijf-bestuur-binnen-binnenshuis-1422673/ -->
+        <article>
+            <h2>Board games</h2>
+            <p>Lots of people play board games. It is a great way to have fun and socialize in the meanwhile.
+                Are you the competitive type and can't you wait till someone challenges you to a decent match?
+                Why not take the first step? Take a look through the profiles below if there is a person that
+                is up for the challenge in the game you are a master in!
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<section class="category-boardgames">
+    <h2>These people like playing board games!</h2>
+    <div>
+        <!--       Category 2    board gamers       -->
+        <% for (let i = 0; i < data.length; i++) { %>
+        <article>
+            <a href="/<%= data[i].profileId %>">
+                <img src="uploads/<%= data[i].profilePicture %>" alt="Profile photo">
+                <h4>
+                    <%= data[i].firstname %> • <%= data[i].age %>
+                </h4>
+                <p>
+                    <%= data[i].location %>
+                </p>
+            </a>
+        </article>
+        <% } %>
+    </div>
+
+</section>

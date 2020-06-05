@@ -1,0 +1,41 @@
+<%- include('includes/head.ejs'); %>
+
+<body>
+    <%- include('includes/header.ejs'); %>
+    <main>
+        <section class="profilePage">
+            <article>
+                <img src="<%= user.avatar %>" alt="Profile photo">
+            </article>
+            <article class="personalInformation">
+                <div>
+                    <dl>
+                        <dt>First name </dt>
+                        <dd><%= user.firstname %></dd>
+                        <dt>Last name </dt>
+                        <dd><%= user.lastname %></dd>
+                        <dt>Profile name </dt>
+                        <dd><%= user.username %></dd>
+                        <dt>Age</dt>
+                        <dd><%= user.age %></dd>
+                        <dt>Location</dt>
+                        <dd><%= user.location %></dd>
+                        <dt>Interests</dt>
+                        <dd><%= user.interests %></dd>
+                        <dt>About me</dt>
+                        <dd><%= user.description %></dd>
+                    </dl>
+                </div>
+            </article>
+
+        </section>
+    </main>
+    <%- include('includes/footer.ejs'); %>
+    <%- include('includes/scripts.ejs'); %>
+</body>
+
+
+<!-- 
+    RESOURCE: Dummy user profile pictures
+zcool.com.cn. (n.d.). Cartoon characters [Illustratie]. 
+Retrieved from https://all-free-download.com/free-vector/download/cartoon-characters-01-vector_181114.html -->

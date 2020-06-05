@@ -1,0 +1,38 @@
+<section class="loginUser">
+
+    <div>
+        <form id="login_form" action="/login" method="POST">
+            <fieldset>
+                <legend>Login</legend>
+                <span class="login-failed">Your e-mail adress or password is incorrect.</span>
+                <span id="login-error-message" class="no-error-message">Please check if you have (correctly) filled in
+                    all fields.</span>
+                <label for="loginEmail">E-mail adress</label>
+                <input class="no-error" type="text" name="loginEmail" id="loginEmail" placeholder="E-mail adress" <% if (locals.data) { %>
+                    value="<%= data.loginEmail %>"
+                  <% } %>>
+                <span class="no-error-message"></span>
+                <label for="loginPassword">Password</label>
+                <input class="no-error" type="password" name="loginPassword" id="loginPassword" placeholder="Password">
+                <span class="no-error-message"></span>
+                <button form="login_form" type="submit" class="">
+                    Log In
+                </button>
+                <h3>Don't have an account yet? <span>Sign Up here:</span></h3>
+                <button type="button" class="sign-up-button">
+                    Sign Up
+                </button>
+            </fieldset>
+        </form>
+
+        <article class="registerLogIn">
+            <h2>Not a member yet?</h2>
+            <a href="/register">
+                <p class="registerHere">Register here</p>
+            </a>
+
+        </article>
+    </div>
+
+
+</section>

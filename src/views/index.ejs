@@ -1,0 +1,18 @@
+<%- include('includes/head.ejs'); %>
+
+<body>
+  <%- include('includes/header.ejs'); %>
+  <main>
+    <% if (user) { %>
+    <%- include('includes/hello-user'); %>
+    <% } else { %>
+    <%- include('includes/introduction.ejs'); %>
+    <% } %>
+
+    <%- include('includes/section_users.ejs'); %>
+    <%- include('includes/section_boardgames.ejs'); %>
+    <%- include('includes/section_comics.ejs'); %>
+  </main>
+  <%- include('includes/footer.ejs'); %>
+  <%- include('includes/scripts.ejs'); %>
+</body>
