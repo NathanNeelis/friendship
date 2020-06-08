@@ -3,7 +3,7 @@
 <body>
   <%- include('includes/header.ejs'); %>
   <main>
-    <% if (user) { %>
+    <% if (locals.user) { %>
     <%- include('includes/hello-user'); %>
     <% } else { %>
     <%- include('includes/introduction.ejs'); %>

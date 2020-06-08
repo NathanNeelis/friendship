@@ -13,7 +13,7 @@ const userRedirectLogin = (req, res, next) => {
 		res.redirect('/login');
 	} else {
 		next();
-	}
+    }
 };
 
 const userRedirectProfile = (req, res, next) => {
@@ -21,7 +21,7 @@ const userRedirectProfile = (req, res, next) => {
 		res.redirect('/profile');
 	} else {
 		next();
-	}
+    }
 };
 
 router

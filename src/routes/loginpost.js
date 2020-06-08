@@ -9,7 +9,6 @@ const loginpost = (req, res) => {
                 console.log('MongoDB Error:' + err);
             }
             if (user && user.password === req.body.loginPassword) {
-                
                 req.session.sessionID = user._id;
                 res.redirect('profile');
             } else {

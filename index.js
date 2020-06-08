@@ -40,6 +40,18 @@ const store = new MongoDBStore({
 	collection: 'sessions'
 });
 
+app.use(session({
+	name: sessionID,
+	secret: sessionSecret,
+	store: store,
+	resave: false,
+	saveUninitialized: false,
+	cookie: {
+		sameSite: true,
+		secure: false
+	}
+}));
+
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);
 });
@@ -55,14 +67,4 @@ app
 
 app.use(router);
 
-app.use(session({
-	name: sessionID,
-	secret: sessionSecret,
-	store: store,
-	resave: false,
-	saveUninitialized: false,
-	cookie: {
-		sameSite: true,
-		secure: false
-	}
-}));
+module.exports = sessionID;
