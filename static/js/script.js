@@ -1,7 +1,3 @@
-const namePerson = 'nathan';
-
-console.log(namePerson);
-
 // Feedback on uploaded file.
 const inputElement = document.getElementById('signupAvatar');
 inputElement.addEventListener('change', handleFiles, false);
