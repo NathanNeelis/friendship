@@ -112,4 +112,8 @@ To see what steps we have taking in making this application please see our proje
 
 ## License
 
+[MIT](https://github.com/BVictorB/friendship/blob/master/LICENSE)
+
 ## Resources
+
+EJS. (n.d.). Logo EJS [Logo]. Retrieved from https://i0.wp.com/frontnet.eu/wp-content/uploads/2020/04/Javascript_Embedded.png?w=526&ssl=1
