@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	about: {
+	description: {
 		type: String,
 		required: true,
 	},
@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
 	},
 	likes: {
 		type: String,
-		required: true,
+		required: false,
 	},
 });
 

@@ -5,7 +5,7 @@ const index = (req, res) => {
 	// 	res.redirect('/profile');
     // }
     console.log(req.session.id);
-    res.render('index.ejs');
+    res.render('index');
 };
 
 module.exports = index;

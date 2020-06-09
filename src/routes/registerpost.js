@@ -12,10 +12,15 @@ const registerpost = (req, res) => {
             });
         } else {
             const newUser = new User();
-            newUser.email = req.body.signupEmail.toLowerCase();
             newUser.username = req.body.signupUser;
-            newUser.dob = req.body.signupAge;
             newUser.password = req.body.signupPassword;
+            newUser.email = req.body.signupEmail.toLowerCase();
+            newUser.firstname = req.body.signupFirst;
+            newUser.dob = req.body.signupAge;
+            newUser.location = req.body.signupLocation;
+            newUser.interests = req.body.signupInterests;
+            newUser.description = req.body.signupDescription;
+            newUser.avatar = 'WIP';
 
             newUser.save((err, user) => {
                 if (err) {
