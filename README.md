@@ -84,7 +84,7 @@ These pages are build out of includes. Smaller bits of code that you will find i
 
 ![EJS](https://i0.wp.com/frontnet.eu/wp-content/uploads/2020/04/Javascript_Embedded.png?w=526&ssl=1)
 
-### Linter
+## Code standards
 
 We choose to use ESlint to set up our code standards.  
 These are:
