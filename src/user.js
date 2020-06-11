@@ -38,6 +38,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	activated: {
+		type: Number,
+		required: false,
+	},
 	likes: {
 		type: String,
 		required: false,
