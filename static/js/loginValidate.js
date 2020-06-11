@@ -1,6 +1,6 @@
-const loadValidateForm = document.querySelector('#login_form');
+const loadValidateLogin = document.querySelector('#login_form');
 
-if (loadValidateForm) {
+if (loadValidateLogin) {
     const validateForm = (e) => {
         if (e.target) {
             var target = e.target;

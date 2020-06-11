@@ -3,12 +3,13 @@ const User = require('../user');
 const loginpost = (req, res) => {
     if (req.body.loginEmail && req.body.loginPassword) {
         User.findOne({
-            email: req.body.loginEmail.toLowerCase()
+            email: req.body.loginEmail.toLowerCase(),
+            password: req.body.loginPassword
         }, (err, user) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
             }
-            if (user && user.password === req.body.loginPassword) {
+            if (user) {
                 req.session.sessionID = user._id;
                 res.redirect('profile');
             } else {

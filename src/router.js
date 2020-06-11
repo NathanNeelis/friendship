@@ -1,5 +1,6 @@
 const 
     router = require('express').Router(),
+    upload = require('./multer'),
     registerpost = require('./routes/registerpost'),
     register = require('./routes/register'),
     index = require('./routes/index'),
@@ -31,6 +32,6 @@ router
     .get('/logout', userRedirectLogin, logout)
     .get('/profile', userRedirectLogin, profile)
     .post('/login', loginpost)
-    .post('/register', registerpost);
+    .post('/register', upload.single('signupAvatar'), registerpost);
 
 module.exports = router;
