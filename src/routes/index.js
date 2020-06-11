@@ -17,7 +17,6 @@ const index = async (req, res) => {
       });
 
       const done = (allData, myData, dataBG, dataComics) => {
-        console.log('this is comics data', dataComics);
         res.render('index.ejs', {
           user: myData,
           data: allData,

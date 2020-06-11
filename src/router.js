@@ -7,8 +7,9 @@ const
     loginpost = require('./routes/loginpost'),
     logout = require('./routes/logout'),
     profile = require('./routes/profile'),
-    login = require('./routes/login'),
-    search = require('./routes/search');
+    activate = require('./routes/activate'),
+    search = require('./routes/search'),
+    login = require('./routes/login');
 
 const userRedirectLogin = (req, res, next) => {
     if (!req.session.sessionID) {
@@ -32,6 +33,7 @@ router
     .get('/register', userRedirectProfile, register)
     .get('/logout', userRedirectLogin, logout)
     .get('/profile', userRedirectLogin, profile)
+    .get('/activate', activate)
     .get('/search', search)
     .post('/login', loginpost)
     .post('/register', upload.single('signupAvatar'), registerpost);
