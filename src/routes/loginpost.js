@@ -8,10 +8,13 @@ const loginpost = (req, res) => {
         }, (err, user) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
-            }
-            if (user) {
+            } else if (user && user.activated == 1) {
                 req.session.sessionID = user._id;
                 res.redirect('profile');
+            } else if (user && user.activated == 0) {
+                res.render('login.ejs', {
+                    data: req.body
+                });
             } else {
                 res.render('login.ejs', {
                     data: req.body

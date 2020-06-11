@@ -1,6 +1,15 @@
 const loadValidateLogin = document.querySelector('#login_form');
 
 if (loadValidateLogin) {
+
+    const loginFailedMessage = document.querySelector('.login-failed');
+
+    if (document.getElementById('loginEmail').value != '') {
+        loginFailedMessage.classList.add('form-error-message');
+    } else {
+        loginFailedMessage.classList.remove('form-error-message');
+    }
+
     const validateForm = (e) => {
         if (e.target) {
             var target = e.target;
