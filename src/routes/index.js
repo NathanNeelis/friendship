@@ -2,7 +2,7 @@
 
 const User = require('../user');
 
-const index = async (req, res, next) => {
+const index = async (req, res) => {
   try {
     const allData = await User.find();
     const dataBG = await User.find({
