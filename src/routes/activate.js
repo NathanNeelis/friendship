@@ -6,20 +6,30 @@ const activate = (req, res) => {
 	}, (err, user) => {
 		if (err) {
             console.log('MongoDB Error:' + err);
-            res.render('activate-failed');
+            res.render('login', {
+                message: 'Account activation failed, please try again or contact us.'
+            });
 		}
-		if (user) {
+		if (user.activated == 0) {
             User.update({ _id: user._id }, { activated: 1 }, {upsert: true}, (err) => {
                 if (err) {
                     console.log(err);
                     res.render('activate-failed');
                 } else {
-                    res.render('activate-succes');
+                    res.render('login', {
+                        message: 'Your account has been activated! You can now log in.'
+                    });
                 }
             });
-		} else {
+		} else if (user.activated == 1) {
+            res.render('login', {
+                message: 'Your account has already been activated.'
+            });
+        } else {
             console.log('Error: client ID could not been found!');
-            res.render('activate-failed');
+            res.render('login', {
+                message: 'Account activation failed, please try again or contact us.'
+            });
 		}
 	});
 };

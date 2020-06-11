@@ -51,7 +51,9 @@ const registerpost = (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.render('register-succes');
+                res.render('login', {
+                    message: 'Please check your email inbox and activate your account by clicking on the link in the email!'
+                });
                 sendEmail();
             }
         });

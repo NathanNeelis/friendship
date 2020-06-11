@@ -1,4 +1,4 @@
-const 
+const
     router = require('express').Router(),
     upload = require('./multer'),
     registerpost = require('./routes/registerpost'),
@@ -11,18 +11,18 @@ const
     login = require('./routes/login');
 
 const userRedirectLogin = (req, res, next) => {
-	if (!req.session.sessionID) {
-		res.redirect('/login');
-	} else {
-		next();
+    if (!req.session.sessionID) {
+        res.redirect('/login');
+    } else {
+        next();
     }
 };
 
 const userRedirectProfile = (req, res, next) => {
-	if (req.session.sessionID) {
-		res.redirect('/profile');
-	} else {
-		next();
+    if (req.session.sessionID) {
+        res.redirect('/profile');
+    } else {
+        next();
     }
 };
 
