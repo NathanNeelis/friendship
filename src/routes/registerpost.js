@@ -27,8 +27,6 @@ const registerpost = (req, res) => {
                       subject: 'Welcome to Friendship, ' + user.firstname + '!',
                       text: 'Activate your Friendship account: http://localhost:1900/activate?id=' + user._id
                 });
-            } else {
-                console.log('error!');
             }
         });
     };
