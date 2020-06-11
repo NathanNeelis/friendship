@@ -26,10 +26,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	interests: {
+	interests: [{
 		type: String,
 		required: true,
-	},
+	}],
 	description: {
 		type: String,
 		required: true,
