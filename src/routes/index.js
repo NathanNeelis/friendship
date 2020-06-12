@@ -1,5 +1,3 @@
-// /* eslint-disable */
-
 const User = require('../user');
 
 const index = async (req, res) => {
