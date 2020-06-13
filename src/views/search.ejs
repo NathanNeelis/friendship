@@ -4,13 +4,26 @@
     <%- include('includes/header.ejs'); %>
     <main>
         <%- include('includes/filter.ejs'); %>
+
+        <% if (user) { %>
         <% if (activity === undefined) { %>
         <%- include('includes/section_fit.ejs'); %>
         <% } else if (dataFilter.length <= 0) { %>
-        <h2> There are no users liking <%= activity %></h2>
+        <%- include('includes/no-result.ejs'); %>
         <% } else { %>
         <%- include('includes/section_result.ejs'); %>
         <% } %>
+
+        <% } else { %>
+        <% if (activity === undefined) { %>
+        <%- include('includes/section_random_users.ejs'); %>
+        <% } else if (dataFilter.length <= 0) { %>
+        <%- include('includes/no-result.ejs'); %>
+        <% } else { %>
+        <%- include('includes/section_result.ejs'); %>
+        <% } %>
+        <% } %>
+
     </main>
     <%- include('includes/footer.ejs'); %>
     <%- include('includes/scripts.ejs'); %>

@@ -322,7 +322,29 @@ section form div div input[type=checkbox] {
 .search {
     position: absolute;
     z-index: -1;
+    visibility: hidden;
 }
+
+/* errors */
+.no-result {
+    margin:0 auto;
+    width: 80vw;
+}
+
+.no-result article{
+    width:100%;
+}
+
+.no-result img {
+    border-radius:1em;
+    width:80vw;
+    margin:2em 0;
+}
+
+.no-result h2 {
+    margin:1em 2em;
+}
+
 
 /*--------------------------- Register --------------------------------*/
 /*--------------------------- Register --------------------------------*/
@@ -720,6 +742,26 @@ footer {
         background: #FF0073;
         box-shadow: inset 10px 10px 28px #a6004b,
             inset -10px -10px 28px #ff009b;
+    }
+
+    .no-result {
+        width: 50vw;
+    }
+
+    .no-result h2 {
+        margin:0 auto;
+    }
+
+    .no-result article{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .no-result img {
+        width:50%;
+        margin:2em;
     }
 
     /*--------------------------- Register --------------------------------*/
