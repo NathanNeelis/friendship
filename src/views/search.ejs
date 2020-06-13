@@ -4,25 +4,19 @@
     <%- include('includes/header.ejs'); %>
     <main>
         <%- include('includes/filter.ejs'); %>
-
-        <% if (user) { %>
         <% if (activity === undefined) { %>
+        <% if (locals.user) { %>
         <%- include('includes/section_fit.ejs'); %>
+        <% } else {%>
+        <%- include('includes/section_random_users.ejs'); %>
+        <% } %>
+
         <% } else if (dataFilter.length <= 0) { %>
         <%- include('includes/no-result.ejs'); %>
         <% } else { %>
         <%- include('includes/section_result.ejs'); %>
         <% } %>
 
-        <% } else { %>
-        <% if (activity === undefined) { %>
-        <%- include('includes/section_random_users.ejs'); %>
-        <% } else if (dataFilter.length <= 0) { %>
-        <%- include('includes/no-result.ejs'); %>
-        <% } else { %>
-        <%- include('includes/section_result.ejs'); %>
-        <% } %>
-        <% } %>
 
     </main>
     <%- include('includes/footer.ejs'); %>
