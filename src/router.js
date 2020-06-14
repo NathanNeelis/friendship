@@ -10,7 +10,8 @@ const
     activate = require('./routes/activate'),
     search = require('./routes/search'),
     filter = require('./routes/search'),
-    login = require('./routes/login');
+    login = require('./routes/login'),
+    allUsers = require('./routes/allUsers');
 
 const userRedirectLogin = (req, res, next) => {
     if (!req.session.sessionID) {
@@ -36,6 +37,7 @@ router
     .get('/profile', userRedirectLogin, profile)
     .get('/activate', activate)
     .get('/search', search)
+    .get('/search/allUsers', allUsers)
     .post('/login', loginpost)
     .post('/register', upload.single('signupAvatar'), registerpost)
     .post('/search', filter);
