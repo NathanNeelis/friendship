@@ -897,6 +897,10 @@ footer {
     border-bottom: 1px dashed white;
 }
 
+.sign-up--failed {
+    display: none;
+}
+
 .form-error-message {
     display: block;
     color: white;

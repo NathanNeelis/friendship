@@ -1,6 +1,14 @@
-const loadValidateForm = document.querySelector('#signup_form');
+const loadValidateSignup = document.querySelector('#sign-up_form');
 
-if (loadValidateForm) {
+if (loadValidateSignup) {
+    const failedMessage = document.querySelector('.sign-up--failed');
+
+    if (document.querySelector('.takenUsername').innerHTML) {
+        failedMessage.classList.add('form-error-message');
+    } else {
+        failedMessage.classList.remove('form-error-message');
+    }
+
     const validateForm = (e) => {
         if (e.target) {
             var target = e.target;
@@ -13,9 +21,11 @@ if (loadValidateForm) {
         var signupEmail = document.querySelector('#signupEmail');
         var signupPassword = document.querySelector('#signupPassword');
         var signupPasswordRepeat = document.querySelector('#signupPasswordRepeat');
+        var signupAge = document.querySelector('#signupAge');
 
         var emailValidator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var userValidator = /^[a-zA-Z0-9_.-]*$/;
+        var ageValidator = /^\d{4}(-)(((0)[0-9])|((1)[0-2]))(-)([0-2][0-9]|(3)[0-1])$/;
 
         if (target.id == 'signupUser') {
             if (signupUser.value.length == 0) {
@@ -38,6 +48,31 @@ if (loadValidateForm) {
                 signupUser.classList.remove('no-error');
                 signupUser.classList.remove('error');
                 signupUser.nextElementSibling.classList.replace('error-message', 'no-error-message');
+            }
+        }
+
+        if (target.id == 'signupAge') {
+            console.log(signupAge.value);
+            if (signupAge.value.length == 0) {
+                if (!signupAge.classList.contains('error')) {
+                    signupAge.classList.add('error');
+                    signupAge.classList.remove('no-error');
+                    signupAge.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                    signupAge.nextElementSibling.innerHTML = 'Please fill in your date of birth.';
+                } else {
+                    signupAge.classList.remove('no-error');
+                    signupAge.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                    signupAge.nextElementSibling.innerHTML = 'Please fill in your date of birth.';
+                }
+            } else if (!signupAge.value.match(ageValidator)) {
+                signupAge.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                signupAge.nextElementSibling.innerHTML = 'Please use the calendar to fill in your date of birth.';
+                signupAge.classList.add('error');
+                signupAge.classList.remove('no-error');
+            } else {
+                signupAge.classList.remove('no-error');
+                signupAge.classList.remove('error');
+                signupAge.nextElementSibling.classList.replace('error-message', 'no-error-message');
             }
         }
 
@@ -104,6 +139,46 @@ if (loadValidateForm) {
             }
         }
 
+        if (target.id == 'signupUser' || target.id == 'signupFirst' || target.id == 'signupLocation' || target.id == 'signupInterests' || target.id == 'signupDescription') {
+            const targetInput = document.getElementById(target.id);
+            if (targetInput.value.length == 0) {
+                if (!targetInput.classList.contains('error')) {
+                    targetInput.classList.add('error');
+                    targetInput.classList.remove('no-error');
+                    targetInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                    targetInput.nextElementSibling.innerHTML = 'Please fill in this field.';
+                } else {
+                    targetInput.classList.remove('no-error');
+                    targetInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                    targetInput.nextElementSibling.innerHTML = 'Please fill in this field.';
+                }
+            }  else {
+                targetInput.classList.remove('no-error');
+                targetInput.classList.remove('error');
+                targetInput.nextElementSibling.classList.replace('error-message', 'no-error-message');
+            }
+        }
+
+        if (target.id == 'signupAvatar') {
+            const avatarInput = document.getElementById(target.id);
+            if (avatarInput.value == '') {
+                if (!avatarInput.classList.contains('error')) {
+                    avatarInput.classList.add('error');
+                    avatarInput.classList.remove('no-error');
+                    avatarInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                    avatarInput.nextElementSibling.innerHTML = 'Please upload an avatar.';
+                } else {
+                    avatarInput.classList.remove('no-error');
+                    avatarInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
+                    avatarInput.nextElementSibling.innerHTML = 'Please upload an avatar.';
+                }
+            }  else {
+                avatarInput.classList.remove('no-error');
+                avatarInput.classList.remove('error');
+                avatarInput.nextElementSibling.classList.replace('error-message', 'no-error-message');
+            }
+        }
+
 
     };
 
@@ -113,7 +188,7 @@ if (loadValidateForm) {
         input.addEventListener('blur', validateForm);
     });
 
-    document.querySelector('#signup_form').addEventListener('submit', (event) => {
+    document.querySelector('#sign-up_form').addEventListener('submit', (event) => {
         event.preventDefault();
 
         var errors = false;

@@ -1,6 +1,9 @@
 // Feedback on uploaded file.
 const inputElement = document.getElementById('signupAvatar');
-inputElement.addEventListener('change', handleFiles, false);
+
+if (inputElement) {
+    inputElement.addEventListener('change', handleFiles, false);
+}
 
 function handleFiles() {
     const fileList = this.files; /* now you can work with the file list */
