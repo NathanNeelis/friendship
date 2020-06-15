@@ -3,7 +3,13 @@
 <body>
     <%- include('includes/header.ejs'); %>
     <main>
+
         <section class="profilePage">
+
+                <form action="/profile" method="POST"> %>
+                    <button name="like" type="submit" value="yes|5ee0fdbc6bf1b5886daa4533">Like</button> 
+                </form> 
+
             <article>
                 <img src="<%= user.avatar %>" alt="Profile photo">
             </article>

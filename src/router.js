@@ -7,6 +7,8 @@ const
     logout = require('./routes/logout'),
     profile = require('./routes/profile'),
     login = require('./routes/login');
+    likepost = require('./routes/likepost');
+
 
 const userRedirectLogin = (req, res, next) => {
 	if (!req.session.sessionID) {
@@ -30,6 +32,7 @@ router
     .get('/register', userRedirectProfile, register)
     .get('/logout', userRedirectLogin, logout)
     .get('/profile', userRedirectLogin, profile)
+    .post('/profile', likepost)
     .post('/login', loginpost)
     .post('/register', registerpost);
 
