@@ -6,8 +6,10 @@ request.send();
 
 request.onload = function () {
     const allUsers = request.response;
+    // for (let i = 0; i < allUsers.length; i++) {
     setHeader();
     showUsers(allUsers);
+    // }
 };
 
 
@@ -22,14 +24,18 @@ function showUsers(jsonObj) {
     console.log(users);
 
     for (let i = 0; i < users.length; i++) {
-        console.log(users[i]);
+        // console.log(users[i]);
+        // console.log(users[i].avatar);
+
         // const myArticle = document.createElement('article');
         const myH4 = document.getElementById('myH4');
         const myPara1 = document.getElementById('myPara1');
+        const myAvatar = document.getElementById('myPhoto');
+        // console.log(myAvatar);
 
         myH4.textContent = users[i].firstname;
         myPara1.textContent = users[i].location;
-
+        myAvatar.src = users[i].avatar;
     }
 }
 
