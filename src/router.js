@@ -6,7 +6,9 @@ const
     loginpost = require('./routes/loginpost'),
     logout = require('./routes/logout'),
     profile = require('./routes/profile'),
-    login = require('./routes/login');
+    login = require('./routes/login'),
+    matches = require('./routes/matches'),
+    unmatch = require('./routes/unmatch'),
     likepost = require('./routes/likepost');
 
 
@@ -34,6 +36,8 @@ router
     .get('/profile', userRedirectLogin, profile)
     .post('/profile', likepost)
     .post('/login', loginpost)
+    .get('/matches', matches)
+    .post('/matches', unmatch)
     .post('/register', registerpost);
 
 module.exports = router;
