@@ -952,3 +952,6 @@ footer {
   flex: 1;
 }
 
+#signupInterests {
+    display: none;
+}

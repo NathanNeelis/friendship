@@ -1,5 +1,6 @@
 const loadValidateSignup = document.querySelector('#sign-up_form');
 
+// The following code (for the tags in the interest input), is made with the help of this video: https://www.youtube.com/watch?v=ha4xwcJXwow
 const tagContainer = document.querySelector('.tag-container');
 const input = document.querySelector('.tag-container input');
 
@@ -33,7 +34,7 @@ const addTags = () => {
 };
 
 input.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter' || e.keyCode === 32) {
+    if (e.keyCode === 13 && input.value.replace(/\s/g, '') != '' || e.keyCode === 32 && input.value.replace(/\s/g, '') != '') {
         e.target.value.split(',').forEach(tag => {
             tags.push(tag);
         });
@@ -103,7 +104,6 @@ if (loadValidateSignup) {
         }
 
         if (target.id == 'signupAge') {
-            console.log(signupAge.value);
             if (signupAge.value.length == 0) {
                 if (!signupAge.classList.contains('error')) {
                     signupAge.classList.add('error');
@@ -245,20 +245,23 @@ if (loadValidateSignup) {
         var errors = false;
 
         document.querySelectorAll('input').forEach((input) => {
-            validateForm(input);
-
-            if (input.classList.contains('no-error') || input.classList.contains('error') || parseInt(window.formTotal) === 0) {
-                errors = true;
+            if (input.id != 'signupInterestsTags') {
+                validateForm(input);
+    
+                if (input.classList.contains('no-error') || input.classList.contains('error') || parseInt(window.formTotal) === 0) {
+                    errors = true;
+                }
             }
         });
 
         var userInterests = [];
 
         document.querySelectorAll('.interestitem').forEach((interest) => {
-            userInterests.push(interest.innerHTML);
+            userInterests.push(interest.innerHTML.replace(/\s/g, ''));
         });
 
         console.log(userInterests);
+        document.getElementById('signupInterests').value = userInterests;
 
         if (errors === true) {
             document.querySelector('#form-error-message').classList.replace('no-error-message', 'form-error-message');
