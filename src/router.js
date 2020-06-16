@@ -9,7 +9,6 @@ const
     profile = require('./routes/profile'),
     activate = require('./routes/activate'),
     search = require('./routes/search'),
-    filter = require('./routes/search'),
     login = require('./routes/login');
 
 const userRedirectLogin = (req, res, next) => {
@@ -38,6 +37,6 @@ router
     .get('/search', search)
     .post('/login', loginpost)
     .post('/register', upload.single('signupAvatar'), registerpost)
-    .post('/search', filter);
+    .post('/search', search);
 
 module.exports = router;
