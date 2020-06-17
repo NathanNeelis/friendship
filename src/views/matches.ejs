@@ -1,0 +1,6 @@
+<% for (let i = 0; i < data.length; i++) { %>
+    <h2><%= data[i].username %></h2>
+    <form id="unmatch_form" action="/matches" method="POST">
+        <button name="unmatch" type="submit" value="<%= data[i]._id %>">unmatch</button> 
+    </form>
+<% } %>
