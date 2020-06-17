@@ -1,0 +1,37 @@
+<section class="boardGames">
+    <div>
+        <img id='sectionImage' src="images/hotrod-die-cast-model-on-board-1422673.jpg"
+            alt="Monopoly board game - Starting point" />
+        <!-- Hazelwood, S. (2018). Bedrijf bestuur binnen binnenshuis [Foto]. 
+              Geraadpleegd van https://www.pexels.com/nl-nl/foto/bedrijf-bestuur-binnen-binnenshuis-1422673/ -->
+        <article>
+            <h2 id="weatherHeaderSection"> </h2>
+            <span class="statusC">
+                <img id="weatherStatusImage" src="images/sunny.svg" alt="sunny">
+                <h4 id="weatherStatus"> Great wheater!</h4>
+            </span>
+            <p id="sectionIntroduction"> </p>
+        </article>
+    </div>
+</section>
+
+<section class="category-mtb">
+    <p class="userLocation"><%= user.location %></p>
+    <h2 id="weatherHeader">The weather is great! Find some people to Mountainbike with:</h2>
+    <div>
+        <!--       Category 2    board gamers       -->
+        <% for (let i = 0; i < dataBG.length; i++) { %>
+        <article>
+            <a href="/<%= dataBG[i].firstname %>">
+                <img src="<%= dataBG[i].avatar %>" alt="Profile photo" />
+                <h4>
+                    <%= dataBG[i].firstname %> • <%= dataBG[i].age %>
+                </h4>
+                <p>
+                    <%= dataBG[i].location %>
+                </p>
+            </a>
+        </article>
+        <% } %>
+    </div>
+</section>

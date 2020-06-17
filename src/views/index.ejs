@@ -12,6 +12,11 @@
     <%- include('includes/section_users.ejs'); %>
     <%- include('includes/section_boardgames.ejs'); %>
     <%- include('includes/section_comics.ejs'); %>
+
+    <% if (locals.user) { %>
+    <%- include('includes/section_mtb.ejs'); %>
+    <% } %>
+
   </main>
   <%- include('includes/footer.ejs'); %>
   <%- include('includes/scripts.ejs'); %>
