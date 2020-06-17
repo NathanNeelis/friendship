@@ -41,7 +41,7 @@ router
     .get('/activate', activate)
     .get('/search', search)
     .post('/matches', unmatch)
-    .post('/profile', likepost)
+    .post('/likedebug', likepost)
     .post('/login', loginpost)
     .post('/search', search)
     .post('/profile', profilepost)
