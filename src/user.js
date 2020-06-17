@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
 		required: false,
 	},
 	likes: {
-		type: String,
+		type: Array,
 		required: false,
 	},
 });
