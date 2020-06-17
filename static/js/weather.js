@@ -176,3 +176,12 @@ const games = (weather) => {
     const header = document.querySelector('#weatherHeader');
     header.textContent = 'Find some people to play some games with:';
 };
+
+
+
+// Resources:
+// https://openweathermap.org/current
+// https://openweathermap.org/weather-conditions
+
+// use later
+// https://www.google.com/search?q=api+in+nodejs&rlz=1C5CHFA_enNL886NL886&oq=api+in+nodejs&aqs=chrome..69i57j0l7.3061j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_CSzqXrK0A9D9kwXC2KCgDQ73
