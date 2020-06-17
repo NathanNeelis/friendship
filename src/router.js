@@ -9,7 +9,10 @@ const
     profile = require('./routes/profile'),
     activate = require('./routes/activate'),
     search = require('./routes/search'),
-    login = require('./routes/login');
+    login = require('./routes/login'),
+    matches = require('./routes/matches'),
+    unmatch = require('./routes/unmatch'),
+    likepost = require('./routes/likepost');
 
 const userRedirectLogin = (req, res, next) => {
     if (!req.session.sessionID) {
@@ -33,9 +36,12 @@ router
     .get('/register', userRedirectProfile, register)
     .get('/logout', userRedirectLogin, logout)
     .get('/profile', userRedirectLogin, profile)
+    .post('/profile', likepost)
+    .post('/login', loginpost)
+    .get('/matches', matches)
+    .post('/matches', unmatch)
     .get('/activate', activate)
     .get('/search', search)
-    .post('/login', loginpost)
     .post('/register', upload.single('signupAvatar'), registerpost);
 
 module.exports = router;
