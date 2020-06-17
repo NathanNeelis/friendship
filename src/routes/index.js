@@ -21,6 +21,20 @@ const index = async (req, res) => {
       const myData = await User.findOne({
         _id: req.session.sessionID,
       });
+      // const userLocation = myData.location;
+      // console.log(userLocation);
+      // const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?q=' + userLocation + ',nl&units=metric&appid=7cb76bd2c75726e5aa77abb6c6de9b09';
+
+      // const callApi = (callback) => {
+      //   request(weatherApi, { json: true }, (err, res, body) => {
+      //     if (err) {
+      //       console.log(err);
+      //     }
+      //     return callback(body);
+      //   });
+      // };
+
+
 
       const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
         res.render('index.ejs', {
@@ -52,4 +66,36 @@ const index = async (req, res) => {
   }
 };
 
+// const weather = async (req, res) => {
+//   try {
+//     if (req.session.sessionID) {
+//       const myData = await User.findOne({
+//         _id: req.session.sessionID,
+//       });
+//       const userLocation = myData.location;
+//       console.log(userLocation);
+//       const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?q=' + userLocation + ',nl&units=metric&appid=7cb76bd2c75726e5aa77abb6c6de9b09';
+//       console.log(weatherApi);
+//       // if (weatherApi.main.temp) {
+//       //   const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
+//       //     res.render('index.ejs', {
+//       //       user: myData,
+//       //       data: allData,
+//       //       dataBG: dataBG,
+//       //       dataComics: dataComics,
+//       //       dataMTB: dataMTB,
+//       //       datagames: dataGames
+//       //     });
+//       //   };
+//       //   done(allData, myData, dataBG, dataComics, dataMTB, dataGames);
+//       // }
+
+//     }
+//   }
+//   catch (err) {
+//     res.send('something went wrong in the gathering the data');
+//   }
+
+// };
+// weather();
 module.exports = index;

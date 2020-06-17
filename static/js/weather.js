@@ -15,7 +15,7 @@ if (mtbCheck) {
         console.log(currentWeather);
         console.log(currentWeather.main.temp);
         console.log(currentWeather.weather[0].description);
-        if (currentWeather.main.temp > 19) {
+        if (currentWeather.main.temp > 28) {
             mtb(currentWeather);
         } else {
             games(currentWeather);
