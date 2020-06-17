@@ -14,11 +14,6 @@ const matches = (req, res) => {
                     console.log(err);
                 } else {
                     // does the same thing, for loop vs for each
-                    for (let i = 0; i < result.length; i++) {
-                        if (result[i].likes.includes(user._id) && user.likes.includes(result[i]._id)) {
-                            matches.push(result[i]);
-                        }
-                    }
                     result.forEach((userItem) => {
                         if (userItem.likes.includes(user._id) && user.likes.includes(userItem._id)) {
                             matches.push(userItem);
