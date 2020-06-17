@@ -8,19 +8,6 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-// const multer = require('multer');
-// const storage = multer.diskStorage({
-// 	destination: (req, file, cb) => {
-// 		cb(null, 'static/uploads');
-// 	},
-// 	filename: (req, file, cb) => {
-// 		cb(null, Date.now() + '.jpg');
-// 	}
-// });
-// const upload = multer({
-// 	storage: storage
-// });
-
 const app = express();
 
 const port = 1900;
@@ -72,5 +59,3 @@ app
 	});
 
 app.use(router);
-
-module.exports = sessionID;

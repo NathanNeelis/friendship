@@ -1,30 +1,32 @@
-const 
+const
     router = require('express').Router(),
+    upload = require('./multer'),
     registerpost = require('./routes/registerpost'),
     register = require('./routes/register'),
     index = require('./routes/index'),
     loginpost = require('./routes/loginpost'),
     logout = require('./routes/logout'),
     profile = require('./routes/profile'),
+    activate = require('./routes/activate'),
+    search = require('./routes/search'),
     login = require('./routes/login'),
     matches = require('./routes/matches'),
     unmatch = require('./routes/unmatch'),
     likepost = require('./routes/likepost');
 
-
 const userRedirectLogin = (req, res, next) => {
-	if (!req.session.sessionID) {
-		res.redirect('/login');
-	} else {
-		next();
+    if (!req.session.sessionID) {
+        res.redirect('/login');
+    } else {
+        next();
     }
 };
 
 const userRedirectProfile = (req, res, next) => {
-	if (req.session.sessionID) {
-		res.redirect('/profile');
-	} else {
-		next();
+    if (req.session.sessionID) {
+        res.redirect('/profile');
+    } else {
+        next();
     }
 };
 
@@ -38,6 +40,8 @@ router
     .post('/login', loginpost)
     .get('/matches', matches)
     .post('/matches', unmatch)
-    .post('/register', registerpost);
+    .get('/activate', activate)
+    .get('/search', search)
+    .post('/register', upload.single('signupAvatar'), registerpost);
 
 module.exports = router;
