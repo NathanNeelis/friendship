@@ -1,0 +1,126 @@
+form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 770px;
+    padding: 70px;
+    color: $purple;
+    background-color: $white;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: $bold-weight;
+    border-radius: 17.5px;
+
+    @media (max-width: 520px) {
+        padding: 50px;
+    }
+
+    p {
+        line-height: 30px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 30px;
+    }
+
+    legend {
+        font-family: 'Playfair Display';    
+        font-weight: $bold-weight;
+        font-size: 44px;
+        margin-bottom: 25px; 
+    }
+
+    input, textarea {
+        padding: 10px;
+        height: 30px;
+        margin-top: 10px;
+        display: block;
+        width: 310px;
+        border: 0;
+        background-color: transparent;
+        border-bottom: 1px solid $grey;
+
+        &:focus {
+            outline: 0;
+            border-bottom: 1px solid $purple;
+        }
+
+        &[type="file"]{
+            display: none;
+        }
+
+        @media (max-width: 520px) {
+            width: 100%;
+        }
+    }
+
+    button {
+        font-family: 'Montserrat';
+        margin-top: 30px;
+        width: 120px;
+        height: 50px;
+        border-radius: 6px;
+        color: $white;
+        background-color: $purple;
+        border: 3px solid $purple;
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+            background-color: $white;
+            color: $purple;
+        }
+    }
+    
+    .upload-label {
+        font-family: 'Montserrat';
+        font-weight: normal;
+        text-align: center;
+        padding-top: 12px;
+        padding-left: 25px;
+        width: 200px;
+        height: 50px;
+        border-radius: 6px;
+        color: $purple;
+        background-color: $white;
+        border: 3px solid $purple;
+        transition: all 200ms ease-in-out;
+        margin-top: 35px;
+
+        &:hover {
+            color: $white;
+            background-color: $purple;
+        }
+
+        &::before {
+            position: absolute;
+            content: '+';
+            font-size: 35px;
+            font-weight: bold;
+            transform: translate(-30px, -10px);
+            z-index: 1;
+        }
+    }
+
+    .upload-text {
+        font-size: 15px;
+        margin-top: 5px;
+    }
+
+    .error-message {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .no-error-message {
+        display: none;
+    }
+
+    .sign-up--failed {
+        display: none;
+    }
+
+    .form-error-message {
+        display: block;
+    }
+}

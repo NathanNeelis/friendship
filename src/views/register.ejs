@@ -3,12 +3,12 @@
 <body>
     <%- include('includes/header.ejs'); %>
     <main>
-        <section class="register">
+        <section class="p-register">
             <div>
                 <form id="sign-up_form" action="/register" method="POST" enctype="multipart/form-data">
                     <% if(locals.data){ %>
-                        <fieldset>
                             <legend>Register</legend>
+                            <p>Create an account to meet new people and get new awesome friendships.</p>
                             <span class="sign-up--failed">The username <span class="takenUsername"><%= data.signupUser %></span> is already taken, please choose a
                                 different one.</span>
                             <span id="form-error-message" class="no-error-message">Please check if you have (correctly)
@@ -31,8 +31,8 @@
                             <label for="signupDescription">Description</label>
                             <textarea name="signupDescription" id="signupDescription" placeholder="Description"><%= data.signupDescription %></textarea>
                             <span class="no-error-message"></span>
-                            <label for="signupAvatar" class="pictureLabel">Upload an avatar!
-                                <p id="fileInfoText"></p></label>
+                            <label for="signupAvatar" class="upload-label">Upload avatar</label>
+                            <p id="fileInfoText" class="upload-text"></p>
                             <input type="file" name="signupAvatar" id="signupAvatar" accept="image/*">
                             <span class="no-error-message"></span>
                             <label for="signupUser">Username</label>
@@ -53,10 +53,9 @@
                             <button form="sign-up_form" type="submit" value="submit">
                                 Sign Up
                             </button>
-                        </fieldset>
                       <% } else{ %>  
-                        <fieldset>
                             <legend>Register</legend>
+                            <p>Create an account to meet new people and get new awesome friendships.</p>
                             <span class="sign-up--failed">The username <span class="takenUsername"></span> is already taken, please choose a
                                 different one.</span>
                             <span id="form-error-message" class="no-error-message">Please check if you have (correctly)
@@ -79,8 +78,8 @@
                             <label for="signupDescription">Description</label>
                             <textarea name="signupDescription" id="signupDescription" placeholder="Description"></textarea>
                             <span class="no-error-message"></span>
-                            <label for="signupAvatar" class="pictureLabel">Upload an avatar!
-                                <p id="fileInfoText"></p></label>
+                            <label for="signupAvatar" class="upload-label">Upload avatar</label>
+                            <p id="fileInfoText" class="upload-text"></p>
                             <input type="file" name="signupAvatar" id="signupAvatar" accept="image/*">
                             <span class="no-error-message"></span>
                             <label for="signupUser">Username</label>
@@ -101,7 +100,6 @@
                             <button form="sign-up_form" type="submit" value="submit">
                                 Sign Up
                             </button>
-                        </fieldset>
                      <% } %>
                     
                 </form>

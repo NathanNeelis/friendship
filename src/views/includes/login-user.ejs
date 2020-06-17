@@ -2,7 +2,6 @@
 
     <div>
         <form id="login_form" action="/login" method="POST">
-            <fieldset>
                 <legend>Login</legend>
                 <% if (locals.message) { %>
                     <span class="form-error-message "><%= message %></span>
@@ -21,7 +20,6 @@
                 <button form="login_form" type="submit" class="">
                     Log In
                 </button>
-            </fieldset>
         </form>
 
         <article class="registerLogIn">
