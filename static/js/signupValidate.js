@@ -260,7 +260,6 @@ if (loadValidateSignup) {
             userInterests.push(interest.innerHTML.replace(/\s/g, ''));
         });
 
-        console.log(userInterests);
         document.getElementById('signupInterests').value = userInterests;
 
         if (errors === true) {

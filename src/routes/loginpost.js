@@ -1,7 +1,6 @@
 const User = require('../user');
 
 const loginpost = (req, res) => {
-    console.log(req.body);
     if (req.body.loginEmail && req.body.loginPassword) {
         User.findOne({
             email: req.body.loginEmail.toLowerCase(),
