@@ -9,6 +9,7 @@ const
     profile = require('./routes/profile'),
     activate = require('./routes/activate'),
     search = require('./routes/search'),
+    profilepost = require('./routes/profilepost'),
     login = require('./routes/login');
 
 const userRedirectLogin = (req, res, next) => {
@@ -35,6 +36,7 @@ router
     .get('/profile', userRedirectLogin, profile)
     .get('/activate', activate)
     .get('/search', search)
+    .post('/profile', profilepost)
     .post('/login', loginpost)
     .post('/register', upload.single('signupAvatar'), registerpost);
 
