@@ -66,10 +66,6 @@ const mtb = (weather) => {
         subHeaderImage.alt = 'sunny';
     }
 
-    console.log(subHeaderImage);
-    console.log(weather.weather[0].description);
-
-
     const subHeaderSection = document.querySelector('#weatherStatus');
     subHeaderSection.textContent =
         'The weather is great! Currently, the temperature is '
@@ -83,6 +79,45 @@ const mtb = (weather) => {
     // Section filtered profiles
     const header = document.querySelector('#weatherHeader');
     header.textContent = 'Find some people to Mountainbike with:';
+
+    // loading mountainbike profiles from database
+    const dataMTB = document.getElementById('weather_data');
+    console.log(dataMTB);
+
+    // let template = ejs.render(`<% for (let i = 0; i < dataMTB.length; i++) { %> \n
+    //     < article > \n
+    // <a class="weather_profileURL" href="/<%= dataMTB[i].firstname %>"> \n
+    //                 <img id="weather_image" src="<%= dataMTB[i].avatar %>" alt="Profile photo" /> \n
+    //                 <h4 class="weather_subHeader"> \n
+    //                     <%= dataMTB[i].firstname %> • <%= dataMTB[i].age %> \n
+    //                 </h4> \n
+    //                 <p class="weather_location"> \n
+    //                     <%= dataMTB[i].location %> \n
+    //                 </p> \n
+    //             </a> \n
+    //         </article > \n
+    // <% } %>`);
+
+    // console.log(template);
+
+    // dataMTB.innerHTML = template;
+
+    // const dataLink = document.getElementById('weather_data');
+    // console.log(dataLink);
+    // dataLink.textContent = '<% for (let i = 0; i < dataMTB.length; i++) { %>';
+
+    // const linkToProfile = document.querySelector('.weather_profileURL');
+    // linkToProfile.innerHTML = '/<%= dataMTB[i].firstname %>';
+
+    // const profileAvatar = document.getElementById('weather_image');
+    // profileAvatar.src = '<%= dataMTB[i].avatar %>';
+
+    // const profileName = document.querySelector('.weather_subHeader');
+    // profileName.innerHTML = '<%= dataMTB[i].firstname %>';
+
+    // const profileLocation = document.querySelector('.weather_location');
+    // profileLocation.innerHTML = '<%= dataMTB[i].location %>';
+
 };
 
 const games = (weather) => {
