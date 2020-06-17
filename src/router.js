@@ -9,6 +9,7 @@ const
     profile = require('./routes/profile'),
     activate = require('./routes/activate'),
     search = require('./routes/search'),
+    profilepost = require('./routes/profilepost'),
     login = require('./routes/login'),
     matches = require('./routes/matches'),
     unmatch = require('./routes/unmatch'),
@@ -36,12 +37,13 @@ router
     .get('/register', userRedirectProfile, register)
     .get('/logout', userRedirectLogin, logout)
     .get('/profile', userRedirectLogin, profile)
-    .post('/profile', likepost)
-    .post('/login', loginpost)
     .get('/matches', matches)
-    .post('/matches', unmatch)
     .get('/activate', activate)
     .get('/search', search)
+    .post('/matches', unmatch)
+    .post('/profile', likepost)
+    .post('/login', loginpost)
+    .post('/profile', profilepost)
     .post('/register', upload.single('signupAvatar'), registerpost);
 
 module.exports = router;

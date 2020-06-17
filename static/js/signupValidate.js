@@ -1,5 +1,57 @@
 const loadValidateSignup = document.querySelector('#sign-up_form');
 
+// The following code (for the tags in the interest input), is made with the help of this video: https://www.youtube.com/watch?v=ha4xwcJXwow
+const tagContainer = document.querySelector('.tag-container');
+const input = document.querySelector('.tag-container input');
+
+let tags = [];
+
+const createTag = (label) => {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'tag');
+    const span = document.createElement('span');
+    span.innerHTML = label;
+    span.setAttribute('class', 'interestitem');
+    const closeIcon = document.createElement('p');
+    closeIcon.innerHTML = 'x';
+    closeIcon.setAttribute('data-item', label);
+    div.appendChild(span);
+    div.appendChild(closeIcon);
+    return div;
+};
+
+const clearTags = () => {
+    document.querySelectorAll('.tag').forEach(tag => {
+        tag.parentElement.removeChild(tag);
+    });
+};
+
+const addTags = () => {
+    clearTags();
+    tags.slice().reverse().forEach(tag => {
+        tagContainer.prepend(createTag(tag));
+    });
+};
+
+input.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13 && input.value.replace(/\s/g, '') != '' || e.keyCode === 32 && input.value.replace(/\s/g, '') != '') {
+        e.target.value.split(',').forEach(tag => {
+            tags.push(tag);
+        });
+
+        addTags();
+        input.value = '';
+    }
+});
+document.addEventListener('click', (e) => {
+    if (e.target.tagName === 'P') {
+        const tagLabel = e.target.getAttribute('data-item');
+        const index = tags.indexOf(tagLabel);
+        tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+        addTags();
+    }
+});
+
 if (loadValidateSignup) {
     const failedMessage = document.querySelector('.sign-up--failed');
 
@@ -52,7 +104,6 @@ if (loadValidateSignup) {
         }
 
         if (target.id == 'signupAge') {
-            console.log(signupAge.value);
             if (signupAge.value.length == 0) {
                 if (!signupAge.classList.contains('error')) {
                     signupAge.classList.add('error');
@@ -152,7 +203,7 @@ if (loadValidateSignup) {
                     targetInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
                     targetInput.nextElementSibling.innerHTML = 'Please fill in this field.';
                 }
-            }  else {
+            } else {
                 targetInput.classList.remove('no-error');
                 targetInput.classList.remove('error');
                 targetInput.nextElementSibling.classList.replace('error-message', 'no-error-message');
@@ -172,7 +223,7 @@ if (loadValidateSignup) {
                     avatarInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
                     avatarInput.nextElementSibling.innerHTML = 'Please upload an avatar.';
                 }
-            }  else {
+            } else {
                 avatarInput.classList.remove('no-error');
                 avatarInput.classList.remove('error');
                 avatarInput.nextElementSibling.classList.replace('error-message', 'no-error-message');
@@ -194,12 +245,22 @@ if (loadValidateSignup) {
         var errors = false;
 
         document.querySelectorAll('input').forEach((input) => {
-            validateForm(input);
-
-            if (input.classList.contains('no-error') || input.classList.contains('error') || parseInt(window.formTotal) === 0) {
-                errors = true;
+            if (input.id != 'signupInterestsTags') {
+                validateForm(input);
+    
+                if (input.classList.contains('no-error') || input.classList.contains('error') || parseInt(window.formTotal) === 0) {
+                    errors = true;
+                }
             }
         });
+
+        var userInterests = [];
+
+        document.querySelectorAll('.interestitem').forEach((interest) => {
+            userInterests.push(interest.innerHTML.replace(/\s/g, ''));
+        });
+
+        document.getElementById('signupInterests').value = userInterests;
 
         if (errors === true) {
             document.querySelector('#form-error-message').classList.replace('no-error-message', 'form-error-message');

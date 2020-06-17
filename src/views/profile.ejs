@@ -5,35 +5,25 @@
     <main>
 
         <section class="profilePage">
-
-                <form action="/profile" method="POST"> %>
-                    <button name="like" type="submit" value="5ee72b495911761f006b7d03">Like</button> 
-                </form> 
-
-            <article>
-                <img src="<%= user.avatar %>" alt="Profile photo">
-            </article>
-            <article class="personalInformation">
-                <div>
-                    <dl>
-                        <dt>First name </dt>
-                        <dd><%= user.firstname %></dd>
-                        <dt>Last name </dt>
-                        <dd><%= user.lastname %></dd>
-                        <dt>Profile name </dt>
-                        <dd><%= user.username %></dd>
-                        <dt>Age</dt>
-                        <dd><%= user.age %></dd>
-                        <dt>Location</dt>
-                        <dd><%= user.location %></dd>
-                        <dt>Interests</dt>
-                        <dd><%= user.interests %></dd>
-                        <dt>About me</dt>
-                        <dd><%= user.description %></dd>
-                    </dl>
-                </div>
-            </article>
-
+            <!-- Doesnt look good at all, but just needed this to make it work with the backend code. -->
+            <h2>Profile</h2>
+            <form class="profile__edit__form" id="edit_profile" action="/profile" method="POST">
+                <% if (locals.data) { %>
+                <span class="sign-up--failed">The username <span class="takenUsername"><%= data.editUser %></span> is
+                    already taken, please choose a different one.</span>
+                <% } %>
+                <label for="editUser">Username</label>
+                <p><%= user.username %></p>
+                <input class="no-error" type="text" name="editUser" id="editUser" value="<%= user.username %>">
+                <label for="editLocation">Location</label>
+                <p><%= user.location %></p>
+                <input class="no-error" type="text" name="editLocation" id="editLocation" value="<%= user.location %>">
+                <label for="editDescription">Description</label>
+                <p><%= user.description %></p>
+                <textarea name="editDescription" id="editDescription" cols="30"
+                    rows="10"><%= user.description %></textarea>
+                <button class="profile__save">Save changes</button>
+            </form>
         </section>
     </main>
     <%- include('includes/footer.ejs'); %>
