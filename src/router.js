@@ -43,6 +43,7 @@ router
     .post('/matches', unmatch)
     .post('/profile', likepost)
     .post('/login', loginpost)
+    .post('/search', search)
     .post('/profile', profilepost)
     .post('/register', upload.single('signupAvatar'), registerpost);
 
