@@ -1,7 +1,17 @@
 const User = require('../user');
 
 const index = async (req, res) => {
+  // console.log(req.body);
+  // if (req.body.temperature > 15) {
+  //   console.log('warm');
+  // } else if (req.body.temperature !== undefined) {
+  //   console.log('cold');
+  // } else if (req.body.temperature === undefined) {
+  //   console.log('undefined woop');
+  // }
   try {
+    const temperature = await req.body.temperature;
+    console.log(temperature);
     const allData = await User.find();
     const dataBG = await User.find({
       interests: 'board games' // Looks in all data for people that have Board games in their interests
@@ -21,34 +31,16 @@ const index = async (req, res) => {
       const myData = await User.findOne({
         _id: req.session.sessionID,
       });
-      // const userLocation = myData.location;
-      // console.log(userLocation);
-      // const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?q=' + userLocation + ',nl&units=metric&appid=7cb76bd2c75726e5aa77abb6c6de9b09';
-
-      // const callApi = (callback) => {
-      //   request(weatherApi, { json: true }, (err, res, body) => {
-      //     if (err) {
-      //       console.log(err);
-      //     }
-      //     return callback(body);
-      //   });
-      // };
-
-
-
       const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
         res.render('index.ejs', {
           user: myData,
           data: allData,
           dataBG: dataBG,
           dataComics: dataComics,
-          dataMTB: dataMTB,
-          datagames: dataGames
+          // dataWeather: dataWeather
         });
       };
       done(allData, myData, dataBG, dataComics, dataMTB, dataGames);
-
-
     } else if (!req.session.sessionID) { // If there is no user logged in:
       const done = (allData, dataBG, dataComics) => {
         res.render('index.ejs', {
@@ -66,36 +58,4 @@ const index = async (req, res) => {
   }
 };
 
-// const weather = async (req, res) => {
-//   try {
-//     if (req.session.sessionID) {
-//       const myData = await User.findOne({
-//         _id: req.session.sessionID,
-//       });
-//       const userLocation = myData.location;
-//       console.log(userLocation);
-//       const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?q=' + userLocation + ',nl&units=metric&appid=7cb76bd2c75726e5aa77abb6c6de9b09';
-//       console.log(weatherApi);
-//       // if (weatherApi.main.temp) {
-//       //   const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
-//       //     res.render('index.ejs', {
-//       //       user: myData,
-//       //       data: allData,
-//       //       dataBG: dataBG,
-//       //       dataComics: dataComics,
-//       //       dataMTB: dataMTB,
-//       //       datagames: dataGames
-//       //     });
-//       //   };
-//       //   done(allData, myData, dataBG, dataComics, dataMTB, dataGames);
-//       // }
-
-//     }
-//   }
-//   catch (err) {
-//     res.send('something went wrong in the gathering the data');
-//   }
-
-// };
-// weather();
 module.exports = index;

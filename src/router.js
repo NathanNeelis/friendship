@@ -35,6 +35,8 @@ router
     .get('/profile', userRedirectLogin, profile)
     .get('/activate', activate)
     .get('/search', search)
+    .get('/apipage', index)
+    .post('/apipage', index)
     .post('/login', loginpost)
     .post('/register', upload.single('signupAvatar'), registerpost);
 

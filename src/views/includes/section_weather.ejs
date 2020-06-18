@@ -18,17 +18,17 @@
 <section class="category-mtb">
     <p class="userLocation"><%= user.location %></p>
     <h2 id="weatherHeader">The weather is great! Find some people to Mountainbike with:</h2>
-    <div id="weather_data">
-        <!--       Category 2    board gamers       -->
-        <% for (let i = 0; i < dataBG.length; i++) { %>
+    <div>
+        <!--       Category 1   Results        -->
+        <% for (let i = 0; i < data.length; i++) { %>
         <article>
-            <a class="weather_profileURL" href="/<%= dataBG[i].firstname %>">
-                <img id="weather_image" src="<%= dataBG[i].avatar %>" alt="Profile photo" />
-                <h4 class="weather_subHeader">
-                    <%= dataBG[i].firstname %> • <%= dataBG[i].age %>
+            <a href="/<%= data[i].profileId %>">
+                <img src="<%= data[i].avatar %>" alt="Profile photo">
+                <h4>
+                    <%= data[i].firstname %> • <%= data[i].age %>
                 </h4>
-                <p class="weather_location">
-                    <%= dataBG[i].location %>
+                <p>
+                    <%= data[i].location %>
                 </p>
             </a>
         </article>
