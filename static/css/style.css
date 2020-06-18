@@ -911,3 +911,55 @@ footer {
 .form-error-message span {
     text-decoration: underline;
 }
+
+
+    /*--------------------------- Caroussel --------------------------------*/
+
+
+
+.carousel-container {
+    width: 60%;
+    margin: auto;
+    overflow-x: scroll;
+
+}
+.javaScript-car{
+    overflow:hidden;
+
+}
+.carousel-slide {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 100%;
+    padding-inline-start: 0;
+}
+.header-intro-detail .true {
+    background-color: none;
+}
+
+
+.true button {
+    background-color: #F6F6F6;
+    border: 1px solid #333333;
+    color: #333333;
+}
+.caroussel-nav{
+display: flex;
+justify-content: center;
+
+}
+.caroussel-nav button{
+border: 0;
+border-radius: 100%;
+width: 15px;
+height: 15px;
+background: #e5e5e5;
+margin: 2px;
+
+}
+
+.caroussel-nav  .active{
+    background: #979797;
+
+}

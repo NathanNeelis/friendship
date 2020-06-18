@@ -10,9 +10,12 @@ const
     activate = require('./routes/activate'),
     search = require('./routes/search'),
     login = require('./routes/login'),
+    otherprofile = require('./routes/otherprofile'),
     matches = require('./routes/matches'),
     unmatch = require('./routes/unmatch'),
     likepost = require('./routes/likepost');
+    mymatches = require ('./routes/mymatches')
+
 
 const userRedirectLogin = (req, res, next) => {
     if (!req.session.sessionID) {
@@ -41,6 +44,9 @@ router
     .get('/matches', matches)
     .post('/matches', unmatch)
     .get('/activate', activate)
+    .get('/otherprofile/:username', otherprofile)
+    .get('/mymatches/:username', mymatches)
+
     .get('/search', search)
     .post('/register', upload.single('signupAvatar'), registerpost);
 

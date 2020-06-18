@@ -5,7 +5,9 @@
     <!--       Category 1   Results        -->
     <% for (let i = 0; i < data.length; i++) { %>
     <article>
-      <a href="/<%= data[i].profileId %>">
+
+        <%console.log(data[i]); %>
+      <a href="/otherprofile/<%=data[i].username%>">
         <img src="<%= data[i].avatar %>" alt="Profile photo" />
         <h4>
           <%= data[i].firstname %> • <%= data[i].age %>

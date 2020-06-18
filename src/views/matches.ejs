@@ -1,6 +1,29 @@
-<% for (let i = 0; i < data.length; i++) { %>
-    <h2><%= data[i].username %></h2>
-    <form id="unmatch_form" action="/matches" method="POST">
-        <button name="unmatch" type="submit" value="<%= data[i]._id %>">unmatch</button> 
-    </form>
-<% } %>
+<%- include('includes/head.ejs'); %>
+
+
+<% if (locals.data) { %>
+    <% for (let i = 0; i < data.length; i++) { %>
+    <article>
+        <a href='/mymatches/<%= data[i].username %>'>
+            <img src='<%= data[i].avatar %>' alt='Profile photo' />
+            <h4>
+                <%= data[i].firstname %>
+            </h4>
+            <p>
+                <%= data[i].age %>
+            </p>
+            <p>
+                <%= data[i].location %>
+            </p>
+        </a>
+    </article>
+    <% } %>
+    <% } if (locals.data == ''){ %>
+        <h1>You have  no matches yet</h1>
+        <p>You can get matches to like someones profile</p>
+        <a href="/">See interesting profiles</a>
+
+    <% } %>
+
+
+    <%- include('includes/footer.ejs'); %>
