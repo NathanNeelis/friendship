@@ -1,0 +1,17 @@
+.p-profile {
+    input, textarea {
+        display: none;
+    }
+
+    &__edit {
+        .profile__edit__form {
+            input, textarea {
+                display: block;
+            }
+    
+            p {
+                display: none;
+            }
+        }
+    }
+}

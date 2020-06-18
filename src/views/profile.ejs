@@ -4,7 +4,7 @@
     <%- include('includes/header.ejs'); %>
     <main>
 
-        <section class="profilePage">
+        <div class="p-profile">
             <form action="/likedebug" method="POST">
                 <p>this button is for debugging</p>
                 <button value="INSERTIDVALUEHERE">Like</button>
@@ -28,7 +28,8 @@
                     rows="10"><%= user.description %></textarea>
                 <button class="profile__save">Save changes</button>
             </form>
-        </section>
+            <button class="profile__edit">Edit profile</button>
+        </div>
     </main>
     <%- include('includes/footer.ejs'); %>
     <%- include('includes/scripts.ejs'); %>

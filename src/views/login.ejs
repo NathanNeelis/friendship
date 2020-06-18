@@ -1,11 +1,17 @@
 <%- include('includes/head.ejs'); %>
 
 <body>
-    <header>
-
-    </header>
+    <%- include('includes/header.ejs'); %>
     <main>
-        <%- include('includes/login-user.ejs'); %>
+        <div class="p-login">
+            <div class="p-login__banner">
+                <h1>The first app that is designed to make new friendships</h1>
+                <a href="/register">
+                    <button>Register</button>
+                </a>
+            </div>
+            <%- include('includes/login-user.ejs'); %>
+        </div>
     </main>
     <footer>
 

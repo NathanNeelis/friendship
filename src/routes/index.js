@@ -2,7 +2,7 @@ const User = require('../user');
 
 const index = async (req, res) => {
   try {
-    const allData = await User.find();
+    const allData = await User.find( { _id: { $nin: req.session.sessionID }} );
     const dataBG = await User.find({
       interests: 'board games' // Looks in all data for people that have Board games in their interests
     });

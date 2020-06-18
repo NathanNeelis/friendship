@@ -527,7 +527,7 @@ form {
     border-bottom: 1px solid #9D9DA6; }
     form input:focus, form textarea:focus {
       outline: 0;
-      border-bottom: 1px solid #100033; }
+      border-bottom: 2px solid #100033; }
     form input[type="file"], form textarea[type="file"] {
       display: none; }
     @media (max-width: 520px) {
@@ -545,7 +545,8 @@ form {
     transition: all 200ms ease-in-out; }
     form button:hover {
       background-color: #F9F9F9;
-      color: #100033; }
+      color: #100033;
+      cursor: pointer; }
   form .upload-label {
     font-family: 'Montserrat';
     font-weight: normal;
@@ -562,7 +563,8 @@ form {
     margin-top: 35px; }
     form .upload-label:hover {
       color: #F9F9F9;
-      background-color: #100033; }
+      background-color: #100033;
+      cursor: pointer; }
     form .upload-label::before {
       position: absolute;
       content: '+';
@@ -570,18 +572,29 @@ form {
       font-weight: bold;
       transform: translate(-30px, -10px);
       z-index: 1; }
+  form .login-failed {
+    display: none; }
   form .upload-text {
     font-size: 15px;
     margin-top: 5px; }
   form .error-message {
     display: block;
-    margin-top: 10px; }
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: lighter;
+    color: red; }
   form .no-error-message {
     display: none; }
   form .sign-up--failed {
     display: none; }
   form .form-error-message {
-    display: block; }
+    margin-top: 5px;
+    display: block;
+    font-size: 16px;
+    font-weight: lighter;
+    color: red; }
+    form .form-error-message span {
+      text-decoration: underline; }
 
 nav {
   height: 100px;
@@ -672,5 +685,51 @@ nav {
 /* -------------------------------------------------------------------------- */
 .p-register {
   width: 100%;
+  height: 100vh;
   padding: 50px 30px;
   background-color: #FFE7DF; }
+
+.p-login {
+  width: 100%;
+  height: 100vh;
+  padding: 50px 30px;
+  background-color: #FFE7DF; }
+  .p-login__form {
+    animation: slideIn 600ms ease-in-out forwards; }
+    .p-login__form button {
+      animation: slideIn 650ms ease-in-out forwards; }
+  .p-login__banner {
+    max-width: 500px;
+    margin: 0 auto 80px;
+    animation: slideIn 400ms ease-in-out forwards; }
+    .p-login__banner h1 {
+      font-size: 44px; }
+    .p-login__banner button {
+      font-family: 'Montserrat';
+      width: 120px;
+      height: 50px;
+      border-radius: 6px;
+      color: #100033;
+      background-color: transparent;
+      border: 3px solid #100033;
+      transition: all 200ms ease-in-out;
+      animation: slideIn 450ms ease-in-out forwards; }
+      .p-login__banner button:hover {
+        background-color: #100033;
+        color: #F9F9F9;
+        cursor: pointer; }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100vw); }
+  100% {
+    transform: translateX(0vw); } }
+
+.p-profile input, .p-profile textarea {
+  display: none; }
+
+.p-profile__edit .profile__edit__form input, .p-profile__edit .profile__edit__form textarea {
+  display: block; }
+
+.p-profile__edit .profile__edit__form p {
+  display: none; }

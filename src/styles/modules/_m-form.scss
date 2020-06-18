@@ -43,7 +43,7 @@ form {
 
         &:focus {
             outline: 0;
-            border-bottom: 1px solid $purple;
+            border-bottom: 2px solid $purple;
         }
 
         &[type="file"]{
@@ -69,6 +69,7 @@ form {
         &:hover {
             background-color: $white;
             color: $purple;
+            cursor: pointer;
         }
     }
     
@@ -90,6 +91,7 @@ form {
         &:hover {
             color: $white;
             background-color: $purple;
+            cursor: pointer;
         }
 
         &::before {
@@ -102,6 +104,10 @@ form {
         }
     }
 
+    .login-failed {
+        display: none;
+    }
+
     .upload-text {
         font-size: 15px;
         margin-top: 5px;
@@ -110,6 +116,9 @@ form {
     .error-message {
         display: block;
         margin-top: 10px;
+        font-size: 16px;
+        font-weight: lighter;
+        color: red;
     }
 
     .no-error-message {
@@ -121,6 +130,13 @@ form {
     }
 
     .form-error-message {
+        margin-top: 5px;
         display: block;
+        font-size: 16px;
+        font-weight: lighter;
+        color: red;
+        span {
+            text-decoration: underline;
+        }
     }
 }

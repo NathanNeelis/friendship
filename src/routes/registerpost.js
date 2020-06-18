@@ -13,7 +13,6 @@ const transporter = nodemailer.createTransport({
 });
 
 const registerpost = (req, res) => {
-
     const sendEmail = () => {
         User.findOne({
             username: req.body.signupUser
