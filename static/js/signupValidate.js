@@ -1,58 +1,65 @@
 const loadValidateSignup = document.querySelector('#sign-up_form');
 
-// The following code (for the tags in the interest input), is made with the help of this video: https://www.youtube.com/watch?v=ha4xwcJXwow
-const tagContainer = document.querySelector('.tag-container');
-const input = document.querySelector('.tag-container input');
-
-let tags = [];
-
-const createTag = (label) => {
-    const div = document.createElement('div');
-    div.setAttribute('class', 'tag');
-    const span = document.createElement('span');
-    span.innerHTML = label;
-    span.setAttribute('class', 'interestitem');
-    const closeIcon = document.createElement('p');
-    closeIcon.innerHTML = 'x';
-    closeIcon.setAttribute('data-item', label);
-    div.appendChild(span);
-    div.appendChild(closeIcon);
-    return div;
-};
-
-const clearTags = () => {
-    document.querySelectorAll('.tag').forEach(tag => {
-        tag.parentElement.removeChild(tag);
-    });
-};
-
-const addTags = () => {
-    clearTags();
-    tags.slice().reverse().forEach(tag => {
-        tagContainer.prepend(createTag(tag));
-    });
-};
-
-input.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13 && input.value.replace(/\s/g, '') != '' || e.keyCode === 32 && input.value.replace(/\s/g, '') != '') {
-        e.target.value.split(',').forEach(tag => {
-            tags.push(tag);
-        });
-
-        addTags();
-        input.value = '';
-    }
-});
-document.addEventListener('click', (e) => {
-    if (e.target.tagName === 'P') {
-        const tagLabel = e.target.getAttribute('data-item');
-        const index = tags.indexOf(tagLabel);
-        tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
-        addTags();
-    }
-});
-
 if (loadValidateSignup) {
+    const inputElement = document.getElementById('signupAvatar');
+
+    inputElement.addEventListener('change', function () {
+        const fileList = this.files;
+        document.getElementById('fileInfoText').innerHTML = 'Your upload: ' + fileList[0].name;
+    }, false);
+
+    const tagContainer = document.querySelector('.tag-container');
+    const input = document.querySelector('.tag-container input');
+
+    let tags = [];
+
+    const createTag = (label) => {
+        const div = document.createElement('div');
+        div.setAttribute('class', 'tag');
+        const span = document.createElement('span');
+        span.innerHTML = label;
+        span.setAttribute('class', 'interestitem');
+        const closeIcon = document.createElement('p');
+        closeIcon.innerHTML = 'x';
+        closeIcon.setAttribute('data-item', label);
+        div.appendChild(span);
+        div.appendChild(closeIcon);
+        return div;
+    };
+
+    const clearTags = () => {
+        document.querySelectorAll('.tag').forEach(tag => {
+            tag.parentElement.removeChild(tag);
+        });
+    };
+
+    const addTags = () => {
+        clearTags();
+        tags.slice().reverse().forEach(tag => {
+            tagContainer.prepend(createTag(tag));
+        });
+    };
+
+    input.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13 && input.value.replace(/\s/g, '') != '' || e.keyCode === 32 && input.value.replace(/\s/g, '') != '') {
+            e.target.value.split(',').forEach(tag => {
+                tags.push(tag);
+            });
+
+            addTags();
+            input.value = '';
+            console.log(tags);
+        }
+    });
+    document.addEventListener('click', (e) => {
+        if (e.target.tagName === 'P') {
+            const tagLabel = e.target.getAttribute('data-item');
+            const index = tags.indexOf(tagLabel);
+            tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+            addTags();
+        }
+    });
+
     const failedMessage = document.querySelector('.sign-up--failed');
 
     if (document.querySelector('.takenUsername').innerHTML) {
@@ -65,172 +72,106 @@ if (loadValidateSignup) {
         if (e.target) {
             var target = e.target;
         } else {
-            // eslint-disable-next-line no-redeclare
             var target = e;
         }
 
-        var signupUser = document.querySelector('#signupUser');
-        var signupEmail = document.querySelector('#signupEmail');
-        var signupPassword = document.querySelector('#signupPassword');
-        var signupPasswordRepeat = document.querySelector('#signupPasswordRepeat');
-        var signupAge = document.querySelector('#signupAge');
+        const password = document.querySelector('#signupPassword');
+        const emailValidator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const userValidator = /^[a-zA-Z0-9_.-]*$/;
+        const dobValidator = /\d{1,2}[-/]\d{1,2}[-/]\d{2,4}/;
+        const defaultErr = 'Please fill in this field.';
 
-        var emailValidator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var userValidator = /^[a-zA-Z0-9_.-]*$/;
-        var ageValidator = /^\d{4}(-)(((0)[0-9])|((1)[0-2]))(-)([0-2][0-9]|(3)[0-1])$/;
+        const createError = (msg) => {
+            target.nextElementSibling.classList.replace('no-error-message', 'error-message');
+            target.nextElementSibling.innerHTML = msg;
+            target.classList.add('error');
+            target.classList.remove('no-error');
+        };
 
-        if (target.id == 'signupUser') {
-            if (signupUser.value.length == 0) {
-                if (!signupUser.classList.contains('error')) {
-                    signupUser.classList.add('error');
-                    signupUser.classList.remove('no-error');
-                    signupUser.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupUser.nextElementSibling.innerHTML = 'Please choose a username.';
-                } else {
-                    signupUser.classList.remove('no-error');
-                    signupUser.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupUser.nextElementSibling.innerHTML = 'Please choose a username.';
-                }
-            } else if (!signupUser.value.match(userValidator)) {
-                signupUser.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                signupUser.nextElementSibling.innerHTML = 'A username may only contain letters, numbers and dashes.';
-                signupUser.classList.add('error');
-                signupUser.classList.remove('no-error');
+        const removeError = () => {
+            target.classList.remove('no-error');
+            target.classList.remove('error');
+            target.nextElementSibling.classList.replace('error-message', 'no-error-message');
+        };
+
+        const checkUser = () => {
+            if (!target.value.match(userValidator)) {
+                const err = 'A username may only contain letters, numbers and dashes.';
+                createError(err);
+            } else if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                signupUser.classList.remove('no-error');
-                signupUser.classList.remove('error');
-                signupUser.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'signupAge') {
-            if (signupAge.value.length == 0) {
-                if (!signupAge.classList.contains('error')) {
-                    signupAge.classList.add('error');
-                    signupAge.classList.remove('no-error');
-                    signupAge.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupAge.nextElementSibling.innerHTML = 'Please fill in your date of birth.';
-                } else {
-                    signupAge.classList.remove('no-error');
-                    signupAge.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupAge.nextElementSibling.innerHTML = 'Please fill in your date of birth.';
-                }
-            } else if (!signupAge.value.match(ageValidator)) {
-                signupAge.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                signupAge.nextElementSibling.innerHTML = 'Please use the calendar to fill in your date of birth.';
-                signupAge.classList.add('error');
-                signupAge.classList.remove('no-error');
+        const checkDob = () => {
+            if (!target.value.match(dobValidator)) {
+                const err = 'Please fill in your date of birth in the format shown above.';
+                createError(err);
+            } else if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                signupAge.classList.remove('no-error');
-                signupAge.classList.remove('error');
-                signupAge.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'signupEmail') {
-            if (signupEmail.value.length == 0) {
-                if (!signupEmail.classList.contains('error')) {
-                    signupEmail.classList.add('error');
-                    signupEmail.classList.remove('no-error');
-                    signupEmail.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupEmail.nextElementSibling.innerHTML = 'Please fill in your e-mail adress.';
-                } else {
-                    signupEmail.classList.remove('no-error');
-                    signupEmail.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupEmail.nextElementSibling.innerHTML = 'Please fill in your e-mail adress.';
-                }
-            } else if (!signupEmail.value.match(emailValidator)) {
-                signupEmail.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                signupEmail.nextElementSibling.innerHTML = 'Please fill in a valid e-mail adress.';
-                signupEmail.classList.add('error');
-                signupEmail.classList.remove('no-error');
+        const checkEmail = () => {
+            if (!target.value.match(emailValidator)) {
+                const err = 'Please fill in a valid e-mail adress.';
+                createError(err);
+            } else if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                signupEmail.classList.remove('no-error');
-                signupEmail.classList.remove('error');
-                signupEmail.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'signupPassword') {
-            if (signupPassword.value.length == 0) {
-                if (!signupPassword.classList.contains('error')) {
-                    signupPassword.classList.add('error');
-                    signupPassword.classList.remove('no-error');
-                    signupPassword.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupPassword.nextElementSibling.innerHTML = 'Please fill in a password.';
-                }
+        const checkPassword = () => {
+            if (target.value != password.value) {
+                const err = 'The passwords do not match.';
+                createError(err);
+            } else if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                signupPassword.classList.remove('error');
-                signupPassword.classList.remove('no-error');
-                signupPassword.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'signupPasswordRepeat') {
-            if (signupPasswordRepeat.value.length == 0) {
-                if (!signupPasswordRepeat.classList.contains('error')) {
-                    signupPasswordRepeat.classList.add('error');
-                    signupPasswordRepeat.classList.remove('no-error');
-                    signupPasswordRepeat.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupPasswordRepeat.nextElementSibling.innerHTML = 'Please repeat your password.';
-                } else {
-                    signupPasswordRepeat.classList.remove('no-error');
-                    signupPasswordRepeat.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    signupPasswordRepeat.nextElementSibling.innerHTML = 'Please repeat your password.';
-                }
-            } else if (signupPasswordRepeat.value != signupPassword.value) {
-                signupPasswordRepeat.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                signupPasswordRepeat.nextElementSibling.innerHTML = 'The passwords do not match.';
-                signupPasswordRepeat.classList.add('error');
-                signupPasswordRepeat.classList.remove('no-error');
+        const checkAvatar = () => {
+            if (target.value === '') {
+                const err = 'Please upload an avatar.';
+                createError(err);
             } else {
-                signupPasswordRepeat.classList.remove('no-error');
-                signupPasswordRepeat.classList.remove('error');
-                signupPasswordRepeat.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'signupUser' || target.id == 'signupFirst' || target.id == 'signupLocation' || target.id == 'signupInterests' || target.id == 'signupDescription') {
-            const targetInput = document.getElementById(target.id);
-            if (targetInput.value.length == 0) {
-                if (!targetInput.classList.contains('error')) {
-                    targetInput.classList.add('error');
-                    targetInput.classList.remove('no-error');
-                    targetInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    targetInput.nextElementSibling.innerHTML = 'Please fill in this field.';
-                } else {
-                    targetInput.classList.remove('no-error');
-                    targetInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    targetInput.nextElementSibling.innerHTML = 'Please fill in this field.';
-                }
+        const checkDefault = () => {
+            if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                targetInput.classList.remove('no-error');
-                targetInput.classList.remove('error');
-                targetInput.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'signupAvatar') {
-            const avatarInput = document.getElementById(target.id);
-            if (avatarInput.value == '') {
-                if (!avatarInput.classList.contains('error')) {
-                    avatarInput.classList.add('error');
-                    avatarInput.classList.remove('no-error');
-                    avatarInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    avatarInput.nextElementSibling.innerHTML = 'Please upload an avatar.';
-                } else {
-                    avatarInput.classList.remove('no-error');
-                    avatarInput.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    avatarInput.nextElementSibling.innerHTML = 'Please upload an avatar.';
-                }
-            } else {
-                avatarInput.classList.remove('no-error');
-                avatarInput.classList.remove('error');
-                avatarInput.nextElementSibling.classList.replace('error-message', 'no-error-message');
+        const checkTarget = () => {
+            if (target.id === 'signupUser') {
+                checkUser();
+            } else if (target.id === 'signupAge') {
+                checkDob();
+            } else if (target.id === 'signupEmail') {
+                checkEmail();
+            } else if (target.id === 'signupPasswordRepeat') {
+                checkPassword();
+            } else if (target.id === 'signupAvatar') {
+                checkAvatar();
+            } else if (target.id != 'signupInterestsInput' && target.id != 'signupInterests') {
+                checkDefault();
             }
-        }
+        };
 
-
+        checkTarget();
     };
 
     var inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
@@ -245,9 +186,9 @@ if (loadValidateSignup) {
         var errors = false;
 
         document.querySelectorAll('input').forEach((input) => {
-            if (input.id != 'signupInterestsTags') {
+            if (input.id != 'signupInterestsTags' && input.id != 'signupInterestsInput') {
                 validateForm(input);
-    
+
                 if (input.classList.contains('no-error') || input.classList.contains('error') || parseInt(window.formTotal) === 0) {
                     errors = true;
                 }

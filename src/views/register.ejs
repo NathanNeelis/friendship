@@ -16,17 +16,17 @@
                             <label for="signupFirst">First name</label>
                             <input class="no-error" type="text" name="signupFirst" id="signupFirst" placeholder="First name" value="<%= data.signupFirst %>">
                             <span class="no-error-message"></span>
-                            <label for="signupAge">Date of birth</label>
-                            <input class="no-error" type="date" name="signupAge" id="signupAge" placeholder="Age" value="<%= data.signupAge %>">
+                            <label for="signupAge">Date of birth (DD/MM/YYYY)</label>
+                            <input class="no-error" type="text" name="signupAge" id="signupAge" placeholder="Date of birth" value="<%= data.signupAge %>">
                             <span class="no-error-message"></span>
                             <label for="signupLocation">Location</label>
                             <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location" value="<%= data.signupLocation %>">
                             <span class="no-error-message"></span>
                             <label for="signupInterests">Interests</label>
                             <div class="tag-container">
-                                <input id="signupInterestsTags" onkeydown="return event.key != 'Enter';"  />  
+                                <input id="signupInterestsInput" placeholder="Interests" onkeydown="return event.key != 'Enter';"  />  
                             </div>
-                            <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests" value="<%= data.signupInterests %>">
+                            <input type="text" name="signupInterests" id="signupInterests" placeholder="Interests" value="<%= data.signupInterests %>">
                             <span class="no-error-message"></span>
                             <label for="signupDescription">Description</label>
                             <textarea name="signupDescription" id="signupDescription" placeholder="Description"><%= data.signupDescription %></textarea>
@@ -63,17 +63,17 @@
                             <label for="signupFirst">First name</label>
                             <input class="no-error" type="text" name="signupFirst" id="signupFirst" placeholder="First name">
                             <span class="no-error-message"></span>
-                            <label for="signupAge">Date of birth</label>
-                            <input class="no-error" type="date" name="signupAge" id="signupAge" placeholder="Age">
+                            <label for="signupAge">Date of birth (DD/MM/YYYY)</label>
+                            <input class="no-error" type="text" name="signupAge" id="signupAge" placeholder="Date of birth">
                             <span class="no-error-message"></span>
                             <label for="signupLocation">Location</label>
                             <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location">
                             <span class="no-error-message"></span>
                             <label for="signupInterests">Interests</label>
                             <div class="tag-container">
-                                <input id="signupInterestsTags" onkeydown="return event.key != 'Enter';"  />  
+                                <input id="signupInterestsInput" placeholder="Interests" onkeydown="return event.key != 'Enter';"  />  
                             </div>
-                            <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests">
+                            <input type="text" name="signupInterests" id="signupInterests" placeholder="Interests">
                             <span class="no-error-message"></span>
                             <label for="signupDescription">Description</label>
                             <textarea name="signupDescription" id="signupDescription" placeholder="Description"></textarea>

@@ -37,7 +37,7 @@ router
     .get('/register', userRedirectProfile, register)
     .get('/logout', userRedirectLogin, logout)
     .get('/profile', userRedirectLogin, profile)
-    .get('/matches', matches)
+    .get('/matches', userRedirectLogin, matches)
     .get('/activate', activate)
     .get('/search', search)
     .post('/matches', unmatch)

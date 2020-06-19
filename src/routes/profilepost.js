@@ -11,6 +11,7 @@ const profilepost = (req, res) => {
                 if (err) {
                     console.log('MongoDB Error:' + err);
                 } else if (username) {
+                    console.log('name taken!');
                     res.render('profile', {
                         'user': user,
                         data: req.body
@@ -29,6 +30,7 @@ const profilepost = (req, res) => {
     const editInfo = () => {
         updatedValues.location = req.body.editLocation;
         updatedValues.description = req.body.editDescription;
+        updatedValues.interests = req.body.editInterests.split(',');
     };
 
     const updateData = (user) => {

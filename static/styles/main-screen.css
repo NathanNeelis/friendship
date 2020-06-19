@@ -516,7 +516,8 @@ form {
     font-weight: 700;
     font-size: 44px;
     margin-bottom: 25px; }
-  form input, form textarea {
+  form input,
+  form textarea {
     padding: 10px;
     height: 30px;
     margin-top: 10px;
@@ -525,13 +526,16 @@ form {
     border: 0;
     background-color: transparent;
     border-bottom: 1px solid #9D9DA6; }
-    form input:focus, form textarea:focus {
+    form input:focus,
+    form textarea:focus {
       outline: 0;
       border-bottom: 2px solid #100033; }
-    form input[type="file"], form textarea[type="file"] {
+    form input[type="file"],
+    form textarea[type="file"] {
       display: none; }
     @media (max-width: 520px) {
-      form input, form textarea {
+      form input,
+      form textarea {
         width: 100%; } }
   form button {
     font-family: 'Montserrat';
@@ -572,6 +576,30 @@ form {
       font-weight: bold;
       transform: translate(-30px, -10px);
       z-index: 1; }
+  form textarea {
+    height: 150px;
+    resize: none; }
+  form .tag-container {
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap; }
+    form .tag-container .tag {
+      height: 40px;
+      border: 1px solid #100033;
+      border-radius: 6px;
+      margin: 15px 5px 0px;
+      padding: 3px 10px 10px;
+      display: block; }
+      form .tag-container .tag p {
+        margin-left: 10px;
+        cursor: pointer;
+        display: inline; }
+      form .tag-container .tag:last-of-type {
+        margin-right: 40px; }
+    form .tag-container input {
+      left: 0; }
+  form #signupInterests {
+    display: none; }
   form .login-failed {
     display: none; }
   form .upload-text {
@@ -685,13 +713,11 @@ nav {
 /* -------------------------------------------------------------------------- */
 .p-register {
   width: 100%;
-  height: 100vh;
   padding: 50px 30px;
   background-color: #FFE7DF; }
 
 .p-login {
   width: 100%;
-  height: 100vh;
   padding: 50px 30px;
   background-color: #FFE7DF; }
   .p-login__form {
@@ -725,11 +751,58 @@ nav {
   100% {
     transform: translateX(0vw); } }
 
-.p-profile input, .p-profile textarea {
-  display: none; }
-
-.p-profile__edit .profile__edit__form input, .p-profile__edit .profile__edit__form textarea {
-  display: block; }
-
-.p-profile__edit .profile__edit__form p {
-  display: none; }
+.p-profile {
+  width: 100%;
+  padding: 50px 30px;
+  background-color: #FFE7DF; }
+  .p-profile .edit-label {
+    font-size: 25px;
+    text-decoration: underline; }
+  .p-profile .upload-label {
+    display: none; }
+  .p-profile #signupAvatar {
+    display: none; }
+  .p-profile input, .p-profile textarea {
+    display: none; }
+  .p-profile .tag-container-profile .tag {
+    padding-top: 8px; }
+    .p-profile .tag-container-profile .tag p {
+      display: none; }
+  .p-profile__edit .profile__edit__form input, .p-profile__edit .profile__edit__form textarea {
+    display: block; }
+  .p-profile__edit .profile__edit__form p {
+    display: none; }
+  .p-profile__edit .profile__edit__form .upload-label {
+    display: block; }
+  .p-profile__edit .tag-container-profile .tag {
+    padding-top: 4px; }
+    .p-profile__edit .tag-container-profile .tag p {
+      display: inline; }
+  .p-profile__edit #fileInfoText {
+    display: block; }
+  .p-profile #editInterests {
+    display: none; }
+  .p-profile button {
+    display: none;
+    width: 150px; }
+  .p-profile .save-button {
+    display: block; }
+  .p-profile .profile__edit {
+    font-family: 'Montserrat';
+    font-weight: lighter;
+    margin-top: 30px;
+    width: 150px;
+    height: 50px;
+    border-radius: 6px;
+    color: #F9F9F9;
+    background-color: #100033;
+    border: 3px solid #100033;
+    transition: all 200ms ease-in-out;
+    text-align: center;
+    padding-top: 12px; }
+    .p-profile .profile__edit:hover {
+      background-color: #F9F9F9;
+      color: #100033;
+      cursor: pointer; }
+  .p-profile .edit-active {
+    display: none; }

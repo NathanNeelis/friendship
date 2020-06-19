@@ -25,13 +25,14 @@ form {
     }
 
     legend {
-        font-family: 'Playfair Display';    
+        font-family: 'Playfair Display';
         font-weight: $bold-weight;
         font-size: 44px;
-        margin-bottom: 25px; 
+        margin-bottom: 25px;
     }
 
-    input, textarea {
+    input,
+    textarea {
         padding: 10px;
         height: 30px;
         margin-top: 10px;
@@ -46,7 +47,7 @@ form {
             border-bottom: 2px solid $purple;
         }
 
-        &[type="file"]{
+        &[type="file"] {
             display: none;
         }
 
@@ -72,7 +73,7 @@ form {
             cursor: pointer;
         }
     }
-    
+
     .upload-label {
         font-family: 'Montserrat';
         font-weight: normal;
@@ -102,6 +103,45 @@ form {
             transform: translate(-30px, -10px);
             z-index: 1;
         }
+    }
+
+    textarea {
+        height: 150px;
+        resize: none;
+    }
+
+    .tag-container {
+        max-width: 400px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        .tag {
+            height: 40px;
+            border: 1px solid $purple;
+            border-radius: 6px;
+            margin: 15px 5px 0px;
+            padding: 3px 10px 10px;
+            display: block;
+
+            p {
+                margin-left: 10px;
+                cursor: pointer;
+                display: inline;
+            }
+
+            &:last-of-type {
+                margin-right: 40px;
+            }
+        }
+
+        input {
+            left: 0;
+        }
+    }
+
+    #signupInterests {
+        display: none;
     }
 
     .login-failed {
@@ -135,6 +175,7 @@ form {
         font-size: 16px;
         font-weight: lighter;
         color: red;
+
         span {
             text-decoration: underline;
         }
