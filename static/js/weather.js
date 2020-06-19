@@ -9,7 +9,7 @@ async function catchWeather(req, res) {
             const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + userLocation + ',nl&units=metric&appid=7cb76bd2c75726e5aa77abb6c6de9b09')
             const weatherData = await response.json();
             fetchApiMore(weatherData);
-            if (weatherData.main.temp > 19) {
+            if (weatherData.main.temp > 38) {
                 mtb(weatherData);
                 // loading mountainbike profiles from database
                 mtbSection.classList.add('games-hide');
@@ -102,7 +102,7 @@ const mtb = (weather) => {
         'With this weather, lots of people go outside to do all kinds of sports. Maybe you are looking for someone else to Hike or Bike with or perhaps you are looking to be challenged in a new sport. Check out other people and join them in this great weather!';
 
     // Section filtered profiles
-    const header = document.querySelector('#weatherHeader');
+    const header = document.querySelector('#weatherHeaderMTB');
     header.textContent = 'Find some people to Mountainbike with:';
 };
 
@@ -161,7 +161,7 @@ const games = (weather) => {
         'With this weather most people prefer to stay indoors and fire up their pc or Playstation to play games. Start looking for other people that play your prefered game and challange them in a match of for example Call of Duty.';
 
     // Section filtered profiles
-    const header = document.querySelector('#weatherHeader');
+    const header = document.querySelector('#weatherHeaderGames');
     header.textContent = 'Find some people to play some games with:';
 };
 
