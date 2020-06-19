@@ -1,17 +1,7 @@
 const User = require('../user');
 
 const index = async (req, res) => {
-  // console.log(req.body);
-  // if (req.body.temperature > 15) {
-  //   console.log('warm');
-  // } else if (req.body.temperature !== undefined) {
-  //   console.log('cold');
-  // } else if (req.body.temperature === undefined) {
-  //   console.log('undefined woop');
-  // }
   try {
-    const temperature = await req.body.temperature;
-    console.log(temperature);
     const allData = await User.find();
     const dataBG = await User.find({
       interests: 'board games' // Looks in all data for people that have Board games in their interests
@@ -37,6 +27,8 @@ const index = async (req, res) => {
           data: allData,
           dataBG: dataBG,
           dataComics: dataComics,
+          dataMTB: dataMTB,
+          dataGames: dataGames,
           // dataWeather: dataWeather
         });
       };
