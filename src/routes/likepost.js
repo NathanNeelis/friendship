@@ -53,7 +53,7 @@ const likepost = (req, res) => {
         });
 
 
-    }
+    };
     // Hier zoek je weer de ingelogde user en voeg je de id toe van de gelikede user in zijn/haar database.
     const userLiked = () => {
         User.updateOne({

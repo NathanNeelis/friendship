@@ -46,17 +46,8 @@ app.use(session({
 
 app.use(
 	helmet(),
-	helmet.noCache(),
-	helmet.contentSecurityPolicy({
-		directives: {
-		  defaultSrc: ["'self'"],
-		  styleSrc: ["'self'"],
-		  scriptSrc: ["'self'"]
-		}})
+	helmet.noCache()
 );
-
-
-
 
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);

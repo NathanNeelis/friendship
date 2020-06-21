@@ -3,13 +3,21 @@
 <body>
   <%- include('includes/header.ejs'); %>
   <main>
-    <% if (locals.user) { %>
-    <%- include('includes/hello-user'); %>
-    <% } else { %>
-    <%- include('includes/introduction.ejs'); %>
-    <% } %>
+    <div class="p-home">
+      <div class="p-home__banner">
+        <div class="p-home__banner__container">
+          <div class="p-home__banner__left">
+            <h1>Look at other people with the same interests!</h1>
+          </div>
+          <div class="p-home__banner__right">
+            <h2>Check who you have already matched with!</h2>
+            <button>My matches</button>
+          </div>
+        </div>
+      </div>
 
     <%- include('includes/section_users.ejs'); %>
+  </div>
 
     <% if (locals.user) { %>
     <%- include('includes/section_weather.ejs'); %>
@@ -17,7 +25,6 @@
 
     <%- include('includes/section_boardgames.ejs'); %>
     <%- include('includes/section_comics.ejs'); %>
-
 
   </main>
   <%- include('includes/footer.ejs'); %>

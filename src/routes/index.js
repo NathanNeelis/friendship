@@ -3,20 +3,13 @@ const User = require('../user');
 const index = async (req, res) => {
 
   try {
-    const allData = await User.find({ _id: { $nin: req.session.sessionID } });
+    const allData = await User.find({ _id: { $nin: req.session.sessionID }});
     const dataBG = await User.find({
       interests: 'board games' // Looks in all data for people that have Board games in their interests
     });
     const dataComics = await User.find({
       interests: 'comics' // Looks in all data for people that have comics in their interests
     });
-    const dataMTB = await User.find({
-      interests: 'Mountainbike' // Looks in all data for people that have comics in their interests
-    });
-    const dataGames = await User.find({
-      interests: 'Games' // Looks in all data for people that have comics in their interests
-    });
-
     const dataMTB = await User.find({
       interests: 'Mountainbike' // Looks in all data for people that have comics in their interests
     });

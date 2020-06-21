@@ -3,12 +3,12 @@
 <body>
     <%- include('includes/header.ejs'); %>
     <main>
-        <section class="register">
+        <section class="p-register">
             <div>
-                <form id="sign-up_form" action="/register" method="POST" enctype="multipart/form-data">
+                <form class="m-form" id="sign-up_form" action="/register" method="POST" enctype="multipart/form-data">
                     <% if(locals.data){ %>
-                        <fieldset>
                             <legend>Register</legend>
+                            <p>Create an account to meet new people and get new awesome friendships.</p>
                             <span class="sign-up--failed">The username <span class="takenUsername"><%= data.signupUser %></span> is already taken, please choose a
                                 different one.</span>
                             <span id="form-error-message" class="no-error-message">Please check if you have (correctly)
@@ -16,23 +16,23 @@
                             <label for="signupFirst">First name</label>
                             <input class="no-error" type="text" name="signupFirst" id="signupFirst" placeholder="First name" value="<%= data.signupFirst %>">
                             <span class="no-error-message"></span>
-                            <label for="signupAge">Date of birth</label>
-                            <input class="no-error" type="date" name="signupAge" id="signupAge" placeholder="Age" value="<%= data.signupAge %>">
+                            <label for="signupAge">Date of birth (DD/MM/YYYY)</label>
+                            <input class="no-error" type="text" name="signupAge" id="signupAge" placeholder="Date of birth" value="<%= data.signupAge %>">
                             <span class="no-error-message"></span>
                             <label for="signupLocation">Location</label>
                             <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location" value="<%= data.signupLocation %>">
                             <span class="no-error-message"></span>
                             <label for="signupInterests">Interests</label>
                             <div class="tag-container">
-                                <input id="signupInterestsTags" onkeydown="return event.key != 'Enter';"  />  
+                                <input id="signupInterestsInput" placeholder="Interests" onkeydown="return event.key != 'Enter';"  />  
                             </div>
-                            <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests" value="<%= data.signupInterests %>">
+                            <input type="text" name="signupInterests" id="signupInterests" placeholder="Interests" value="<%= data.signupInterests %>">
                             <span class="no-error-message"></span>
                             <label for="signupDescription">Description</label>
                             <textarea name="signupDescription" id="signupDescription" placeholder="Description"><%= data.signupDescription %></textarea>
                             <span class="no-error-message"></span>
-                            <label for="signupAvatar" class="pictureLabel">Upload an avatar!
-                                <p id="fileInfoText"></p></label>
+                            <label for="signupAvatar" class="upload-label">Upload avatar</label>
+                            <p id="fileInfoText" class="upload-text"></p>
                             <input type="file" name="signupAvatar" id="signupAvatar" accept="image/*">
                             <span class="no-error-message"></span>
                             <label for="signupUser">Username</label>
@@ -53,10 +53,9 @@
                             <button form="sign-up_form" type="submit" value="submit">
                                 Sign Up
                             </button>
-                        </fieldset>
                       <% } else{ %>  
-                        <fieldset>
                             <legend>Register</legend>
+                            <p>Create an account to meet new people and get new awesome friendships.</p>
                             <span class="sign-up--failed">The username <span class="takenUsername"></span> is already taken, please choose a
                                 different one.</span>
                             <span id="form-error-message" class="no-error-message">Please check if you have (correctly)
@@ -64,23 +63,23 @@
                             <label for="signupFirst">First name</label>
                             <input class="no-error" type="text" name="signupFirst" id="signupFirst" placeholder="First name">
                             <span class="no-error-message"></span>
-                            <label for="signupAge">Date of birth</label>
-                            <input class="no-error" type="date" name="signupAge" id="signupAge" placeholder="Age">
+                            <label for="signupAge">Date of birth (DD/MM/YYYY)</label>
+                            <input class="no-error" type="text" name="signupAge" id="signupAge" placeholder="Date of birth">
                             <span class="no-error-message"></span>
                             <label for="signupLocation">Location</label>
                             <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location">
                             <span class="no-error-message"></span>
                             <label for="signupInterests">Interests</label>
                             <div class="tag-container">
-                                <input id="signupInterestsTags" onkeydown="return event.key != 'Enter';"  />  
+                                <input id="signupInterestsInput" placeholder="Interests" onkeydown="return event.key != 'Enter';"  />  
                             </div>
-                            <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests">
+                            <input type="text" name="signupInterests" id="signupInterests" placeholder="Interests">
                             <span class="no-error-message"></span>
                             <label for="signupDescription">Description</label>
                             <textarea name="signupDescription" id="signupDescription" placeholder="Description"></textarea>
                             <span class="no-error-message"></span>
-                            <label for="signupAvatar" class="pictureLabel">Upload an avatar!
-                                <p id="fileInfoText"></p></label>
+                            <label for="signupAvatar" class="upload-label">Upload avatar</label>
+                            <p id="fileInfoText" class="upload-text"></p>
                             <input type="file" name="signupAvatar" id="signupAvatar" accept="image/*">
                             <span class="no-error-message"></span>
                             <label for="signupUser">Username</label>
@@ -101,7 +100,6 @@
                             <button form="sign-up_form" type="submit" value="submit">
                                 Sign Up
                             </button>
-                        </fieldset>
                      <% } %>
                     
                 </form>
