@@ -9,7 +9,7 @@ const mymatches = (req, res) => {
             console.log('MongoDB Error:' + err);
 		} else if (user) {
             res.render('other-profile-match', {
-                'data': user,
+                data: user,
             });
 		} else {
             console.log('DAMN NO USER FOUND');

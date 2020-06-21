@@ -9,11 +9,10 @@ const otherprofile = (req, res) => {
             console.log('MongoDB Error:' + err);
 		} else if (user) {
             res.render('profile-detail.ejs', {
-                'data': user,
-                'matchData': false,
+                data: user,
+                matchData: false,
             });
 		} else {
-            console.log('DAMN NO USER FOUND');
         }
 	});
 };

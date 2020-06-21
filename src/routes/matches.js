@@ -26,7 +26,6 @@ const matches = (req, res) => {
                     res.render('matches', {
                         data: matchesItems
                     });
-                    console.log(matchesItems)
                 }
             });
         } else {
@@ -35,11 +34,5 @@ const matches = (req, res) => {
     });
 };
 
-// const checkMatches = (x) =>  { 
-//     console.log(matchesItems);
-//     console.log(matchesItems.length);
-    
-//     // 
-//     };
 
 module.exports = matches;

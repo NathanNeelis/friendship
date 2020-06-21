@@ -25,12 +25,11 @@ const likepost = (req, res) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
             } else if (user) {
-                console.log(userProfile.likes.includes(user._id));
-                console.log(user.likes.includes(userProfile._id));
+       
                 if (userProfile.likes.includes(user._id) && user.likes.includes(userProfile._id)) {
                     res.render('profile-detail', {
-                        'data': user,
-                        'matchData': true
+                        data: user,
+                        matchData: true
                     });
                 } else {
                     res.redirect('/');

@@ -6,10 +6,6 @@
 
     </body>
     <main>
-
-
-
-
                 <h1>
                     <%= data.firstname %>
                 </h1>
@@ -17,18 +13,10 @@
                     <%= data.location %>
                 </p>
 
-
-             
-
             <form action="/other-profile-match" method="POST"> %>
                 <button name="unmatch" type="submit" value="<%=data._id%>">unmatch</button>
             </form>
             
-
-
-
-
-
                 <section>
 
 
@@ -36,9 +24,6 @@
                         <article>
                             <img src="<%= data.avatar %>" alt="Profile photo">
                         </article>
-
-
-
                     </section>
 
                     <h3>Persoonlijke info</h3>
@@ -82,9 +67,5 @@
                 </section>
 
                 <%- include('includes/footer.ejs'); %>
-
-
-
-
 
     </main>
