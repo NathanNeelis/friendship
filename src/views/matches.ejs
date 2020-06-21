@@ -1,30 +1,38 @@
-<%- include('includes/head.ejs'); %>
-<%- include('includes/header.ejs'); %>
+    <%- include('includes/head.ejs'); %>
 
-
-<% if (locals.data) { %>
-    <% for (let i = 0; i < data.length; i++) { %>
-    <article>
-        <a href='/mymatches/<%= data[i].username %>'>
-            <img src='<%= data[i].avatar %>' alt='Profile photo' />
-            <h4>
-                <%= data[i].firstname %>
-            </h4>
-            <p>
-                <%= data[i].age %>
-            </p>
-            <p>
-                <%= data[i].location %>
-            </p>
-        </a>
-    </article>
-    <% } %>
-    <% } if (locals.data == ''){ %>
-        <h1>You have  no matches yet</h1>
-        <p>You can get matches to like someones profile</p>
-        <a href="/">See interesting profiles</a>
-
-    <% } %>
-
-
-    <%- include('includes/footer.ejs'); %>
+    <body>
+        <%- include('includes/header.ejs'); %>
+        <main>
+            <div class="p-matches">
+                <div class="m-users">
+                    <div class="user-container">
+                        <% if (locals.data) { %>
+                            <h2>Your matches</h2>
+                            <p>These are your matches, you have both liked each other. Go to his/her profile and send them a message!</p>
+                        <% for (let i = 0; i < data.length; i++) { %>
+                        <div class="user">
+                            <a href="/otherprofile/<%= data[i].username %>">
+                                <div class="user__image"
+                                    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= data[i].avatar %>)">
+                                </div>
+                                <h4>
+                                    <%= data[i].firstname %>
+                                </h4>
+                                <p>
+                                    <%= data[i].location %>
+                                </p>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } if (locals.data == ''){ %>
+                <h1>You have no matches yet</h1>
+                <p>You can get matches to like someones profile</p>
+                <a href="/">See interesting profiles</a>
+                <% } %>
+            </div>
+        </main>
+        <%- include('includes/footer.ejs'); %>
+        <%- include('includes/scripts.ejs'); %>
+    </body>

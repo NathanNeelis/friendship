@@ -23,6 +23,8 @@
 @import './modules/m-nav';
 @import './modules/m-users';
 @import './modules/m-category';
+@import './modules/m-background';
+@import './modules/m-footer';
 
 /* -------------------------------------------------------------------------- */
 /*                                    Pages                                   */
@@ -32,3 +34,5 @@
 @import './pages/p-profile';
 @import './pages/p-home';
 @import './pages/p-search';
+@import './pages/p-matches';
+@import './pages/p-other-profile';

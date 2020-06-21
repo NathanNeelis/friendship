@@ -1,99 +1,34 @@
 <%- include('includes/head.ejs'); %>
 
-    <body>
-
-        <%- include('includes/header.ejs'); %>
-
-    </body>
+<body>
+    <%- include('includes/header.ejs'); %>
     <main>
 
-
-
-
-                <h1>
-                    <%= data.firstname %>
-                </h1>
-                <p>
-                    <%= data.location %>
-                </p>
-
-
-                <% if(matchData == true) {%>
-                    <section class="show">
-        
-                        <h2>It's A match</h2>
-                        <p>Jij en
-                            <%= data.firstname %> hebben elkaar geliked!</p>
-                        <a href="<%=data.email %>">Stuur je match een bericht! </a>
-                    </section>
-
-                    <%   } else {%>
-            <form action="/profile" method="POST"> %>
+        <div class="p-other-profile">
+            <form class="m-form" action="/like" method="POST">
+                <legend><%= data.firstname %>'s profile</legend>
+                <div class="p-profile__avatar" style="background-image: url(/<%= data.avatar %>)">
+                </div>
+                <label class="edit-label" for="editUser">Username</label>
+                <p><%= data.username %></p>
+                <label class="edit-label" for="editLocation">Location</label>
+                <p><%= data.location %></p>
+                <label class="edit-label" for="editInterests">Interests</label>
+                <div class="tag-container tag-container-profile">
+                    <% for (let i = 0; i < data.interests.length; i++) { %>
+                    <div class="tag"><span class="interestitem"><%= data.interests[i] %></span>
+                        <p class="close-button" data-item="<%= data.interests[i] %>">x</p>
+                    </div>
+                    <% } %>
+                </div>
+                <label class="edit-label" for="editDescription">Description</label>
+                <p><%= data.description %></p>
                 <button name="like" type="submit" value="<%=data._id%>">Like</button>
             </form>
-            
-      <%   } %>
 
-
-
-
-
-                <section>
-
-
-                    <section>
-                        <article>
-                            <img src="<%= data.avatar %>" alt="Profile photo">
-                        </article>
-
-
-
-                    </section>
-
-                    <h3>Persoonlijke info</h3>
-                    <article class="personalInformation">
-                        <div>
-                            <dl>
-                                <dt>First name </dt>
-                                <dd>
-                                    <%= data.firstname %>
-                                </dd>
-                                <dt>Last name </dt>
-                                <dd>
-                                    <%= data.lastname %>
-                                </dd>
-                                <dt>Profile name </dt>
-                                <dd>
-                                    <%= data.username %>
-                                </dd>
-                                <dt>Age</dt>
-                                <dd>
-                                    <%= data.age %>
-                                </dd>
-                                <dt>Location</dt>
-                                <dd>
-                                    <%= data.location %>
-                                </dd>
-                                <dt>Interests</dt>
-                                <dd>
-                                    <%= data.interests %>
-                                </dd>
-                                <dt>About me</dt>
-                                <dd>
-                                    <%= data.description %>
-                                </dd>
-                            </dl>
-                        </div>
-                    </article>
-
-
-
-                </section>
-
-                <%- include('includes/footer.ejs'); %>
-
-
-
-
-
+        </div>
     </main>
+
+    <%- include('includes/footer.ejs'); %>
+    <%- include('includes/scripts.ejs'); %>
+</body>

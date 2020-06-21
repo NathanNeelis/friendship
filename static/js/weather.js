@@ -48,7 +48,6 @@ const fetchApiMore = (weather) => {
 };
 
 const mtb = (weather) => {
-    console.log('its decent weather');
     const api = weather;
     const apiWeatherDescription = api.weather[0].description;
     const temperature = Math.round(api.main.temp);

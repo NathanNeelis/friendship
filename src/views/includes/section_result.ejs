@@ -2,7 +2,7 @@
     <h2><%= dataFilter.length %> results for <%= activity %></h2>
     <div class="user-container">
         <% for (let i = 0; i < dataFilter.length; i++) { %>
-        <a href="/<%= dataFilter[i].firstname %>"></a>
+        <a href="/otherprofile/<%= dataFilter[i].username %>"></a>
         <div class="user">
             <div class="user__image"
                 style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= dataFilter[i].avatar %>)">

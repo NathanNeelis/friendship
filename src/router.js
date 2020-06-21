@@ -17,7 +17,6 @@ const
     likepost = require('./routes/likepost'),
     mymatches = require ('./routes/mymatches');
 
-
 const userRedirectLogin = (req, res, next) => {
     if (!req.session.sessionID) {
         res.redirect('/login');
@@ -49,7 +48,7 @@ router
     .get('/apipage', index)
     .post('/apipage', index)
     .post('/matches', unmatch)
-    .post('/likedebug', likepost)
+    .post('/like', likepost)
     .post('/login', loginpost)
     .post('/search', search)
     .post('/profile', profilepost)
