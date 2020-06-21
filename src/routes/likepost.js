@@ -25,10 +25,14 @@ const likepost = (req, res) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
             } else if (user) {
+       
                 if (userProfile.likes.includes(user._id) && user.likes.includes(userProfile._id)) {
-                    console.log('matchpageeeee');
+                    res.render('profile-detail', {
+                        data: user,
+                        matchData: true
+                    });
                 } else {
-                    console.log('not a match yet pageeeeee');
+                    res.redirect('/');
                 }
             }
         });

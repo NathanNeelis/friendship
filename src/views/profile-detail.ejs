@@ -1,0 +1,99 @@
+<%- include('includes/head.ejs'); %>
+
+    <body>
+
+        <%- include('includes/header.ejs'); %>
+
+    </body>
+    <main>
+
+
+
+
+                <h1>
+                    <%= data.firstname %>
+                </h1>
+                <p>
+                    <%= data.location %>
+                </p>
+
+
+                <% if(matchData == true) {%>
+                    <section class="show">
+        
+                        <h2>It's A match</h2>
+                        <p>Jij en
+                            <%= data.firstname %> hebben elkaar geliked!</p>
+                        <a href="<%=data.email %>">Stuur je match een bericht! </a>
+                    </section>
+
+                    <%   } else {%>
+            <form action="/profile" method="POST"> %>
+                <button name="like" type="submit" value="<%=data._id%>">Like</button>
+            </form>
+            
+      <%   } %>
+
+
+
+
+
+                <section>
+
+
+                    <section>
+                        <article>
+                            <img src="<%= data.avatar %>" alt="Profile photo">
+                        </article>
+
+
+
+                    </section>
+
+                    <h3>Persoonlijke info</h3>
+                    <article class="personalInformation">
+                        <div>
+                            <dl>
+                                <dt>First name </dt>
+                                <dd>
+                                    <%= data.firstname %>
+                                </dd>
+                                <dt>Last name </dt>
+                                <dd>
+                                    <%= data.lastname %>
+                                </dd>
+                                <dt>Profile name </dt>
+                                <dd>
+                                    <%= data.username %>
+                                </dd>
+                                <dt>Age</dt>
+                                <dd>
+                                    <%= data.age %>
+                                </dd>
+                                <dt>Location</dt>
+                                <dd>
+                                    <%= data.location %>
+                                </dd>
+                                <dt>Interests</dt>
+                                <dd>
+                                    <%= data.interests %>
+                                </dd>
+                                <dt>About me</dt>
+                                <dd>
+                                    <%= data.description %>
+                                </dd>
+                            </dl>
+                        </div>
+                    </article>
+
+
+
+                </section>
+
+                <%- include('includes/footer.ejs'); %>
+
+
+
+
+
+    </main>

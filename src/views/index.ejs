@@ -18,6 +18,14 @@
 
     <%- include('includes/section_users.ejs'); %>
   </div>
+
+    <% if (locals.user) { %>
+    <%- include('includes/section_weather.ejs'); %>
+    <% } %>
+
+    <%- include('includes/section_boardgames.ejs'); %>
+    <%- include('includes/section_comics.ejs'); %>
+
   </main>
   <%- include('includes/footer.ejs'); %>
   <%- include('includes/scripts.ejs'); %>
