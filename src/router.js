@@ -44,7 +44,7 @@ router
     .get('/otherprofile/:username', otherprofile)
     .get('/mymatches/:username', mymatches)
 
-    .get('/search', search)
+    .get('/search', userRedirectLogin, search)
     .get('/apipage', index)
     .post('/apipage', index)
     .post('/matches', unmatch)

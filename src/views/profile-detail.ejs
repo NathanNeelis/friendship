@@ -1,34 +1,30 @@
-<%- include('includes/head.ejs'); %>
+<%- include('partials/shared/html-open.ejs'); %>
+<%- include('partials/globals/header.ejs'); %>
 
-<body>
-    <%- include('includes/header.ejs'); %>
-    <main>
-
-        <div class="p-other-profile">
-            <form class="m-form" action="/like" method="POST">
-                <legend><%= data.firstname %>'s profile</legend>
-                <div class="p-profile__avatar" style="background-image: url(/<%= data.avatar %>)">
+<main>
+    <div class="p-other-profile">
+        <form class="m-form" action="/like" method="POST">
+            <legend><%= data.firstname %>'s profile</legend>
+            <div class="p-profile__avatar" style="background-image: url(/<%= data.avatar %>)">
+            </div>
+            <label class="edit-label" for="editUser">Username</label>
+            <p><%= data.username %></p>
+            <label class="edit-label" for="editLocation">Location</label>
+            <p><%= data.location %></p>
+            <label class="edit-label" for="editInterests">Interests</label>
+            <div class="tag-container tag-container-profile">
+                <% for (let i = 0; i < data.interests.length; i++) { %>
+                <div class="tag"><span class="interestitem"><%= data.interests[i] %></span>
+                    <p class="close-button" data-item="<%= data.interests[i] %>">x</p>
                 </div>
-                <label class="edit-label" for="editUser">Username</label>
-                <p><%= data.username %></p>
-                <label class="edit-label" for="editLocation">Location</label>
-                <p><%= data.location %></p>
-                <label class="edit-label" for="editInterests">Interests</label>
-                <div class="tag-container tag-container-profile">
-                    <% for (let i = 0; i < data.interests.length; i++) { %>
-                    <div class="tag"><span class="interestitem"><%= data.interests[i] %></span>
-                        <p class="close-button" data-item="<%= data.interests[i] %>">x</p>
-                    </div>
-                    <% } %>
-                </div>
-                <label class="edit-label" for="editDescription">Description</label>
-                <p><%= data.description %></p>
-                <button name="like" type="submit" value="<%=data._id%>">Like</button>
-            </form>
+                <% } %>
+            </div>
+            <label class="edit-label" for="editDescription">Description</label>
+            <p><%= data.description %></p>
+            <button name="like" type="submit" value="<%=data._id%>">Like</button>
+        </form>
+    </div>
+</main>
 
-        </div>
-    </main>
-
-    <%- include('includes/footer.ejs'); %>
-    <%- include('includes/scripts.ejs'); %>
-</body>
+<%- include('partials/globals/footer.ejs'); %>
+<%- include('partials/shared/html-close.ejs'); %>
