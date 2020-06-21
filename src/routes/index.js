@@ -29,13 +29,12 @@ const index = async (req, res) => {
         dataToFilter.forEach((result) => {
           if (result.likes.includes(myData._id) && myData.likes.includes(result._id)) {
           let cleantheArray = dataToFilter.indexOf(result);
-          dataToFilter.splice(cleantheArray, 1)
-
-          };
+          dataToFilter.splice(cleantheArray, 1);
+          }
         });
 
       return dataToFilter;
-      }
+      };
 
 
       const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
@@ -46,7 +45,7 @@ const index = async (req, res) => {
         let dataMTBFiltered = filteredData(dataMTB);
         let dataGamesFiltered = filteredData(dataGames);
    
-        res.render('index.ejs', {
+        res.render('index', {
           user: myData,
           data: allDataFiltered,
           dataBG: dataBGFiltered,
@@ -62,7 +61,7 @@ const index = async (req, res) => {
 
     } else if (!req.session.sessionID) { // If there is no user logged in:
       const done = (allData, dataBG, dataComics) => {
-        res.render('index.ejs', {
+        res.render('index', {
           user: req.session.user,
           data: allData,
           dataBG: dataBG,

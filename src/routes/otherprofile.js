@@ -1,4 +1,3 @@
-
 const User = require('../user');
 
 const otherprofile = (req, res) => {
@@ -13,6 +12,7 @@ const otherprofile = (req, res) => {
                 matchData: false,
             });
 		} else {
+            console.log('User not found');
         }
 	});
 };

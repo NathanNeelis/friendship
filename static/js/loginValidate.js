@@ -18,52 +18,50 @@ if (loadValidateLogin) {
             var target = e;
         }
 
+        const emailValidator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const defaultErr = 'Please fill in this field.';
 
-        var loginEmail = document.querySelector('#loginEmail');
-        var loginPassword = document.querySelector('#loginPassword');
+        const createError = (msg) => {
+            target.nextElementSibling.classList.replace('no-error-message', 'error-message');
+            target.nextElementSibling.innerHTML = msg;
+            target.classList.add('error');
+            target.classList.remove('no-error');
+        };
 
-        var emailValidator = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const removeError = () => {
+            target.classList.remove('no-error');
+            target.classList.remove('error');
+            target.nextElementSibling.classList.replace('error-message', 'no-error-message');
+        };
 
-        if (target.id == 'loginEmail') {
-            if (loginEmail.value.length == 0) {
-                if (!loginEmail.classList.contains('error')) {
-                    loginEmail.classList.add('error');
-                    loginEmail.classList.remove('no-error');
-                    loginEmail.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    loginEmail.nextElementSibling.innerHTML = 'Please fill in your e-mail adress.';
-                } else {
-                    loginEmail.classList.remove('no-error');
-                    loginEmail.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    loginEmail.nextElementSibling.innerHTML = 'Please fill in your e-mail adress.';
-                }
-            } else if (!loginEmail.value.match(emailValidator)) {
-                loginEmail.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                loginEmail.nextElementSibling.innerHTML = 'Please fill in a valid e-mail adress.';
-                loginEmail.classList.add('error');
-                loginEmail.classList.remove('no-error');
+        const checkEmail = () => {
+            if (!target.value.match(emailValidator)) {
+                const err = 'Please fill in a valid e-mail adress.';
+                createError(err);
+            } else if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                loginEmail.classList.remove('no-error');
-                loginEmail.classList.remove('error');
-                loginEmail.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
-        if (target.id == 'loginPassword') {
-            if (loginPassword.value.length == 0) {
-                if (!loginPassword.classList.contains('error')) {
-                    loginPassword.classList.add('error');
-                    loginPassword.classList.remove('no-error');
-                    loginPassword.nextElementSibling.classList.replace('no-error-message', 'error-message');
-                    loginPassword.nextElementSibling.innerHTML = 'Please fill in your password.';
-                }
+        const checkDefault = () => {
+            if (target.value.length == 0) {
+                createError(defaultErr);
             } else {
-                loginPassword.classList.remove('error');
-                loginPassword.classList.remove('no-error');
-                loginPassword.nextElementSibling.classList.replace('error-message', 'no-error-message');
+                removeError();
             }
-        }
+        };
 
+        const checkTarget = () => {
+            if (target.id === 'loginEmail') {
+                checkEmail();
+            } else if (target.id === 'loginPassword') {
+                checkDefault();
+            } 
+        };
 
+        checkTarget();
     };
 
     var inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
