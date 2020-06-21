@@ -23,6 +23,9 @@
                             <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location" value="<%= data.signupLocation %>">
                             <span class="no-error-message"></span>
                             <label for="signupInterests">Interests</label>
+                            <div class="tag-container">
+                                <input id="signupInterestsTags" onkeydown="return event.key != 'Enter';"  />  
+                            </div>
                             <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests" value="<%= data.signupInterests %>">
                             <span class="no-error-message"></span>
                             <label for="signupDescription">Description</label>
@@ -68,6 +71,9 @@
                             <input class="no-error" type="text" name="signupLocation" id="signupLocation" placeholder="Location">
                             <span class="no-error-message"></span>
                             <label for="signupInterests">Interests</label>
+                            <div class="tag-container">
+                                <input id="signupInterestsTags" onkeydown="return event.key != 'Enter';"  />  
+                            </div>
                             <input class="no-error" type="text" name="signupInterests" id="signupInterests" placeholder="Interests">
                             <span class="no-error-message"></span>
                             <label for="signupDescription">Description</label>

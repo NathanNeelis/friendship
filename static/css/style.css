@@ -322,7 +322,29 @@ section form div div input[type=checkbox] {
 .search {
     position: absolute;
     z-index: -1;
+    visibility: hidden;
 }
+
+/* errors */
+.no-result {
+    margin:0 auto;
+    width: 80vw;
+}
+
+.no-result article{
+    width:100%;
+}
+
+.no-result img {
+    border-radius:1em;
+    width:80vw;
+    margin:2em 0;
+}
+
+.no-result h2 {
+    margin:1em 2em;
+}
+
 
 /*--------------------------- Register --------------------------------*/
 /*--------------------------- Register --------------------------------*/
@@ -480,6 +502,28 @@ form input[type=file] {
     margin: 1rem 0 1rem 0;
 }
 
+/*--------------------------- API files --------------------------------*/
+.userLocation {
+    display: none;
+}
+
+.statusC {
+    display:flex;
+    align-items: center;
+    margin:1rem 0;
+    padding:0;
+}
+
+#weatherStatus{
+    color: white;
+}
+
+#weatherStatusImage {
+    margin: 0 1.5rem 0 .5rem;
+    width:2rem;
+    height:2rem;
+
+}
 
 /*--------------------------- boardGames --------------------------------*/
 
@@ -495,6 +539,41 @@ form input[type=file] {
 /*--------------------------- Card profiles --------------------------------*/
 /*--------------------------- Card profiles --------------------------------*/
 /*--------------------------- Card profiles --------------------------------*/
+
+/*--------- Weather data ----------------------*/
+
+.mtb-hide {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.games-hide {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.category-mtb {
+    width: 100vw;
+    margin: 0 auto; 
+    /* display:initial; */
+}
+
+.category-games {
+    width: 100vw;
+    margin: 0 auto; 
+    /* display:initial; */
+}
+
+/* End weather data */
+
 .category-fit,
 .category-boardgames,
 .categoryComics {
@@ -504,13 +583,17 @@ form input[type=file] {
 
 .category-fit h2,
 .category-boardgames h2,
-.categoryComics h2 {
+.categoryComics h2,
+.category-mtb h2,
+.category-games h2 {
     margin: 1em 12.5vw 0 12.5vw;
 }
 
 .category-fit div,
 .category-boardgames div,
-.categoryComics div {
+.categoryComics div, 
+.category-mtb div,
+.category-games div {
     /* display: flex;
     justify-content: center;
     flex-direction: row;
@@ -522,14 +605,18 @@ form input[type=file] {
 
 .category-fit img,
 .category-boardgames img,
-.categoryComics img {
+.categoryComics img, 
+.category-mtb img, 
+.category-games img {
     border-radius: .9em .9em 0em 0em;
     width: 12em;
 }
 
 .category-fit div article,
 .category-boardgames div article,
-.categoryComics div article {
+.categoryComics div article, 
+.category-mtb div article, 
+.category-games div article {
     width: 12em;
     margin: 2em 10vw 4em 12.5vw;
     border-radius: 1em;
@@ -549,7 +636,9 @@ form input[type=file] {
 
 .category-fit div article h4,
 .category-boardgames div article h4,
-.categoryComics div article h4 {
+.categoryComics div article h4, 
+.category-mtb div article h4,
+.category-games div article h4 {
     width: 12rem;
     padding: .5em 1em 0em 1em;
     color: white;
@@ -564,7 +653,9 @@ form input[type=file] {
 
 .category-fit div article p,
 .category-boardgames div article p,
-.categoryComics div article p {
+.categoryComics div article p, 
+.category-mtb div article p,
+.category-games div article p {
     width: 12em;
     padding: 0em 1em .5em 1em;
     color: white;
@@ -722,6 +813,26 @@ footer {
             inset -10px -10px 28px #ff009b;
     }
 
+    .no-result {
+        width: 50vw;
+    }
+
+    .no-result h2 {
+        margin:0 auto;
+    }
+
+    .no-result article{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .no-result img {
+        width:50%;
+        margin:2em;
+    }
+
     /*--------------------------- Register --------------------------------*/
 
     .register div:first-of-type {
@@ -772,19 +883,25 @@ footer {
         width: 50vw;
     }
 
+ 
+
     /*--------------------------- profile cards--------------------------------*/
 
 
     .category-fit,
     .category-boardgames,
-    .categoryComics {
+    .categoryComics,
+    .category-mtb,
+    .category-games {
         width: 60vw;
         margin: 0 auto;
     }
 
     .category-fit div,
     .category-boardgames div,
-    .categoryComics div {
+    .categoryComics div,
+    .category-mtb div,
+    .category-games div {
         display: flex;
         justify-content: flex-start;
         align-content: flex-start;
@@ -796,20 +913,26 @@ footer {
 
     .category-fit div article,
     .category-boardgames div article,
-    .categoryComics div article {
+    .categoryComics div article,
+    .category-mtb div article,
+    .category-games div article {
         margin: 2em 1em 2em 1em;
 
     }
 
     .category-fit h2,
     .category-boardgames h2,
-    .categoryComics h2 {
+    .categoryComics h2, 
+    .category-mtb h2, 
+    .category-games h2 {
         margin: 1em 1em 0 1em;
     }
 
     .category-fit div article:hover,
     .category-boardgames div article:hover,
-    .categoryComics div article:hover {
+    .categoryComics div article:hover, 
+    .category-mtb div article:hover,
+    .category-games div article:hover {
         background: #FF0073;
         box-shadow: 10px 10px 30px #d9d9d9,
             -10px -10px 30px #ffffff;
@@ -846,6 +969,9 @@ footer {
         padding: .3em 0em;
     }
 
+
+    
+
 }
 
 /* Responsive 1200px START*/
@@ -871,8 +997,6 @@ footer {
     .comics article {
         width: 30vw;
     }
-
-
 
 }
 
@@ -913,53 +1037,46 @@ footer {
 }
 
 
-    /*--------------------------- Caroussel --------------------------------*/
-
-
-
-.carousel-container {
-    width: 60%;
-    margin: auto;
-    overflow-x: scroll;
-
+/* Input tags interests */
+.tag-container {
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 6px;
+  overflow-x: scroll;
 }
-.javaScript-car{
-    overflow:hidden;
-
+.tag-container .tag {
+  height: 30px;
+  margin: 5px;
+  padding: 5px 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  color: #333;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
+  cursor: default;
 }
-.carousel-slide {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    width: 100%;
-    padding-inline-start: 0;
+.tag p {
+  font-size: 16px;
+  color: #666;
+  margin-left: 5px;
+  cursor: pointer;
 }
-.header-intro-detail .true {
-    background-color: none;
-}
-
-
-.true button {
-    background-color: #F6F6F6;
-    border: 1px solid #333333;
-    color: #333333;
-}
-.caroussel-nav{
-display: flex;
-justify-content: center;
-
-}
-.caroussel-nav button{
-border: 0;
-border-radius: 100%;
-width: 15px;
-height: 15px;
-background: #e5e5e5;
-margin: 2px;
-
+.tag-container input {
+  padding: 5px;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+  font-family: 'Rubik';
+  color: #333;
+  flex: 1;
 }
 
-.caroussel-nav  .active{
-    background: #979797;
-
+#signupInterests {
+    display: none;
 }

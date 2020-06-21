@@ -10,6 +10,12 @@ const index = async (req, res) => {
     const dataComics = await User.find({
       interests: 'comics' // Looks in all data for people that have comics in their interests
     });
+    const dataMTB = await User.find({
+      interests: 'Mountainbike' // Looks in all data for people that have comics in their interests
+    });
+    const dataGames = await User.find({
+      interests: 'Games' // Looks in all data for people that have comics in their interests
+    });
 
     const dataMTB = await User.find({
       interests: 'Mountainbike' // Looks in all data for people that have comics in their interests
@@ -38,9 +44,6 @@ const index = async (req, res) => {
       return dataToFilter;
       }
 
-  
-
-
 
       const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
        
@@ -49,10 +52,7 @@ const index = async (req, res) => {
         let dataComicsFiltered = filteredData(dataComics);
         let dataMTBFiltered = filteredData(dataMTB);
         let dataGamesFiltered = filteredData(dataGames);
-    
-        
    
-
         res.render('index.ejs', {
           user: myData,
           data: allDataFiltered,
@@ -65,7 +65,7 @@ const index = async (req, res) => {
       };
 
       done(allData, myData, dataBG, dataComics, dataMTB, dataGames);
-
+      
 
     } else if (!req.session.sessionID) { // If there is no user logged in:
       const done = (allData, dataBG, dataComics) => {
