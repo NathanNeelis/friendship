@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 
 const router = require('./src/router');
-
 const express = require('express');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
+
 require('dotenv').config();
 
 const app = express();
@@ -42,6 +43,20 @@ app.use(session({
 		secure: false
 	}
 }));
+
+app.use(
+	helmet(),
+	helmet.noCache(),
+	helmet.contentSecurityPolicy({
+		directives: {
+		  defaultSrc: ["'self'"],
+		  styleSrc: ["'self'"],
+		  scriptSrc: ["'self'"]
+		}})
+);
+
+
+
 
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);

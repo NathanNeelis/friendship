@@ -1,8 +1,10 @@
 const User = require('../user');
 
-const matches = (req, res) => {
-    const matches = [];
 
+
+
+const matches = (req, res) => {
+    const matchesItems = [];
     User.findOne({
         _id: req.session.sessionID
     }, (err, user) => {
@@ -16,11 +18,13 @@ const matches = (req, res) => {
                     // does the same thing, for loop vs for each
                     result.forEach((userItem) => {
                         if (userItem.likes.includes(user._id) && user.likes.includes(userItem._id)) {
-                            matches.push(userItem);
+                            matchesItems.push(userItem);
                         }
                     });
+
+
                     res.render('matches', {
-                        data: matches
+                        data: matchesItems
                     });
                 }
             });
@@ -29,5 +33,6 @@ const matches = (req, res) => {
         }
     });
 };
+
 
 module.exports = matches;

@@ -9,7 +9,7 @@ const profile = (req, res) => {
 		}
 		if (user) {
 			res.render('profile.ejs', {
-				'user': user
+				user: user
 			});
 		} else {
 			console.log('Error: client ID could not been found!');
