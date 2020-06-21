@@ -501,7 +501,10 @@ body {
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: bold;
-  border-radius: 17.5px; }
+  border-radius: 17.5px;
+  -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15); }
   @media (max-width: 520px) {
     .m-form {
       padding: 50px; } }
@@ -1042,3 +1045,8 @@ nav {
       @media (max-width: 900px) {
         .p-home__banner button {
           margin-top: 20px; } }
+
+.p-search {
+  width: 100%;
+  padding: 50px 30px;
+  background-color: #FFE7DF; }

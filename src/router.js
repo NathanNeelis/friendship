@@ -14,8 +14,8 @@ const
     otherprofile = require('./routes/otherprofile'),
     matches = require('./routes/matches'),
     unmatch = require('./routes/unmatch'),
-    likepost = require('./routes/likepost');
-    mymatches = require ('./routes/mymatches')
+    likepost = require('./routes/likepost'),
+    mymatches = require ('./routes/mymatches');
 
 
 const userRedirectLogin = (req, res, next) => {
