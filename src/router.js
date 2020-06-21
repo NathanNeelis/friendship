@@ -42,7 +42,7 @@ router
     .post('/profile', likepost)
     .post('/login', loginpost)
     .get('/matches', matches)
-    .post('/matches', unmatch)
+    .post('/other-profile-match', unmatch)
     .get('/activate', activate)
     .get('/otherprofile/:username', otherprofile)
     .get('/mymatches/:username', mymatches)

@@ -8,9 +8,8 @@ const mymatches = (req, res) => {
 		if (err) {
             console.log('MongoDB Error:' + err);
 		} else if (user) {
-            res.render('profile-detail.ejs', {
+            res.render('other-profile-match', {
                 'data': user,
-                'matchData': true
             });
 		} else {
             console.log('DAMN NO USER FOUND');

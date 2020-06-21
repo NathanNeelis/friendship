@@ -18,7 +18,7 @@ const unmatch = (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log('IT WORKS');
+                    res.redirect('/matches');
                 }
             });
         } else {

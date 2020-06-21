@@ -44,7 +44,18 @@ app.use(session({
 	}
 }));
 
-app.use(helmet());
+app.use(
+	helmet(),
+	helmet.noCache(),
+	helmet.contentSecurityPolicy({
+		directives: {
+		  defaultSrc: ["'self'"],
+		  styleSrc: ["'self'"],
+		  scriptSrc: ["'self'"]
+		}})
+);
+
+
 
 
 store.on('error', (err) => {
