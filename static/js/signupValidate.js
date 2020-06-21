@@ -48,7 +48,6 @@ if (loadValidateSignup) {
 
             addTags();
             input.value = '';
-            console.log(tags);
         }
     });
     document.addEventListener('click', (e) => {

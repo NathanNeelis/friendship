@@ -21,6 +21,8 @@
 /* -------------------------------------------------------------------------- */
 @import './modules/m-form';
 @import './modules/m-nav';
+@import './modules/m-users';
+@import './modules/m-category';
 
 /* -------------------------------------------------------------------------- */
 /*                                    Pages                                   */
@@ -28,3 +30,5 @@
 @import './pages/p-register';
 @import './pages/p-login';
 @import './pages/p-profile';
+@import './pages/p-home';
+@import './pages/p-search';

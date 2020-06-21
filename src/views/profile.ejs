@@ -5,8 +5,10 @@
     <main>
 
         <div class="p-profile">
-            <form class="profile__edit__form" id="edit_profile" action="/profile" method="POST">
-                <legend>Profile</legend>
+            <form class="profile__edit__form m-form" id="edit_profile" action="/profile" method="POST">
+                <legend>My profile</legend>
+                <div class="p-profile__avatar" style="background-image: url(<%= user.avatar %>)">
+                </div>
                 <span class="sign-up--failed">The username <span
                         class="takenUsername"><% if (locals.data) { %><%= data.editUser %><% } %></span> is
                     already taken, please choose a different one.</span>
@@ -31,7 +33,9 @@
                 <textarea name="editDescription" id="editDescription" cols="30"
                     rows="10"><%= user.description %></textarea>
                 <button class="profile__save">Save changes</button>
-                <div class="profile__edit">Edit profile</div>
+                <div class="profile__edit"><svg>
+                    <path d="M25.6167695,12.7520919 C26.26541,12.1034515 27.210824,11.8501285 28.0968833,12.0875474 C28.9829426,12.3249663 29.6750337,13.0170574 29.9124526,13.9031167 C30.1498715,14.789176 29.8965485,15.73459 29.2479081,16.3832305 L16.9928155,28.638323 L12,30 L13.361677,25.0071845 L25.6167695,12.7520919 Z" id="Path"></path>
+                    </svg>Edit profile</div>
             </form>
         </div>
     </main>

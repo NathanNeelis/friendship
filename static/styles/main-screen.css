@@ -491,7 +491,7 @@ body {
 /* -------------------------------------------------------------------------- */
 /*                                   Modules                                  */
 /* -------------------------------------------------------------------------- */
-form {
+.m-form {
   margin: 0 auto;
   width: 100%;
   max-width: 770px;
@@ -500,24 +500,24 @@ form {
   background-color: #F9F9F9;
   font-family: 'Montserrat';
   font-size: 18px;
-  font-weight: 700;
+  font-weight: bold;
   border-radius: 17.5px; }
   @media (max-width: 520px) {
-    form {
+    .m-form {
       padding: 50px; } }
-  form p {
+  .m-form p {
     line-height: 30px; }
-  form label {
+  .m-form label {
     font-weight: bold;
     display: block;
     margin-top: 30px; }
-  form legend {
+  .m-form legend {
     font-family: 'Playfair Display';
-    font-weight: 700;
+    font-weight: bold;
     font-size: 44px;
     margin-bottom: 25px; }
-  form input,
-  form textarea {
+  .m-form input,
+  .m-form textarea {
     padding: 10px;
     height: 30px;
     margin-top: 10px;
@@ -526,18 +526,18 @@ form {
     border: 0;
     background-color: transparent;
     border-bottom: 1px solid #9D9DA6; }
-    form input:focus,
-    form textarea:focus {
+    .m-form input:focus,
+    .m-form textarea:focus {
       outline: 0;
       border-bottom: 2px solid #100033; }
-    form input[type="file"],
-    form textarea[type="file"] {
+    .m-form input[type="file"],
+    .m-form textarea[type="file"] {
       display: none; }
     @media (max-width: 520px) {
-      form input,
-      form textarea {
+      .m-form input,
+      .m-form textarea {
         width: 100%; } }
-  form button {
+  .m-form button {
     font-family: 'Montserrat';
     margin-top: 30px;
     width: 120px;
@@ -547,11 +547,11 @@ form {
     background-color: #100033;
     border: 3px solid #100033;
     transition: all 200ms ease-in-out; }
-    form button:hover {
+    .m-form button:hover {
       background-color: #F9F9F9;
       color: #100033;
       cursor: pointer; }
-  form .upload-label {
+  .m-form .upload-label {
     font-family: 'Montserrat';
     font-weight: normal;
     text-align: center;
@@ -565,63 +565,63 @@ form {
     border: 3px solid #100033;
     transition: all 200ms ease-in-out;
     margin-top: 35px; }
-    form .upload-label:hover {
+    .m-form .upload-label:hover {
       color: #F9F9F9;
       background-color: #100033;
       cursor: pointer; }
-    form .upload-label::before {
+    .m-form .upload-label::before {
       position: absolute;
       content: '+';
       font-size: 35px;
       font-weight: bold;
       transform: translate(-30px, -10px);
       z-index: 1; }
-  form textarea {
+  .m-form textarea {
     height: 150px;
     resize: none; }
-  form .tag-container {
+  .m-form .tag-container {
     max-width: 400px;
     display: flex;
     flex-wrap: wrap; }
-    form .tag-container .tag {
+    .m-form .tag-container .tag {
       height: 40px;
       border: 1px solid #100033;
       border-radius: 6px;
       margin: 15px 5px 0px;
       padding: 3px 10px 10px;
       display: block; }
-      form .tag-container .tag p {
+      .m-form .tag-container .tag p {
         margin-left: 10px;
         cursor: pointer;
         display: inline; }
-      form .tag-container .tag:last-of-type {
+      .m-form .tag-container .tag:last-of-type {
         margin-right: 40px; }
-    form .tag-container input {
+    .m-form .tag-container input {
       left: 0; }
-  form #signupInterests {
+  .m-form #signupInterests {
     display: none; }
-  form .login-failed {
+  .m-form .login-failed {
     display: none; }
-  form .upload-text {
+  .m-form .upload-text {
     font-size: 15px;
     margin-top: 5px; }
-  form .error-message {
+  .m-form .error-message {
     display: block;
     margin-top: 10px;
     font-size: 16px;
     font-weight: lighter;
     color: red; }
-  form .no-error-message {
+  .m-form .no-error-message {
     display: none; }
-  form .sign-up--failed {
+  .m-form .sign-up--failed {
     display: none; }
-  form .form-error-message {
+  .m-form .form-error-message {
     margin-top: 5px;
     display: block;
     font-size: 16px;
     font-weight: lighter;
     color: red; }
-    form .form-error-message span {
+    .m-form .form-error-message span {
       text-decoration: underline; }
 
 nav {
@@ -690,12 +690,16 @@ nav {
     transform: translateX(100vw);
     transition: all 150ms ease-in-out; }
     nav .nav-mobile ul {
-      margin-top: 40px; }
+      margin-top: 40px;
+      margin-left: 60px;
+      border-left: 2px solid #100033; }
     nav .nav-mobile li {
       display: block;
-      margin: 20px 0; }
+      margin: 30px 0; }
       nav .nav-mobile li a {
-        font-size: 30px; }
+        font-family: 'Playfair Display';
+        font-weight: bold;
+        font-size: 44px; }
     nav .nav-mobile--active {
       opacity: 1;
       transform: translateX(0); }
@@ -707,6 +711,132 @@ nav {
   margin: 0;
   height: 100%;
   overflow: hidden; }
+
+.m-users {
+  background-color: #F9F9F9;
+  margin: 100px auto;
+  max-width: 1000px;
+  padding: 80px;
+  width: 100%;
+  border-radius: 12px; }
+  @media (max-width: 1000px) {
+    .m-users {
+      border-radius: 0; } }
+  .m-users a {
+    text-decoration: none; }
+  .m-users h2 {
+    font-family: 'Playfair Display';
+    font-weight: bold;
+    font-size: 40px; }
+  .m-users p {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 50px; }
+  .m-users .user-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto; }
+  .m-users .user {
+    width: 250px;
+    height: 300px;
+    border-radius: 6px;
+    margin: 24px 12px;
+    display: inline-block;
+    position: relative;
+    -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    overflow: hidden; }
+    @media (max-width: 700px) {
+      .m-users .user {
+        width: 100%;
+        margin: 20px 0; } }
+    .m-users .user:hover .user__image {
+      transform: scale(1.1); }
+    .m-users .user__image {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      transition: all 400ms ease-in-out; }
+    .m-users .user h4 {
+      color: #F9F9F9;
+      text-decoration: none;
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      font-family: 'Montserrat';
+      font-size: 30px;
+      font-weight: bold; }
+    .m-users .user P {
+      color: #F9F9F9;
+      text-decoration: none;
+      position: absolute;
+      bottom: -30px;
+      left: 20px;
+      font-family: 'Montserrat';
+      font-size: 15px; }
+
+.m-category {
+  width: 100%;
+  height: 750px;
+  background-color: #100033;
+  color: #F9F9F9;
+  display: flex; }
+  @media (max-width: 650px) {
+    .m-category {
+      display: block;
+      height: auto; } }
+  .m-category__title {
+    font-family: 'Playfair Display';
+    font-weight: bold;
+    font-size: 32px;
+    display: inline; }
+  .m-category__info {
+    width: 50%;
+    padding: 50px; }
+    @media (max-width: 650px) {
+      .m-category__info {
+        width: 100%; } }
+    .m-category__info__container {
+      position: relative;
+      top: 50%;
+      transform: translateY(-60%); }
+      @media (max-width: 650px) {
+        .m-category__info__container {
+          top: 0;
+          transform: translateY(0); } }
+  .m-category__image {
+    width: 50%;
+    background-position: center;
+    background-size: cover; }
+    @media (max-width: 650px) {
+      .m-category__image {
+        width: 100%;
+        height: 300px; } }
+  .m-category__weather-message {
+    font-family: 'Montserrat';
+    font-size: 18px; }
+    @media (max-width: 1000px) {
+      .m-category__weather-message {
+        margin-top: 10px;
+        display: block; } }
+    .m-category__weather-message-2 {
+      font-family: 'Playfair Display';
+      font-weight: bold;
+      font-size: 48px; }
+      @media (max-width: 750px) {
+        .m-category__weather-message-2 {
+          font-size: 30px; } }
+  .m-category__icon {
+    width: 50px;
+    display: inline-block;
+    margin: 0 20px; }
+  .m-category__text {
+    font-family: 'Montserrat';
+    font-size: 20px; }
 
 /* -------------------------------------------------------------------------- */
 /*                                    Pages                                   */
@@ -755,9 +885,25 @@ nav {
   width: 100%;
   padding: 50px 30px;
   background-color: #FFE7DF; }
+  .p-profile__avatar {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    transform: translate(-400px, -70px);
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15); }
+    @media (max-width: 1080px) {
+      .p-profile__avatar {
+        position: relative;
+        transform: translate(0);
+        width: 100%;
+        height: 300px; } }
   .p-profile .edit-label {
-    font-size: 25px;
-    text-decoration: underline; }
+    font-size: 25px; }
   .p-profile .upload-label {
     display: none; }
   .p-profile #signupAvatar {
@@ -784,14 +930,14 @@ nav {
     display: none; }
   .p-profile button {
     display: none;
-    width: 150px; }
+    width: 180px; }
   .p-profile .save-button {
     display: block; }
   .p-profile .profile__edit {
     font-family: 'Montserrat';
     font-weight: lighter;
     margin-top: 30px;
-    width: 150px;
+    width: 180px;
     height: 50px;
     border-radius: 6px;
     color: #F9F9F9;
@@ -799,10 +945,100 @@ nav {
     border: 3px solid #100033;
     transition: all 200ms ease-in-out;
     text-align: center;
-    padding-top: 12px; }
+    padding-top: 12px;
+    padding-left: 25px; }
     .p-profile .profile__edit:hover {
       background-color: #F9F9F9;
       color: #100033;
       cursor: pointer; }
+      .p-profile .profile__edit:hover svg {
+        fill: #100033; }
+    .p-profile .profile__edit svg {
+      width: 30px;
+      height: 30px;
+      fill: #F9F9F9;
+      position: absolute;
+      transform: translate(-40px, -12px);
+      transition: all 200ms ease-in-out; }
   .p-profile .edit-active {
     display: none; }
+  .p-profile form {
+    padding-left: 200px;
+    width: 600px; }
+    @media (max-width: 1080px) {
+      .p-profile form {
+        padding-left: 70px;
+        width: auto; } }
+
+.p-home {
+  background-color: #FFE7DF;
+  padding-top: 100px; }
+  .p-home__banner {
+    width: 100%;
+    padding: 200px 0; }
+    @media (max-width: 900px) {
+      .p-home__banner {
+        padding: 50px 0; } }
+    .p-home__banner__container {
+      margin: 0 auto;
+      max-width: 1000px;
+      width: 100%;
+      display: flex; }
+      @media (max-width: 900px) {
+        .p-home__banner__container {
+          display: block; } }
+    .p-home__banner__left {
+      border-right: 1px solid #100033;
+      width: 60%; }
+      @media (max-width: 900px) {
+        .p-home__banner__left {
+          margin: 0 auto;
+          width: 80%;
+          border-bottom: 1px solid #100033;
+          border-right: 0;
+          padding-bottom: 30px; } }
+      .p-home__banner__left h1 {
+        width: 500px;
+        margin: 0 0 0 auto;
+        font-family: 'Playfair Display';
+        font-weight: bold;
+        font-size: 60px; }
+        @media (max-width: 900px) {
+          .p-home__banner__left h1 {
+            width: 100%; } }
+    .p-home__banner__right {
+      width: 40%;
+      padding-left: 50px; }
+      @media (max-width: 900px) {
+        .p-home__banner__right {
+          margin: 0 auto;
+          width: 80%;
+          padding-left: 0;
+          padding-top: 30px; } }
+      .p-home__banner__right h2 {
+        width: 300px;
+        margin: 0 auto 0 0;
+        font-family: 'Montserrat';
+        font-size: 40px; }
+        @media (max-width: 900px) {
+          .p-home__banner__right h2 {
+            width: 100%;
+            font-size: 26px; } }
+    .p-home__banner button {
+      font-family: 'Montserrat';
+      padding: 0 20px;
+      font-size: 25px;
+      margin-top: 30px;
+      height: 50px;
+      border-radius: 6px;
+      color: #100033;
+      background-color: transparent;
+      border: 3px solid #100033;
+      transition: all 200ms ease-in-out; }
+      .p-home__banner button:hover {
+        background-color: #100033;
+        color: #F9F9F9;
+        cursor: pointer; }
+      @media (max-width: 900px) {
+        .p-home__banner button {
+          margin-top: 20px; } }

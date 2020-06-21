@@ -95,14 +95,18 @@ nav {
 
         ul {
             margin-top: 40px;
+            margin-left: 60px;
+            border-left: 2px solid $purple;
         }
 
         li {
             display: block;
-            margin: 20px 0;
+            margin: 30px 0;
 
             a {
-                font-size: 30px;
+                font-family: 'Playfair Display';
+                font-weight: bold;
+                font-size: 44px;
             }
         }
 

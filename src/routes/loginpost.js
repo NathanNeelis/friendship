@@ -23,7 +23,6 @@ const loginpost = (req, res) => {
 
     const checkPassword = (user) => {
         user.comparePassword(req.body.loginPassword, (err, matches) => {
-            console.log(matches);
             if (err) {
                 console.log(err);
             } else if (matches) {
