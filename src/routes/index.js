@@ -17,13 +17,6 @@ const index = async (req, res) => {
       interests: 'Games' // Looks in all data for people that have comics in their interests
     });
 
-    const dataMTB = await User.find({
-      interests: 'Mountainbike' // Looks in all data for people that have comics in their interests
-    });
-    const dataGames = await User.find({
-      interests: 'Games' // Looks in all data for people that have comics in their interests
-    });
-
     if (req.session.sessionID) {
       // Is there a user logged in? If so then:
       const myData = await User.findOne({
