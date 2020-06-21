@@ -9,24 +9,30 @@ const index = async (req, res) => {
     const dataComics = await User.find({
       interests: 'comics' // Looks in all data for people that have comics in their interests
     });
+    const dataMTB = await User.find({
+      interests: 'Mountainbike' // Looks in all data for people that have comics in their interests
+    });
+    const dataGames = await User.find({
+      interests: 'Games' // Looks in all data for people that have comics in their interests
+    });
 
     if (req.session.sessionID) {
       // Is there a user logged in? If so then:
       const myData = await User.findOne({
         _id: req.session.sessionID,
       });
-
-      const done = (allData, myData, dataBG, dataComics) => {
+      const done = (allData, myData, dataBG, dataComics, dataMTB, dataGames) => {
         res.render('index.ejs', {
           user: myData,
           data: allData,
           dataBG: dataBG,
           dataComics: dataComics,
+          dataMTB: dataMTB,
+          dataGames: dataGames,
+          // dataWeather: dataWeather
         });
       };
-      done(allData, myData, dataBG, dataComics);
-
-
+      done(allData, myData, dataBG, dataComics, dataMTB, dataGames);
     } else if (!req.session.sessionID) { // If there is no user logged in:
       const done = (allData, dataBG, dataComics) => {
         res.render('index.ejs', {

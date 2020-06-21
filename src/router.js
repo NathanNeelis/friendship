@@ -40,6 +40,8 @@ router
     .get('/matches', matches)
     .get('/activate', activate)
     .get('/search', search)
+    .get('/apipage', index)
+    .post('/apipage', index)
     .post('/matches', unmatch)
     .post('/likedebug', likepost)
     .post('/login', loginpost)

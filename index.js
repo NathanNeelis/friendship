@@ -54,6 +54,7 @@ app
 	.use(bodyParser.urlencoded({
 		extended: true
 	}))
+	.use(express.json({ limit: '1mb' }))
 	.listen(port, () => {
 		console.log('The server is running on port ' + port);
 	});
