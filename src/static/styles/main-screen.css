@@ -1247,7 +1247,7 @@ nav {
       @media (max-width: 900px) {
         .p-home__banner button {
           margin-top: 20px; } }
-  .p-home .mtb-hide, .p-home .games-hide, .p-home .userLocation {
+  .p-home .userLocation {
     display: none; }
 
 .p-search {

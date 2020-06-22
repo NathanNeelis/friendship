@@ -12,24 +12,24 @@
     </div>
 </div>
 
-<div id="mtb-hide">
-    <section class="category-mtb">
-        <p class="userLocation"><%= user.location %></p>
-        <h2 id="weatherHeaderMTB">The weather is great! Find some people to Mountainbike with:</h2>
-        <div>
-            <% for (let i = 0; i < dataWeather.length; i++) { %>
-            <article>
-                <a href="/<%= dataWeather[i].username %>">
-                    <img src="<%= dataWeather[i].avatar %>" alt="Profile photo">
-                    <h4>
-                        <%= dataWeather[i].firstname %>
-                    </h4>
-                    <p>
-                        <%= dataWeather[i].location %>
-                    </p>
-                </a>
-            </article>
-            <% } %>
+<div class="m-users">
+    <p class="userLocation"><%= user.location %></p>
+    <h2 id="weatherHeader"></h2>
+    <div class="user-container">
+      <% for (let i = 0; i < dataWeather.length; i++) { %>
+      <a href="/otherprofile/<%= dataWeather[i].username %>">
+        <div class="user">
+          <div class="user__image"
+            style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= dataWeather[i].avatar %>)">
+          </div>
+          <h4>
+            <%= dataWeather[i].firstname %>
+          </h4>
+          <p>
+            <%= dataWeather[i].location %>
+          </p>
         </div>
-    </section>
-</div>
+      </a>
+      <% } %>
+    </div>
+  </div>
