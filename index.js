@@ -6,6 +6,8 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const noCache = require('nocache');
+
 
 require('dotenv').config();
 
@@ -46,8 +48,25 @@ app.use(session({
 
 app.use(
 	helmet(),
-	helmet.noCache()
-);
+	helmet.contentSecurityPolicy({
+		directives: {
+			"default-src": ["'self'", 'https://api.openweathermap.org'],
+			"script-src": ["'self'", 'https://kit.fontawesome.com','https://kit-free.fontawesome.com'],
+			"style-src": ["'self'",
+			"'unsafe-inline'",
+			'https://fonts.googleapis.com',
+			'http://fonts.googleapis.com', 
+			'https://kit-free.fontawesome.com'
+		],
+			"font-src": ["'self'", 'https://fonts.gstatic.com', 'https://kit-free.fontawesome.com', 'http://fonts.gstatic.com', 'http://kit-free.fontawesome.com', ]
+		}
+	}),
+
+	helmet.frameguard({ action: 'deny' })
+
+	
+	);
+
 
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);
