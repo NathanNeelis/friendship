@@ -25,10 +25,14 @@ const likepost = (req, res) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
             } else if (user) {
+       
                 if (userProfile.likes.includes(user._id) && user.likes.includes(userProfile._id)) {
-                    console.log('matchpageeeee');
+                    res.render('profile-detail', {
+                        data: user,
+                        matchData: true
+                    });
                 } else {
-                    console.log('not a match yet pageeeeee');
+                    res.redirect('/');
                 }
             }
         });
@@ -49,7 +53,7 @@ const likepost = (req, res) => {
         });
 
 
-    }
+    };
     // Hier zoek je weer de ingelogde user en voeg je de id toe van de gelikede user in zijn/haar database.
     const userLiked = () => {
         User.updateOne({
@@ -63,7 +67,7 @@ const likepost = (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    SearchMyUser()
+                    SearchMyUser();
 
                 }
             }

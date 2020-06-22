@@ -29,6 +29,7 @@ const profilepost = (req, res) => {
     const editInfo = () => {
         updatedValues.location = req.body.editLocation;
         updatedValues.description = req.body.editDescription;
+        updatedValues.interests = req.body.editInterests.toLowerCase().split(',');
     };
 
     const updateData = (user) => {

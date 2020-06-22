@@ -13,7 +13,6 @@ const transporter = nodemailer.createTransport({
 });
 
 const registerpost = (req, res) => {
-
     const sendEmail = () => {
         User.findOne({
             username: req.body.signupUser
@@ -40,7 +39,7 @@ const registerpost = (req, res) => {
         newUser.firstname = req.body.signupFirst;
         newUser.dob = req.body.signupAge;
         newUser.location = req.body.signupLocation;
-        newUser.interests = req.body.signupInterests.split(',');
+        newUser.interests = req.body.signupInterests.toLowerCase().split(',');
         newUser.description = req.body.signupDescription;
         newUser.avatar = avatar;
         newUser.activated = 0;

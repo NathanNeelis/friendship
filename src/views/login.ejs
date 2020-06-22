@@ -1,14 +1,17 @@
-<%- include('includes/head.ejs'); %>
+<%- include('partials/shared/html-open.ejs'); %>
+<%- include('partials/globals/header.ejs'); %>
 
-<body>
-    <header>
-
-    </header>
-    <main>
+<main>
+    <div class="p-login">
+        <div class="p-login__banner">
+            <h1>The first app that is designed to make new friendships</h1>
+            <a href="/register">
+                <button>Register</button>
+            </a>
+        </div>
         <%- include('includes/login-user.ejs'); %>
-    </main>
-    <footer>
+    </div>
+</main>
 
-    </footer>
-    <%- include('includes/scripts.ejs'); %>
-</body>
+<%- include('partials/globals/footer.ejs'); %>
+<%- include('partials/shared/html-close.ejs'); %>

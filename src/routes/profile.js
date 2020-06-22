@@ -8,8 +8,8 @@ const profile = (req, res) => {
 			console.log('MongoDB Error:' + err);
 		}
 		if (user) {
-			res.render('profile.ejs', {
-				'user': user
+			res.render('profile', {
+				user: user
 			});
 		} else {
 			console.log('Error: client ID could not been found!');

@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 
 const router = require('./src/router');
-
 const express = require('express');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
+
 require('dotenv').config();
 
 const app = express();
@@ -43,6 +44,11 @@ app.use(session({
 	}
 }));
 
+app.use(
+	helmet(),
+	helmet.noCache()
+);
+
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);
 });
@@ -50,10 +56,11 @@ store.on('error', (err) => {
 app
 	.set('view engine', 'ejs')
 	.set('views', 'src/views')
-	.use(express.static('static'))
+	.use(express.static('src/static'))
 	.use(bodyParser.urlencoded({
 		extended: true
 	}))
+	.use(express.json({ limit: '1mb' }))
 	.listen(port, () => {
 		console.log('The server is running on port ' + port);
 	});

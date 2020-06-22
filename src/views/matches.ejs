@@ -1,6 +1,38 @@
-<% for (let i = 0; i < data.length; i++) { %>
-    <h2><%= data[i].username %></h2>
-    <form id="unmatch_form" action="/matches" method="POST">
-        <button name="unmatch" type="submit" value="<%= data[i]._id %>">unmatch</button> 
-    </form>
-<% } %>
+<%- include('partials/shared/html-open.ejs'); %>
+<%- include('partials/globals/header.ejs'); %>
+
+<main>
+    <div class="p-matches">
+        <div class="m-users">
+            <div class="user-container">
+                <% if (locals.data) { %>
+                <h2>Your matches</h2>
+                <p>These are your matches, you have both liked each other. Go to his/her profile and send them a
+                    message!</p>
+                <% for (let i = 0; i < data.length; i++) { %>
+                <div class="user">
+                    <a href="/otherprofile/<%= data[i].username %>">
+                        <div class="user__image"
+                            style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= data[i].avatar %>)">
+                        </div>
+                        <h4>
+                            <%= data[i].firstname %>
+                        </h4>
+                        <p>
+                            <%= data[i].location %>
+                        </p>
+                    </a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } if (locals.data == ''){ %>
+        <h1>You have no matches yet</h1>
+        <p>You can get matches to like someones profile</p>
+        <a href="/">See interesting profiles</a>
+        <% } %>
+    </div>
+</main>
+
+<%- include('partials/globals/footer.ejs'); %>
+<%- include('partials/shared/html-close.ejs'); %>
