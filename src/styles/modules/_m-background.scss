@@ -44,6 +44,15 @@
         top: 1200px;
     }
 
+    .blob-4 {
+        fill: #FFFBEA;
+        width: auto;
+        height: 800px;
+        opacity: .3;
+        position: absolute;
+        left: -120px;
+    }
+
     .logo-1 {
         position: absolute;
         right: -800px;
@@ -54,7 +63,7 @@
     .logo-2 {
         position: absolute;
         left: -800px;
-        top: 1300px;
+        top: 1000px;
         z-index: 1;
     }
 }

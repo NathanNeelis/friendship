@@ -10,10 +10,17 @@
           <img src="/images/blob-main.svg" alt="">
         </div>
         <div class="p-home__banner__right">
+          <% if (locals.user) { %>
           <h2>Check who you have already matched with!</h2>
           <a href="/matches">
             <button>My matches</button>
           </a>
+          <% } else { %>
+          <h2>Create an account to get started!</h2>
+          <a href="/register">
+            <button>Register</button>
+          </a>
+          <% } %>
         </div>
       </div>
     </div>

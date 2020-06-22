@@ -690,10 +690,10 @@ nav {
     left: 0;
     position: fixed;
     background-color: #FFE7DF;
-    z-index: 200;
     opacity: 0;
     transform: translateX(100vw);
-    transition: all 150ms ease-in-out; }
+    transition: all 150ms ease-in-out;
+    z-index: 2; }
     nav .nav-mobile ul {
       margin-top: 40px;
       margin-left: 60px;
@@ -783,6 +783,10 @@ nav {
       left: 20px;
       font-family: 'Montserrat';
       font-size: 15px; }
+  .m-users img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; }
 
 .m-category {
   width: 100%;
@@ -806,6 +810,7 @@ nav {
       .m-category__info {
         width: 100%; } }
     .m-category__info__container {
+      max-width: 900px;
       position: relative;
       top: 50%;
       transform: translateY(-60%); }
@@ -824,7 +829,15 @@ nav {
   .m-category__weather-message {
     font-family: 'Montserrat';
     font-size: 18px; }
-    @media (max-width: 1000px) {
+    @media (max-width: 940px) {
+      .m-category__weather-message {
+        margin-top: 10px;
+        display: block; } }
+    @media (max-width: 650px) {
+      .m-category__weather-message {
+        display: inline;
+        margin-top: 0; } }
+    @media (max-width: 400px) {
       .m-category__weather-message {
         margin-top: 10px;
         display: block; } }
@@ -832,13 +845,16 @@ nav {
       font-family: 'Playfair Display';
       font-weight: bold;
       font-size: 48px; }
-      @media (max-width: 750px) {
+      @media (max-width: 940px) {
         .m-category__weather-message-2 {
           font-size: 30px; } }
   .m-category__icon {
     width: 50px;
     display: inline-block;
     margin: 0 20px; }
+    @media (max-width: 1000px) {
+      .m-category__icon {
+        width: 30px; } }
   .m-category__text {
     font-family: 'Montserrat';
     font-size: 20px; }
@@ -881,6 +897,13 @@ nav {
     position: absolute;
     left: 70%;
     top: 1200px; }
+  .m-background .blob-4 {
+    fill: #FFFBEA;
+    width: auto;
+    height: 800px;
+    opacity: .3;
+    position: absolute;
+    left: -120px; }
   .m-background .logo-1 {
     position: absolute;
     right: -800px;
@@ -889,20 +912,72 @@ nav {
   .m-background .logo-2 {
     position: absolute;
     left: -800px;
-    top: 1300px;
+    top: 1000px;
     z-index: 1; }
 
 .m-footer {
   background-color: #100033;
   min-height: 20vh;
   position: relative;
-  z-index: 2; }
-  .m-footer p {
+  z-index: 2;
+  padding: 50px 0; }
+  .m-footer h3 {
+    font-family: 'Playfair Display';
+    font-weight: bold;
     margin: 0;
-    padding-top: 50px;
     font-size: 30px;
     text-align: center;
     color: #F9F9F9; }
+  .m-footer p {
+    margin: 20px auto;
+    font-size: 20px;
+    text-align: center;
+    color: #F9F9F9;
+    max-width: 400px; }
+  .m-footer a {
+    color: #F9F9F9; }
+  .m-footer__creators {
+    width: 910px;
+    margin: 50px auto; }
+    @media (max-width: 930px) {
+      .m-footer__creators {
+        width: auto; } }
+    .m-footer__creators__item {
+      display: inline-block;
+      text-align: center;
+      width: 200px;
+      margin: 0 50px; }
+      @media (max-width: 930px) {
+        .m-footer__creators__item {
+          display: block;
+          margin: 60px auto;
+          width: auto; } }
+      .m-footer__creators__item__image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-position: center;
+        background-size: cover; }
+        @media (max-width: 930px) {
+          .m-footer__creators__item__image {
+            margin: 0 auto; } }
+      .m-footer__creators__item__name {
+        margin-top: 20px;
+        color: #F9F9F9;
+        font-family: 'Montserrat';
+        font-size: 25px;
+        font-weight: bold; }
+      .m-footer__creators__item__links {
+        margin-top: 10px; }
+        .m-footer__creators__item__links img {
+          margin: 0 10px;
+          width: 45px; }
+      .m-footer__creators__item:nth-of-type(1) .m-footer__creators__item__image {
+        background-image: url(/images/victor.jpg); }
+      .m-footer__creators__item:nth-of-type(2) .m-footer__creators__item__image {
+        background-image: url(/images/bjorn.jpg); }
+      .m-footer__creators__item:nth-of-type(3) .m-footer__creators__item__image {
+        background-image: url(/images/nathan.jpg); }
 
 /* -------------------------------------------------------------------------- */
 /*                                    Pages                                   */
@@ -912,14 +987,54 @@ nav {
   padding: 50px 30px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
+  .p-register .interest-info {
+    background-color: #100033;
+    color: #F9F9F9;
+    border-radius: 50%;
+    padding: 2px 11px;
+    margin-left: 10px;
+    transition: opacity 200ms ease-in-out; }
+    .p-register .interest-info::before {
+      content: '';
+      border-style: solid;
+      border-width: 15px 24px 15px 0;
+      border-color: transparent #100033 transparent transparent;
+      position: absolute;
+      transform: translate(20px, -5px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease-in-out; }
+    .p-register .interest-info::after {
+      content: 'Use space or enter after each tag to place it. If you want to add a tag with multiple words, use a dash (-) to separate them.';
+      font-size: 15px;
+      width: 240px;
+      height: 70px;
+      padding: 20px;
+      border-radius: 6px;
+      background-color: #100033;
+      position: absolute;
+      transform: translate(39px, -40px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease-in-out; }
+    .p-register .interest-info:hover {
+      opacity: .85; }
+      .p-register .interest-info:hover::after {
+        opacity: 1;
+        pointer-events: inherit; }
+      .p-register .interest-info:hover::before {
+        opacity: 1;
+        pointer-events: inherit; }
 
 .p-login {
   width: 100%;
   padding: 50px 30px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
+  .p-login .m-form {
+    max-width: 500px; }
   .p-login__form {
     animation: slideIn 600ms ease-in-out forwards; }
     .p-login__form button {
@@ -929,6 +1044,8 @@ nav {
     margin: 0 auto 80px;
     animation: slideIn 400ms ease-in-out forwards; }
     .p-login__banner h1 {
+      font-family: 'Playfair Display';
+      font-weight: bold;
       font-size: 44px; }
     .p-login__banner button {
       font-family: 'Montserrat';
@@ -956,7 +1073,7 @@ nav {
   padding: 50px 30px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
   .p-profile__avatar {
     position: absolute;
     width: 350px;
@@ -1047,7 +1164,7 @@ nav {
   padding-bottom: 70px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
   .p-home__banner {
     width: 100%;
     padding: 200px 0; }
@@ -1135,21 +1252,27 @@ nav {
   padding: 50px 30px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
+  .p-search .m-users {
+    padding: 80px;
+    border-radius: 12px; }
+    @media (max-width: 1000px) {
+      .p-search .m-users {
+        padding: 20px 40px; } }
 
 .p-matches {
   width: 100%;
   padding: 50px 30px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
 
 .p-other-profile {
   width: 100%;
   padding: 50px 30px;
   min-height: 80vh;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
   .p-other-profile form {
     padding-left: 200px;
     width: 650px; }
@@ -1222,7 +1345,7 @@ nav {
   font-family: 'Playfair Display';
   font-weight: bold;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
   .p-404 h1 {
     font-size: 100px; }
   .p-404 h2 {
