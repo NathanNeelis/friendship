@@ -989,6 +989,7 @@ nav {
 .p-home {
   background-color: #FFE7DF;
   padding-top: 100px;
+  padding-bottom: 70px;
   min-height: 80vh; }
   .p-home__banner {
     width: 100%;
@@ -1059,6 +1060,8 @@ nav {
       @media (max-width: 900px) {
         .p-home__banner button {
           margin-top: 20px; } }
+  .p-home .mtb-hide, .p-home .games-hide, .p-home .userLocation {
+    display: none; }
 
 .p-search {
   width: 100%;
@@ -1092,3 +1095,22 @@ nav {
       display: none; }
   .p-other-profile button {
     display: block; }
+
+.p-404 {
+  background-color: #FFE7DF;
+  padding-top: 50px;
+  min-height: 80vh;
+  text-align: center;
+  font-family: 'Playfair Display';
+  font-weight: bold; }
+  .p-404 h1 {
+    font-size: 100px; }
+  .p-404 h2 {
+    font-size: 30px; }
+  .p-404 img {
+    margin-top: 100px;
+    max-width: 100%;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15); }

@@ -14,8 +14,8 @@ const
     otherprofile = require('./routes/otherprofile'),
     matches = require('./routes/matches'),
     unmatch = require('./routes/unmatch'),
-    likepost = require('./routes/likepost'),
-    mymatches = require ('./routes/mymatches');
+    notfound = require('./routes/notfound'),
+    likepost = require('./routes/likepost');
 
 const userRedirectLogin = (req, res, next) => {
     if (!req.session.sessionID) {
@@ -42,10 +42,10 @@ router
     .get('/matches', userRedirectLogin, matches)
     .get('/activate', activate)
     .get('/otherprofile/:username', otherprofile)
-    .get('/mymatches/:username', mymatches)
-
     .get('/search', userRedirectLogin, search)
     .get('/apipage', index)
+    .get('*', notfound)
+    
     .post('/apipage', index)
     .post('/matches', unmatch)
     .post('/like', likepost)

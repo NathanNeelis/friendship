@@ -1,6 +1,7 @@
 .p-home {
     background-color: $pink;
     padding-top: 100px;
+    padding-bottom: 70px;
     min-height: 80vh;
 
     &__banner {
@@ -93,5 +94,9 @@
                 margin-top: 20px;
             }
         }
+    }
+
+    .mtb-hide, .games-hide, .userLocation {
+        display: none;
     }
 }

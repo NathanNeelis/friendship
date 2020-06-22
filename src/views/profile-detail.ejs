@@ -3,7 +3,7 @@
 
 <main>
     <div class="p-other-profile">
-        <form class="m-form" action="/like" method="POST">
+        <form class="m-form" <% if (locals.match) { %> action="/matches" <% } else { %> action="/like" <% } %> method="POST">
             <legend><%= data.firstname %>'s profile</legend>
             <div class="p-profile__avatar" style="background-image: url(/<%= data.avatar %>)">
             </div>
@@ -21,7 +21,11 @@
             </div>
             <label class="edit-label" for="editDescription">Description</label>
             <p><%= data.description %></p>
+            <% if (locals.match) { %>
+            <button name="unmatch" type="submit" value="<%=data._id%>">Unmatch</button>
+            <% } else { %>
             <button name="like" type="submit" value="<%=data._id%>">Like</button>
+            <% } %>
         </form>
     </div>
 </main>

@@ -1,0 +1,25 @@
+.p-404 {
+    background-color: $pink;
+    padding-top: 50px;
+    min-height: 80vh;
+    text-align: center;
+    font-family: 'Playfair Display';
+    font-weight: bold;
+
+    h1 {
+        font-size: 100px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    img {
+        margin-top: 100px;
+        max-width: 100%;
+        border-radius: 10px;
+        -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+        box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    }
+}

@@ -1,4 +1,4 @@
-const User = require('../user');
+const User = require('../models/user');
 
 const likepost = (req, res) => {
     // Hier zoek je de ingelogde user, en voer je de userLiked functie uit als de user gevonden is.
@@ -15,8 +15,6 @@ const likepost = (req, res) => {
         }
     });
 
-
-
     // Hier zoek je op de user die je hebt geliked (req.body.like), en check je of deze user jou ook heeft geliked. Als dat zo is kan je dat direct renderen op een pagina.
     const checkIfUserLiked = (userProfile) => {
         User.findOne({
@@ -25,19 +23,17 @@ const likepost = (req, res) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
             } else if (user) {
-       
                 if (userProfile.likes.includes(user._id) && user.likes.includes(userProfile._id)) {
                     res.render('profile-detail', {
                         data: user,
                         matchData: true
-                    });
+                });
                 } else {
                     res.redirect('/');
                 }
             }
         });
     };
-
 
     const SearchMyUser = () =>{
         User.findOne({
@@ -54,6 +50,7 @@ const likepost = (req, res) => {
 
 
     };
+
     // Hier zoek je weer de ingelogde user en voeg je de id toe van de gelikede user in zijn/haar database.
     const userLiked = () => {
         User.updateOne({

@@ -12,8 +12,8 @@ async function catchWeather(req, res) {
             if (weatherData.main.temp > 19) {
                 mtb(weatherData);
                 // loading mountainbike profiles from database
-                mtbSection.classList.add('games-hide');
-                gamesSection.classList.remove('mtb-hide');
+                mtbSection.classList.remove('mtb-hide');
+                gamesSection.classList.add('games-hide');
             } else {
                 games(weatherData);
                 // loading mountainbike profiles from database
