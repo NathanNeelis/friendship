@@ -501,7 +501,10 @@ body {
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: bold;
-  border-radius: 17.5px; }
+  border-radius: 17.5px;
+  -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15); }
   @media (max-width: 520px) {
     .m-form {
       padding: 50px; } }
@@ -838,18 +841,30 @@ nav {
     font-family: 'Montserrat';
     font-size: 20px; }
 
+.m-footer {
+  background-color: #100033;
+  min-height: 20vh; }
+  .m-footer p {
+    margin: 0;
+    padding-top: 50px;
+    font-size: 30px;
+    text-align: center;
+    color: #F9F9F9; }
+
 /* -------------------------------------------------------------------------- */
 /*                                    Pages                                   */
 /* -------------------------------------------------------------------------- */
 .p-register {
   width: 100%;
   padding: 50px 30px;
-  background-color: #FFE7DF; }
+  background-color: #FFE7DF;
+  min-height: 80vh; }
 
 .p-login {
   width: 100%;
   padding: 50px 30px;
-  background-color: #FFE7DF; }
+  background-color: #FFE7DF;
+  min-height: 80vh; }
   .p-login__form {
     animation: slideIn 600ms ease-in-out forwards; }
     .p-login__form button {
@@ -884,7 +899,8 @@ nav {
 .p-profile {
   width: 100%;
   padding: 50px 30px;
-  background-color: #FFE7DF; }
+  background-color: #FFE7DF;
+  min-height: 80vh; }
   .p-profile__avatar {
     position: absolute;
     width: 350px;
@@ -972,7 +988,8 @@ nav {
 
 .p-home {
   background-color: #FFE7DF;
-  padding-top: 100px; }
+  padding-top: 100px;
+  min-height: 80vh; }
   .p-home__banner {
     width: 100%;
     padding: 200px 0; }
@@ -1042,3 +1059,36 @@ nav {
       @media (max-width: 900px) {
         .p-home__banner button {
           margin-top: 20px; } }
+
+.p-search {
+  width: 100%;
+  padding: 50px 30px;
+  background-color: #FFE7DF;
+  min-height: 80vh; }
+
+.p-matches {
+  width: 100%;
+  padding: 50px 30px;
+  background-color: #FFE7DF;
+  min-height: 80vh; }
+
+.p-other-profile {
+  width: 100%;
+  padding: 50px 30px;
+  background-color: #FFE7DF;
+  min-height: 80vh; }
+  .p-other-profile form {
+    padding-left: 200px;
+    width: 650px; }
+    @media (max-width: 1080px) {
+      .p-other-profile form {
+        padding-left: 70px;
+        width: auto; } }
+  .p-other-profile .edit-label {
+    font-size: 25px; }
+  .p-other-profile .tag-container-profile .tag {
+    padding-top: 8px; }
+    .p-other-profile .tag-container-profile .tag p {
+      display: none; }
+  .p-other-profile button {
+    display: block; }

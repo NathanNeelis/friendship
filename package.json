@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run nodemon",
     "nodemon": "nodemon index.js",
-    "sass:compile": "node-sass --include-path sass ./src/styles/main-screen.scss ./static/styles/main-screen.css",
+    "sass:compile": "node-sass --include-path sass ./src/styles/main-screen.scss ./src/static/styles/main-screen.css",
     "sass": "nodemon -e scss -x \"npm run sass:compile\""
   },
   "repository": {

@@ -1,8 +1,5 @@
 const User = require('../user');
 
-
-
-
 const matches = (req, res) => {
     const matchesItems = [];
     User.findOne({

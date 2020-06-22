@@ -9,6 +9,9 @@
     font-size: 18px;
     font-weight: bold;
     border-radius: 17.5px;
+    -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
 
     @media (max-width: 520px) {
         padding: 50px;

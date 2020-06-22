@@ -8,7 +8,7 @@ const profile = (req, res) => {
 			console.log('MongoDB Error:' + err);
 		}
 		if (user) {
-			res.render('profile.ejs', {
+			res.render('profile', {
 				user: user
 			});
 		} else {

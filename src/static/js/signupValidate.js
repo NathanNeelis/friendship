@@ -71,6 +71,7 @@ if (loadValidateSignup) {
         if (e.target) {
             var target = e.target;
         } else {
+            // eslint-disable-next-line no-redeclare
             var target = e;
         }
 

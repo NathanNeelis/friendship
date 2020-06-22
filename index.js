@@ -56,7 +56,7 @@ store.on('error', (err) => {
 app
 	.set('view engine', 'ejs')
 	.set('views', 'src/views')
-	.use(express.static('static'))
+	.use(express.static('src/static'))
 	.use(bodyParser.urlencoded({
 		extended: true
 	}))
