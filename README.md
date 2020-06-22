@@ -31,13 +31,17 @@ Our goal is:
 - There are specific interest sections on various pages **Must have**;
 - Users are able to like other users **Must have**;
 - If users like each other they become a match **Must have**;
+- The user can also unmatch a other user if he wants to **Must have**;
+- When a user registers he needs to activate his account by mail **Nice to have**;
 
 _Goal list should be updated_
 
 ## The application
 
-_Image needs to be updated_
-![Screenshots of early app version](https://github.com/NathanNeelis/Project-Tech/blob/master/Styleguide/app/app.jpg)
+![friendship1](https://user-images.githubusercontent.com/55492381/85336561-161e1b80-b4df-11ea-8a95-2f012af847cb.jpg)
+
+![friendship2](https://user-images.githubusercontent.com/55492381/85336587-1e765680-b4df-11ea-8ab9-c4a36db50cf3.jpg)
+
 
 ## Getting started
 
@@ -50,28 +54,28 @@ To install all the packages registered in the package.json file run the code bel
 
 **Dependencies**
 
-- [body-parser](https://www.npmjs.com/package/body-parser)
-- [camelcase](https://www.npmjs.com/package/camelcase)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [ejs](https://www.npmjs.com/package/ejs)
-- [express](https://www.npmjs.com/package/express)
-- [express-session](https://www.npmjs.com/package/express-session)
-- [mongodb](https://www.npmjs.com/package/mongodb)
-- [multer](https://www.npmjs.com/package/multer)
-- [path](https://www.npmjs.com/package/path)
-- [slug](https://www.npmjs.com/package/slug)
+* [bcrypt](https://www.npmjs.com/package/bcrypt) 
+* [body-parser](https://www.npmjs.com/package/body-parser) 
+* [connect-mongodb-session](https://www.npmjs.com/package/connect-mongodb-session)
+* [dotenv](https://www.npmjs.com/package/dotenv) 
+* [ejs](https://www.npmjs.com/package/ejs)
+* [express](https://www.npmjs.com/package/express) 
+* [express-session](https://www.npmjs.com/package/express-session) 
+* [helmet](https://www.npmjs.com/package/helmet) 
+* [mongoose](https://www.npmjs.com/package/mongoose) 
+* [multer](https://www.npmjs.com/package/multer) 
+* [nodemailer](https://www.npmjs.com/package/nodemailer) 
+* [node-fetch](https://www.npmjs.com/package/node-fetch) 
 
-_Update this list_
 
 #### I also used the following packages while coding:
 
 **Dev dependencies**
 
-- [eslint](https://www.npmjs.com/package/eslint)
-- [nodemon](https://www.npmjs.com/package/nodemon)
-- [prettier](https://www.npmjs.com/package/prettier)
+* [nodemon](https://www.npmjs.com/package/nodemon) 
+* [ESLint](https://www.npmjs.com/package/eslint) 
+* [Node-sass](https://www.npmjs.com/package/node-sass) 
 
-_update this list_
 
 ### Templating engine
 
@@ -86,17 +90,23 @@ These pages are build out of includes. Smaller bits of code that you will find i
 
 ## Code standards
 
-We choose to use ESlint to set up our code standards.  
-These are:
-
-- single quotes..?
-
-_update with our code standards_
+We choose to use ESlint to force our code standards.  
+The most important code standards are:
+- We write in ES6
+- So using arrow functions =>
+- Also using const and let instead of VAR
+- We loop with forEach
+- We use Single quotes
+- We always end with a semicolon;
+- Line endings are Unix.
+  
+For more information about our code standards, [check out wiki page!](https://github.com/BVictorB/friendship/wiki/Code-Standards)
 
 ## Dataflow
+![Dataflow](https://user-images.githubusercontent.com/55492381/85284483-92890e00-b48f-11ea-81c9-10916d91493e.jpg)
 
-_update with how our database looks like_
-![Dataflow](https://raw.githubusercontent.com/NathanNeelis/Project-Tech/master/Styleguide/dataflow/dataflow.jpg)
+For more information about our database choices, structure en set up [check out our database wiki page!](https://github.com/BVictorB/friendship/wiki/Database)
+
 
 ## Wiki
 
@@ -116,4 +126,13 @@ To see what steps we have taking in making this application please see our proje
 
 ## Resources
 
-EJS. (n.d.). Logo EJS [Logo]. Retrieved from https://i0.wp.com/frontnet.eu/wp-content/uploads/2020/04/Javascript_Embedded.png?w=526&ssl=1
+EJS. (n.d.). Logo EJS [Logo]. Retrieved from https://i0.wp.com/frontnet.eu/wp-content/uploads/2020/04/Javascript_Embedded.png?w=526&ssl=1  
+Shiva. (n.d.). Form [Icon]. Retrieved from https://thenounproject.com/search/?q=form&i=2034112  
+Creative Stall. (n.d.). database [icon]. Retrieved from https://thenounproject.com/search/?q=database&i=996054  
+Lil Squid. (n.d.). user [icon]. Retrieved from https://thenounproject.com/search/?q=user&i=26029  
+Joseph , W. (n.d.). profile [icon]. Retrieved from https://thenounproject.com/search/?q=profile&i=95876  
+Alice Design. (n.d.). Login [Icon]. Retrieved from https://thenounproject.com/search/?q=3407301&i=3407301  
+Iconixar. (n.d.). Mathcing [Icon]. Retrieved from https://thenounproject.com/search/?q=2663984&i=2663984  
+Adams, B. (n.d.). Heartbreak [Icon]. Retrieved from https://thenounproject.com/search/?q=952943&i=952943  
+Praveen Patchu. (n.d.). Like [Icon]. Retrieved from https://thenounproject.com/search/?q=986852&i=986852  
+
