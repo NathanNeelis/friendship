@@ -52,6 +52,9 @@
                 border-radius: 50%;
                 background-position: center;
                 background-size: cover;
+                -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+                -moz-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+                box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
 
                 @media (max-width: 930px) {
                     margin: 0 auto;
