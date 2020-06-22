@@ -83,7 +83,7 @@ To install all the packages registered in the package.json file run the code bel
 
     $ git clone https://github.com/BVictorB/friendship.git .
 
-    $ npm install
+        $ npm install
 
 
 ### Templating engine
