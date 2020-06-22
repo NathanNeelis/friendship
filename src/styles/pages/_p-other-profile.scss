@@ -1,0 +1,33 @@
+.p-other-profile {
+    width: 100%;
+    padding: 50px 30px;
+    background-color: $pink;
+    min-height: 80vh;
+
+    form {
+        padding-left: 200px;
+        width: 650px;
+
+        @media (max-width: 1080px) {
+            padding-left: 70px;
+            width: auto;
+        }
+    }
+
+    .edit-label {
+        font-size: 25px;
+    }
+
+    .tag-container-profile {
+        .tag {
+            padding-top: 8px;
+            p {
+                display: none;
+            }
+        }
+    }
+
+    button {
+        display: block;
+    }
+}

@@ -1,21 +1,20 @@
-<section class="category-fit">
-    <!-- <a href="search.html" class="filterButton">Filter</a> -->
+<div class="m-users">
     <h2>These people share your interests</h2>
-    <div>
-        <!--  Same interests as logged in user      -->
+    <div class="user-container">
         <% for (let i = 0; i < dataEqual.length; i++) { %>
-        <article>
-            <a href="/<%= dataEqual[i].firstname %>">
-                <img src="<%= dataEqual[i].avatar %>" alt="Profile photo">
+        <div class="user">
+            <a href="/otherprofile/<%= dataEqual[i].username %>">
+                <div class="user__image"
+                    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= dataEqual[i].avatar %>)">
+                </div>
                 <h4>
-                    <%= dataEqual[i].firstname %> • <%= dataEqual[i].age %>
+                    <%= dataEqual[i].firstname %>
                 </h4>
                 <p>
                     <%= dataEqual[i].location %>
                 </p>
             </a>
-        </article>
+        </div>
         <% } %>
     </div>
-
-</section>
+</div>

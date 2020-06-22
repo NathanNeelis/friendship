@@ -3,7 +3,6 @@ const logout = (req, res) => {
 		if (err) {
 			res.redirect('/profile');
 		}
-
 		res.redirect('/login');
 	});
 };

@@ -9,8 +9,7 @@ const activate = (req, res) => {
             res.render('login', {
                 message: 'Account activation failed, please try again or contact us.'
             });
-		}
-		if (user.activated == 0) {
+		} else if (user.activated == 0) {
             User.update({ _id: user._id }, { activated: 1 }, {upsert: true}, (err) => {
                 if (err) {
                     console.log(err);
