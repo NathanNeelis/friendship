@@ -18,8 +18,6 @@ const matches = (req, res) => {
                             matchesItems.push(userItem);
                         }
                     });
-
-
                     res.render('matches', {
                         data: matchesItems,
                         user: user
