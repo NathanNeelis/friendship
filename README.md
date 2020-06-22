@@ -82,7 +82,7 @@ In this project, we used node.js and NPM to install packages.
 To install all the packages registered in the package.json file run the code below after downloading this project.
 
     $ git clone https://github.com/BVictorB/friendship.git .
-  
+
     $ npm install
 
 
