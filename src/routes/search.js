@@ -3,19 +3,19 @@ const User = require('../user');
 const search = async (req, res) => {
     try {
         const allData = await User.find(); // all data in database
-        const user = await User.findOne({ // find session user
+        const myData = await User.findOne({ // find session user
             _id: req.session.sessionID,
         });
         const search = await User.find({ // find data that equals filtered activity
+            _id: { $nin: req.session.sessionID },
             interests: req.body.activity
         });
         const activity = req.body.activity; // filtered activity
 
-        if (user) { // checks if there is a user logged in
+        if (req.session.sessionID) { // checks if there is a user logged in
             let filteredData = (dataToFilter) => {
                 dataToFilter.forEach((result) => {
-                    // if (result.likes.includes(user._id) && user.likes.includes(result._id)) {
-                    if (result.username.includes(user.username)) {
+                    if (result.likes.includes(myData._id) && myData.likes.includes(result._id)) {
                         let cleantheArray = dataToFilter.indexOf(result);
                         dataToFilter.splice(cleantheArray, 1);
                     }
@@ -24,9 +24,10 @@ const search = async (req, res) => {
                 return dataToFilter;
             };
 
-            const done = async (allData, user, search, activity) => {
+            const done = async (allData, myData, search, activity) => {
                 const equalActivities = await User.find({ // finds other users with the same interests 
-                    interests: user.interests[0] // How to create loop here?
+                    _id: { $nin: req.session.sessionID },
+                    interests: myData.interests[0] // How to create loop here?
                 });
                 let equalActivitiesFiltered = filteredData(equalActivities);
                 let allDataFiltered = filteredData(allData);
@@ -35,13 +36,13 @@ const search = async (req, res) => {
                 req.session.search = search; // makes a session on the filtered activity
                 res.render('search', {
                     data: allDataFiltered,
-                    user: user,
+                    user: myData,
                     dataFilter: searchFiltered,
                     activity: activity,
                     dataEqual: equalActivitiesFiltered
                 });
             };
-            done(allData, user, search, activity);
+            done(allData, myData, search, activity);
         } else { // if there is no user logged in
             const done = async (allData, search, activity) => {
                 req.session.search = search;
