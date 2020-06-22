@@ -13,8 +13,8 @@ const search = async (req, res) => {
 
         if (user) { // checks if there is a user logged in
             let filteredData = (dataToFilter) => {
-
                 dataToFilter.forEach((result) => {
+                    // if (result.likes.includes(user._id) && user.likes.includes(result._id)) {
                     if (result.username.includes(user.username)) {
                         let cleantheArray = dataToFilter.indexOf(result);
                         dataToFilter.splice(cleantheArray, 1);
