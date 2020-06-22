@@ -12,17 +12,33 @@ const search = async (req, res) => {
         const activity = req.body.activity; // filtered activity
 
         if (user) { // checks if there is a user logged in
+            let filteredData = (dataToFilter) => {
+
+                dataToFilter.forEach((result) => {
+                    if (result.username.includes(user.username)) {
+                        let cleantheArray = dataToFilter.indexOf(result);
+                        dataToFilter.splice(cleantheArray, 1);
+                    }
+                });
+
+                return dataToFilter;
+            };
+
             const done = async (allData, user, search, activity) => {
                 const equalActivities = await User.find({ // finds other users with the same interests 
                     interests: user.interests[0] // How to create loop here?
                 });
+                let equalActivitiesFiltered = filteredData(equalActivities);
+                let allDataFiltered = filteredData(allData);
+                let searchFiltered = filteredData(search);
+
                 req.session.search = search; // makes a session on the filtered activity
                 res.render('search', {
-                    data: allData,
+                    data: allDataFiltered,
                     user: user,
-                    dataFilter: req.session.search,
+                    dataFilter: searchFiltered,
                     activity: activity,
-                    dataEqual: equalActivities
+                    dataEqual: equalActivitiesFiltered
                 });
             };
             done(allData, user, search, activity);
