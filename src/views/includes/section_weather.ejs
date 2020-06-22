@@ -12,48 +12,24 @@
     </div>
 </div>
 
-<div id="mtb-hide" class="m-users">
-    <p class="userLocation"><%= user.location %></p>
-    <h2>Mountainbikers</h2>
-    <p id="weatherHeaderMTB"></p>
-    <div class="user-container">
-        <% for (let i = 0; i < dataMTB.length; i++) { %>
-        <a href="/otherprofile/<%= dataMTB[i].username %>">
-            <div class="user">
-                <div class="user__image"
-                    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= dataMTB[i].avatar %>)">
-                </div>
-                <h4>
-                    <%= dataMTB[i].firstname %>
-                </h4>
-                <p>
-                    <%= dataMTB[i].location %>
-                </p>
-            </div>
-        </a>
-        <% } %>
-    </div>
-</div>
-
-<div id="games-hide" class="m-users">
-    <p class="userLocation"><%= user.location %></p>
-    <h2>Gamers</h2>
-    <p id="weatherHeaderGames"></p>
-    <div class="user-container">
-        <% for (let i = 0; i < dataGames.length; i++) { %>
-        <a href="/otherprofile/<%= dataGames[i].username %>">
-            <div class="user">
-                <div class="user__image"
-                    style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.35)), url(<%= dataGames[i].avatar %>)">
-                </div>
-                <h4>
-                    <%= dataGames[i].firstname %>
-                </h4>
-                <p>
-                    <%= dataGames[i].location %>
-                </p>
-            </div>
-        </a>
-        <% } %>
-    </div>
+<div id="mtb-hide">
+    <section class="category-mtb">
+        <p class="userLocation"><%= user.location %></p>
+        <h2 id="weatherHeaderMTB">The weather is great! Find some people to Mountainbike with:</h2>
+        <div>
+            <% for (let i = 0; i < dataWeather.length; i++) { %>
+            <article>
+                <a href="/<%= dataWeather[i].username %>">
+                    <img src="<%= dataWeather[i].avatar %>" alt="Profile photo">
+                    <h4>
+                        <%= dataWeather[i].firstname %>
+                    </h4>
+                    <p>
+                        <%= dataWeather[i].location %>
+                    </p>
+                </a>
+            </article>
+            <% } %>
+        </div>
+    </section>
 </div>

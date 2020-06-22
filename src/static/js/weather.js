@@ -1,6 +1,4 @@
 const mtbCheck = document.querySelector('.userLocation');
-const mtbSection = document.querySelector('#mtb-hide');
-const gamesSection = document.querySelector('#games-hide');
 
 async function catchWeather(req, res) {
     try {
@@ -11,14 +9,8 @@ async function catchWeather(req, res) {
             fetchApiMore(weatherData);
             if (weatherData.main.temp > 19) {
                 mtb(weatherData);
-                // loading mountainbike profiles from database
-                mtbSection.classList.remove('mtb-hide');
-                gamesSection.classList.add('games-hide');
             } else {
                 games(weatherData);
-                // loading mountainbike profiles from database
-                mtbSection.classList.add('mtb-hide');
-                gamesSection.classList.remove('games-hide');
             }
         }
     } catch (err) {
@@ -160,7 +152,7 @@ const games = (weather) => {
 
     const viewTemperature = document.querySelector('#viewTemperature');
     viewTemperature.textContent = 'Currently ' + temperature + ' degrees';
-    
+
 
     const sectionIntroduction = document.querySelector('#sectionIntroduction');
     sectionIntroduction.textContent =
