@@ -38,43 +38,52 @@ _Goal list should be updated_
 
 ## The application
 
-![friendship1](https://user-images.githubusercontent.com/55492381/85336561-161e1b80-b4df-11ea-8a95-2f012af847cb.jpg)
+### Homepage
+On the homepage you see some other users that you might like.  
+Depending on the weather there is a suggestion section that suggests to find people to sport with if the weather is nice or people to play some games with if the weather is not so good. This is done by checking the location of the registered user and refering it to the weather in his town via an API.
 
-![friendship2](https://user-images.githubusercontent.com/55492381/85336587-1e765680-b4df-11ea-8ab9-c4a36db50cf3.jpg)
+<img width="600" alt="homepage_friendship" src="https://user-images.githubusercontent.com/55492381/85338185-153ab900-b4e2-11ea-9408-4c337dc5d37d.jpg">
 
+### login
+If you want to use our application, you have to login! This can be done via the login form.
+It checks the email and the hashed pasword with the database. If it matches the user gets logged in, if not, then he might need to create an account.
+
+<img width="600" alt="loginpage_friendship" src="https://user-images.githubusercontent.com/55492381/85338371-73679c00-b4e2-11ea-918c-dcef7bef311a.jpg">
+
+### Register
+If the new user doesn't have an account yet, he can register via our register form. Fill in your personal details, email and your password to create an account. Don't forget to fill in your interests, because that is what lets other users find you!
+
+<img width="600" alt="registerpage_friendship" src="https://user-images.githubusercontent.com/55492381/85338532-ba559180-b4e2-11ea-8aed-31a90bbfb70a.jpg">
+
+### Search for other people
+If you want to find other users by their interest you can type in the activity you would like to find someone for in the search page. Our search engine will show you the results of matching profiles for your chosing activity.
+
+<img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85338633-f25cd480-b4e2-11ea-9f9b-41140cdc7052.jpg">
+
+### Like someone
+If you found someone that you would like to befriend, meet or participate with for an activity you can like that user. Simply by going to their profile and hitting the like button!
+
+__need to make this image__
+
+### It's a match!
+When you both have liked eachother then you have been matched. Your profiles will show up in both of your matches page and when you go to the profile there is an option to get in contact.
+
+<img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85338871-6303f100-b4e3-11ea-8551-5307ef281379.jpg">
+
+
+#### Your profile
+If you want to check out your own details, you can check out your profile page. In here you also have the ability to change the details and add or remove one or more of your interests.
+
+<img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85339044-a3636f00-b4e3-11ea-92e9-70a4c00a6a85.jpg">
 
 ## Getting started
 
 In this project, we used node.js and NPM to install packages.  
 To install all the packages registered in the package.json file run the code below after downloading this project.
 
+    $ git clone https://github.com/BVictorB/friendship.git .
+  
     $ npm install
-
-#### This will install the following packages:
-
-**Dependencies**
-
-* [bcrypt](https://www.npmjs.com/package/bcrypt) 
-* [body-parser](https://www.npmjs.com/package/body-parser) 
-* [connect-mongodb-session](https://www.npmjs.com/package/connect-mongodb-session)
-* [dotenv](https://www.npmjs.com/package/dotenv) 
-* [ejs](https://www.npmjs.com/package/ejs)
-* [express](https://www.npmjs.com/package/express) 
-* [express-session](https://www.npmjs.com/package/express-session) 
-* [helmet](https://www.npmjs.com/package/helmet) 
-* [mongoose](https://www.npmjs.com/package/mongoose) 
-* [multer](https://www.npmjs.com/package/multer) 
-* [nodemailer](https://www.npmjs.com/package/nodemailer) 
-* [node-fetch](https://www.npmjs.com/package/node-fetch) 
-
-
-#### I also used the following packages while coding:
-
-**Dev dependencies**
-
-* [nodemon](https://www.npmjs.com/package/nodemon) 
-* [ESLint](https://www.npmjs.com/package/eslint) 
-* [Node-sass](https://www.npmjs.com/package/node-sass) 
 
 
 ### Templating engine
