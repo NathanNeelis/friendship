@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/BVictorB/friendship.git"
   },
-  "author": "Victor Boucher",
-  "license": "ISC",
+  "author": "Victor Boucher, Bjorn Kouw & Nathan Neelis",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/BVictorB/friendship/issues"
   },

@@ -1,4 +1,4 @@
-const User = require('../user');
+const User = require('../models/user');
 const fetch = require('node-fetch');
 
 const index = async (req, res) => {

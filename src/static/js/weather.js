@@ -12,7 +12,6 @@ async function catchWeather(req, res) {
             } else {
                 games(weatherData);
             }
-
         }
     } catch (err) {
         res.send('something went wrong in the gathering the data');

@@ -1,4 +1,4 @@
-const User = require('../user');
+const User = require('../models/user');
 //I will move this to a different file at some point
 const nodemailer = require('nodemailer');
 
