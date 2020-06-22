@@ -39,53 +39,51 @@ At this moment this is a work in progress.
 Our goal is:
 
 - Users are able to register an account **Must have**;
-- Users are able to login and logout **Must have**;
+- Users are able to log in and logout **Must have**;
 - Users are able to filter for specific interests **Must have**;
 - There are specific interest sections on various pages **Must have**;
 - Users are able to like other users **Must have**;
 - If users like each other they become a match **Must have**;
-- The user can also unmatch a other user if he wants to **Must have**;
+- The user can also unmatch the other user if he wants to **Must have**;
 - When a user registers he needs to activate his account by mail **Nice to have**;
-
-_Goal list should be updated_
 
 ## The application
 
 ### Homepage
-On the homepage you see some other users that you might like.  
-Depending on the weather there is a suggestion section that suggests to find people to sport with if the weather is nice or people to play some games with if the weather is not so good. This is done by checking the location of the registered user and refering it to the weather in his town via an API.
+On the homepage, you see some other users that you might like.  
+Depending on the weather there is a suggestion section that suggests finding people to sport with if the weather is nice or people to play some games with if the weather is not so good. This is done by checking the location of the registered user and referring it to the weather in his town via an API.
 
 <img width="600" alt="homepage_friendship" src="https://user-images.githubusercontent.com/55492381/85339556-b0349280-b4e4-11ea-94ff-fb3bf57bc8fe.jpg">
 
 ### login
-If you want to use our application, you have to login! This can be done via the login form.
-It checks the email and the hashed pasword with the database. If it matches the user gets logged in, if not, then he might need to create an account.
+If you want to use our application, you have to log in! This can be done via the login form.
+It checks the email and the hashed password with the database. If it matches the user gets logged in, if not, then he might need to create an account.
 
 <img width="600" alt="loginpage_friendship" src="https://user-images.githubusercontent.com/55492381/85339565-b4f94680-b4e4-11ea-843e-9d538ceafa91.jpg">
 
 ### Register
-If the new user doesn't have an account yet, he can register via our register form. Fill in your personal details, email and your password to create an account. Don't forget to fill in your interests, because that is what lets other users find you!
+If the new user doesn't have an account yet, he can register via our registration form. Fill in your personal details, email, and your password to create an account. Don't forget to fill in your interests, because that is what lets other users find you!
 
 <img width="600" alt="registerpage_friendship" src="https://user-images.githubusercontent.com/55492381/85339582-bb87be00-b4e4-11ea-8786-6f711d1273f2.jpg">
 
 ### Search for other people
-If you want to find other users by their interest you can type in the activity you would like to find someone for in the search page. Our search engine will show you the results of matching profiles for your chosing activity.
+If you want to find other users by their interest you can type in the activity you would like to find someone for on the search page. Our search engine will show you the results of matching profiles for your choosing activity.
 
 <img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85339583-bc205480-b4e4-11ea-9972-c38366310636.jpg">
 
 
 ### Like someone
-If you found someone that you would like to befriend, meet or participate with for an activity you can like that user. Simply by going to their profile and hitting the like button!
+If you found someone that you would like to befriend, meet, or participate with for an activity you can like that user. Simply by going to their profile and hitting the like button!
 
 __need to make this image__
 
 ### It's a match!
-When you both have liked eachother then you have been matched. Your profiles will show up in both of your matches page and when you go to the profile there is an option to get in contact.
+When you both have liked each other then you have been matched. Your profiles will show up on both of your matches pages and when you go to the profile there is an option to get in contact.
 
 <img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85339578-b9bdfa80-b4e4-11ea-855b-234331be47eb.jpg">
 
 #### Your profile
-If you want to check out your own details, you can check out your profile page. In here you also have the ability to change the details and add or remove one or more of your interests.
+If you want to check out your own details, you can check out your profile page. Here you also have the ability to change the details and add or remove one or more of your interests.
 
 <img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85339581-baef2780-b4e4-11ea-970d-b249061a26c5.jpg">
 
@@ -102,8 +100,8 @@ To install all the packages registered in the package.json file run the code bel
 ### Templating engine
 
 In our Friendship app, we made a lot of use of the templating engine EJS.  
-We choose to use EJS because two out of three teammembers where already using EJS. Also it has a great documentation on how to get started.  
-A other team member used handlebars but we felt most comfortable using EJS.
+We choose to use EJS because two out of three team members were already using EJS. Also, it has great documentation on how to get started.  
+Another team member used handlebars but we felt most comfortable using EJS.
 
 In the view folder, you will find our main pages like index, profile, matching, register, login, and search.  
 These pages are build out of includes. Smaller bits of code that you will find in the folder **"includes"**.
@@ -139,7 +137,7 @@ Are you interested in our research, design choices, or learning progress?
 ## Planning
 
 We used the GitHub projects feature for our planning.  
-To see what steps we have taking in making this application please see our project page.
+To see what steps we have taken in making this application please see our project page.
 [Friendship planning board](https://github.com/BVictorB/friendship/projects/1)
 
 ## License
