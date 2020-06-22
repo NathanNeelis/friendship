@@ -25,7 +25,6 @@ const profilepost = (req, res) => {
         }  
     };
 
-    //I will add the other fields here once i add them in the frontend code.
     const editInfo = () => {
         updatedValues.location = req.body.editLocation;
         updatedValues.description = req.body.editDescription;

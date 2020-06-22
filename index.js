@@ -45,8 +45,7 @@ app.use(session({
 }));
 
 app.use(
-	helmet(),
-	helmet.noCache()
+	helmet()
 );
 
 store.on('error', (err) => {

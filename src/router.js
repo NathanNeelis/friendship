@@ -1,6 +1,13 @@
+const router = require('express').Router();
+
+// Utils
+const 
+    upload = require('./utils/uploadImage'),
+    userRedirectLogin = require('./utils/userRedirectLogin'),
+    userRedirectProfile = require('./utils/userRedirectProfile');
+
+// Routes
 const
-    router = require('express').Router(),
-    upload = require('./multer'),
     registerpost = require('./routes/registerpost'),
     register = require('./routes/register'),
     index = require('./routes/index'),
@@ -17,22 +24,6 @@ const
     notfound = require('./routes/notfound'),
     likepost = require('./routes/likepost');
 
-const userRedirectLogin = (req, res, next) => {
-    if (!req.session.sessionID) {
-        res.redirect('/login');
-    } else {
-        next();
-    }
-};
-
-const userRedirectProfile = (req, res, next) => {
-    if (req.session.sessionID) {
-        res.redirect('/profile');
-    } else {
-        next();
-    }
-};
-
 router
     .get('/', index)
     .get('/login', userRedirectProfile, login)
@@ -47,7 +38,7 @@ router
     .get('*', notfound)
     
     .post('/apipage', index)
-    .post('/matches', unmatch)
+    .post('/unmatch', unmatch)
     .post('/like', likepost)
     .post('/login', loginpost)
     .post('/search', search)

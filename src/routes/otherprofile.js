@@ -40,4 +40,5 @@ const otherprofile = (req, res) => {
             });
       };
 };
+
 module.exports = otherprofile;

@@ -1,7 +1,7 @@
 .p-matches {
     width: 100%;
     padding: 50px 30px;
-    background-color: $pink;
     min-height: 80vh;
-
+    position: relative;
+    z-index: 2;
 }

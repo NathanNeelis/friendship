@@ -1,6 +1,8 @@
 .m-footer {
     background-color: $purple;
     min-height: 20vh;
+    position: relative;
+    z-index: 2;
 
     p {
         margin: 0;

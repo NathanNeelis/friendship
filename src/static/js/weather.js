@@ -20,7 +20,6 @@ async function catchWeather(req, res) {
                 mtbSection.classList.add('mtb-hide');
                 gamesSection.classList.remove('games-hide');
             }
-
         }
     } catch (err) {
         res.send('something went wrong in the gathering the data');

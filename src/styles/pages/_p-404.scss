@@ -1,10 +1,11 @@
 .p-404 {
-    background-color: $pink;
     padding-top: 50px;
     min-height: 80vh;
     text-align: center;
     font-family: 'Playfair Display';
     font-weight: bold;
+    position: relative;
+    z-index: 2;
 
     h1 {
         font-size: 100px;

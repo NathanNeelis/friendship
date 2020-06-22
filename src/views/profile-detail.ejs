@@ -3,7 +3,17 @@
 
 <main>
     <div class="p-other-profile">
-        <form class="m-form" <% if (locals.match) { %> action="/matches" <% } else { %> action="/like" <% } %> method="POST">
+
+        <% if(locals.matchData == true) {%>
+        <div class="match-lightbox">
+            <h2>It's a match!</h2>
+            <p>You and <%= data.firstname %> have liked each other. Send an email by clicking on the button below!
+            </p>
+        </div>
+        <%   } %>
+
+        <form class="m-form" <% if (locals.match) { %> action="/unmatch" <% } else { %> action="/like" <% } %>
+            method="POST">
             <legend><%= data.firstname %>'s profile</legend>
             <div class="p-profile__avatar" style="background-image: url(/<%= data.avatar %>)">
             </div>
@@ -23,6 +33,7 @@
             <p><%= data.description %></p>
             <% if (locals.match) { %>
             <button name="unmatch" type="submit" value="<%=data._id%>">Unmatch</button>
+            <a href="mailto:<%=data.email %>">Send an email</a>
             <% } else { %>
             <button name="like" type="submit" value="<%=data._id%>">Like</button>
             <% } %>

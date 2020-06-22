@@ -26,6 +26,8 @@ const likepost = (req, res) => {
                 if (userProfile.likes.includes(user._id) && user.likes.includes(userProfile._id)) {
                     res.render('profile-detail', {
                         data: user,
+                        user: userProfile,
+                        match: true,
                         matchData: true
                 });
                 } else {
@@ -43,12 +45,9 @@ const likepost = (req, res) => {
                 console.log('MongoDB Error:' + err);
             }
             else {
-
                 checkIfUserLiked(user);
             }
         });
-
-
     };
 
     // Hier zoek je weer de ingelogde user en voeg je de id toe van de gelikede user in zijn/haar database.
