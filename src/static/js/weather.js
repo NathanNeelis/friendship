@@ -22,8 +22,7 @@ async function catchWeather(req, res) {
             }
 
         }
-    }
-    catch (err) {
+    } catch (err) {
         res.send('something went wrong in the gathering the data');
     }
 }
@@ -34,7 +33,10 @@ const fetchApiMore = (weather) => {
     const temperature = Math.round(weather.main.temp);
     const description = weather.weather[0].description;
 
-    const data = { temperature, description };
+    const data = {
+        temperature,
+        description
+    };
 
     const options = {
         method: 'POST',
@@ -54,7 +56,7 @@ const mtb = (weather) => {
 
     // Section image
     const imageSection = document.getElementById('sectionImage');
-    imageSection.src = 'images/mtb.jpg';
+    imageSection.style.backgroundImage = 'url(/images/mtb.jpg)';
     imageSection.alt = 'Mountainbiker';
 
     // Header section H2
@@ -92,9 +94,12 @@ const mtb = (weather) => {
 
     const subHeaderSection = document.querySelector('#weatherStatus');
     subHeaderSection.textContent =
-        'The weather is great! Currently, the temperature is '
-        + temperature
-        + ' degrees.';
+        'The weather is great! Currently, the temperature is ' +
+        temperature +
+        ' degrees.';
+
+    const viewTemperature = document.querySelector('#viewTemperature');
+    viewTemperature.textContent = 'Currently ' + temperature + ' degrees';
 
     const sectionIntroduction = document.querySelector('#sectionIntroduction');
     sectionIntroduction.textContent =
@@ -106,14 +111,13 @@ const mtb = (weather) => {
 };
 
 const games = (weather) => {
-    console.log('the weather is shit');
     const api = weather;
     const apiWeatherDescription = api.weather[0].description;
     const temperature = Math.round(api.main.temp);
 
     // Section image
     const imageSection = document.getElementById('sectionImage');
-    imageSection.src = 'images/games.jpg';
+    imageSection.style.backgroundImage = 'url(/images/games.jpg)';
     imageSection.alt = 'Two people gaming on playstation';
 
     // Header section H2
@@ -151,9 +155,13 @@ const games = (weather) => {
 
     const subHeaderSection = document.querySelector('#weatherStatus');
     subHeaderSection.textContent =
-        'The weather is not so great! Currently, the temperature is '
-        + temperature
-        + ' degrees.';
+        'The weather is not so great! Currently, the temperature is ' +
+        temperature +
+        ' degrees.';
+
+    const viewTemperature = document.querySelector('#viewTemperature');
+    viewTemperature.textContent = 'Currently ' + temperature + ' degrees';
+    
 
     const sectionIntroduction = document.querySelector('#sectionIntroduction');
     sectionIntroduction.textContent =
