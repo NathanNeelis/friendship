@@ -1,6 +1,6 @@
 const mtbCheck = document.querySelector('.userLocation');
 
-async function catchWeather(req, res) {
+async function catchWeather() {
     try {
         if (mtbCheck) {
             const userLocation = document.querySelector('.userLocation').innerHTML;
@@ -141,13 +141,6 @@ const games = (weather) => {
     const header = document.querySelector('#weatherHeader');
     header.textContent = 'Find some people to play some games with:';
 };
-
-
-
-
-
-
-
 
 // Resources:
 // https://openweathermap.org/current
