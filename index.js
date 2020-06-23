@@ -6,7 +6,8 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-const noCache = require('nocache');
+const expectCt = require('expect-ct');
+
 
 
 require('dotenv').config();
@@ -62,10 +63,14 @@ app.use(
 		}
 	}),
 
-	helmet.frameguard({ action: 'deny' })
-
+	helmet.frameguard({ action: 'deny' }),
+	helmet.permittedCrossDomainPolicies()
 	
 	);
+
+	app.use(expectCt({
+		maxAge: 43200  //how long does the browser should cache the policy
+			}));
 
 
 store.on('error', (err) => {
