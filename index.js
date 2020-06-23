@@ -44,9 +44,6 @@ app.use(session({
 	}
 }));
 
-app.use(
-	helmet()
-);
 
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);
