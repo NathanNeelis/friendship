@@ -46,19 +46,60 @@ const registerpost = (req, res) => {
         });
     };
 
-    User.findOne({
-        username: req.body.signupUser
-    }, (err, user) => {
-        if (err) {
-            console.log('MongoDB Error:' + err);
-        } else if (user || !req.file) {
-            res.render('register', {
-                data: req.body
-            });
-        } else {
-            uploadUser();
-        }
-    });
+    const checkEmail = () => {
+        User.findOne({
+            email: req.body.signupEmail.toLowerCase()
+        }, (err, email) => {
+            if (err) {
+                console.log('MongoDB Error:' + err);
+            } else if (email) {
+                const takenEmail = true;
+                checkUser(takenEmail);
+            } else {
+                const takenEmail = false;
+                checkUser(takenEmail);
+            }
+        });
+    };
+    
+    const checkUser = (takenEmail) => {
+        User.findOne({
+            username: req.body.signupUser
+        }, (err, user) => {
+            if (err) {
+                console.log('MongoDB Error:' + err);
+            } else if (user && takenEmail) {
+                res.render('register', {
+                    data: req.body,
+                    email: true,
+                    user: true
+                });
+            } else if (user && !takenEmail) {
+                res.render('register', {
+                    data: req.body,
+                    email: false,
+                    user: true
+                });
+            } else if (takenEmail && !user) {
+                res.render('register', {
+                    data: req.body,
+                    email: true,
+                    user: false
+                });
+            } else if (!req.file) {
+                res.render('register', {
+                    data: req.body,
+                    email: false,
+                    user: false
+                });
+            } else {
+                uploadUser();
+            }
+        });
+    };
+
+    checkEmail();
+
 };
 
 module.exports = registerpost;

@@ -8,9 +8,16 @@
                 <% if(locals.data){ %>
                 <legend>Register</legend>
                 <p>Create an account to meet new people and get new awesome friendships.</p>
-                <span class="sign-up--failed">The username <span class="takenUsername"><%= data.signupUser %></span> is
+                <% if(locals.user === true){ %>
+                    <span class="sign-up--failed">The username <span class="takenUsername"><%= data.signupUser %></span> is
                     already taken, please choose a
                     different one.</span>
+                <% } %>
+                <% if(locals.email === true){ %>
+                    <span class="sign-up--failed">The email <span class="takenUsername"><%= data.signupEmail %></span> is
+                    already in use, please log in or use a
+                    different one.</span>
+                <% } %>
                 <span id="form-error-message" class="no-error-message">Please check if you have (correctly)
                     filled in all fields.</span>
                 <label for="signupFirst">First name</label>
