@@ -1,16 +1,5 @@
 const User = require('../models/user');
-//I will move this to a different file at some point
-const nodemailer = require('nodemailer');
-
-const transporter = nodemailer.createTransport({
-    //temp login information for debugging
-    host: 'smtp.ethereal.email',
-    port: 587,
-    auth: {
-        user: 'antonio.hansen91@ethereal.email',
-        pass: '2RWRbxkysG3Jv9WEMY'
-    }
-});
+const executeEmail = require('../utils/executeEmail');
 
 const registerpost = (req, res) => {
     const sendEmail = () => {
@@ -20,12 +9,13 @@ const registerpost = (req, res) => {
             if (err) {
                 console.log('MongoDB Error:' + err);
             } else if (user) {
-                transporter.sendMail({
-                    from: 'Friendship <info@friendship.com>',
-                      to: user.email,
-                      subject: 'Welcome to Friendship, ' + user.firstname + '!',
-                      text: 'Activate your Friendship account: http://localhost:1900/activate?id=' + user._id
-                });
+                let mailOptions = {
+                    from: 'Friendship <friendshipwebsitecmd@gmail.com>',
+                    to: user.email,
+                    subject: 'Welcome to Friendship, ' + user.firstname + '!',
+                    text: 'Hi ' + user.firstname + '!,\nPlease activate your account by going to this url: http://' + req.get('host') + '/activate?id=' + user._id
+                };
+                executeEmail(mailOptions);
             }
         });
     };

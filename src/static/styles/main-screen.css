@@ -1025,7 +1025,7 @@ nav {
           border-color: #100033 transparent transparent transparent;
           transform: translate(-10px, -28.5px); } }
     .p-register .interest-info::after {
-      content: 'Use space or enter after each tag to place it. If you want to add a tag with multiple words, use a dash (-) to separate them.';
+      content: 'Use space after each tag to place it. If you want to add a tag with multiple words, use a dash (-) to separate them.';
       font-size: 15px;
       width: 240px;
       height: 70px;
