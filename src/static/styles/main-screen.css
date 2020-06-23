@@ -485,6 +485,15 @@ body {
   text-rendering: geometricPrecision;
   overflow-x: hidden; }
 
+input,
+textarea,
+button,
+select,
+a,
+div,
+span {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
@@ -726,7 +735,8 @@ nav {
   border-radius: 12px; }
   @media (max-width: 1000px) {
     .m-users {
-      border-radius: 0; } }
+      border-radius: 0;
+      padding: 40px; } }
   .m-users a {
     text-decoration: none; }
   .m-users h2 {
@@ -860,19 +870,18 @@ nav {
     font-size: 20px; }
 
 .m-background {
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffe7df+0,f8d4d9+100 */
   background: #ffe7df;
-  /* Old browsers */
   background: -moz-linear-gradient(top, #ffe7df 0%, #f8d4d9 100%);
-  /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #ffe7df 0%, #f8d4d9 100%);
-  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #ffe7df 0%, #f8d4d9 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe7df', endColorstr='#f8d4d9', GradientType=0);
-  /* IE6-9 */
   background-attachment: fixed;
   z-index: -1; }
+  .m-background__container {
+    display: block; }
+    @media (max-width: 600px) {
+      .m-background__container {
+        display: none; } }
   .m-background .blob-1 {
     fill: #FFFBEA;
     width: auto;
@@ -896,7 +905,7 @@ nav {
     opacity: .3;
     position: absolute;
     left: 70%;
-    top: 1200px; }
+    top: 800px; }
   .m-background .blob-4 {
     fill: #FFFBEA;
     width: auto;
@@ -906,14 +915,16 @@ nav {
     left: -120px; }
   .m-background .logo-1 {
     position: absolute;
-    right: -800px;
+    left: 0;
     top: 500px;
-    z-index: 1; }
+    z-index: 1;
+    max-width: 100%; }
   .m-background .logo-2 {
     position: absolute;
-    left: -800px;
+    right: 0;
     top: 1000px;
-    z-index: 1; }
+    z-index: 1;
+    max-width: 100%; }
 
 .m-footer {
   background-color: #100033;
@@ -1008,6 +1019,11 @@ nav {
       opacity: 0;
       pointer-events: none;
       transition: opacity 200ms ease-in-out; }
+      @media (max-width: 600px) {
+        .p-register .interest-info::before {
+          border-width: 24px 15px 0 15px;
+          border-color: #100033 transparent transparent transparent;
+          transform: translate(-10px, -28.5px); } }
     .p-register .interest-info::after {
       content: 'Use space or enter after each tag to place it. If you want to add a tag with multiple words, use a dash (-) to separate them.';
       font-size: 15px;
@@ -1021,6 +1037,9 @@ nav {
       opacity: 0;
       pointer-events: none;
       transition: opacity 200ms ease-in-out; }
+      @media (max-width: 600px) {
+        .p-register .interest-info::after {
+          transform: translate(-135px, -138px); } }
     .p-register .interest-info:hover {
       opacity: .85; }
       .p-register .interest-info:hover::after {
@@ -1029,6 +1048,26 @@ nav {
       .p-register .interest-info:hover::before {
         opacity: 1;
         pointer-events: inherit; }
+  .p-register .tag-button {
+    font-family: 'Montserrat';
+    font-weight: lighter;
+    margin-top: 30px;
+    width: 120px;
+    height: 50px;
+    border-radius: 6px;
+    color: #F9F9F9;
+    background-color: #100033;
+    border: 3px solid #100033;
+    transition: all 200ms ease-in-out;
+    text-align: center;
+    padding-top: 10px; }
+    .p-register .tag-button:hover {
+      background-color: #F9F9F9;
+      color: #100033;
+      cursor: pointer; }
+    @media (min-width: 750px) {
+      .p-register .tag-button {
+        display: none; } }
 
 .p-login {
   width: 100%;
@@ -1094,6 +1133,27 @@ nav {
         transform: translate(0);
         width: 100%;
         height: 300px; } }
+  .p-profile .tag-button {
+    font-family: 'Montserrat';
+    font-weight: lighter;
+    margin-top: 30px;
+    width: 120px;
+    height: 50px;
+    border-radius: 6px;
+    color: #F9F9F9;
+    background-color: #100033;
+    border: 3px solid #100033;
+    transition: all 200ms ease-in-out;
+    text-align: center;
+    padding-top: 10px;
+    display: none; }
+    .p-profile .tag-button:hover {
+      background-color: #F9F9F9;
+      color: #100033;
+      cursor: pointer; }
+    @media (min-width: 750px) {
+      .p-profile .tag-button {
+        display: none; } }
   .p-profile .edit-label {
     font-size: 25px; }
   .p-profile .upload-label {
@@ -1116,6 +1176,11 @@ nav {
     padding-top: 4px; }
     .p-profile__edit .tag-container-profile .tag p {
       display: inline; }
+  .p-profile__edit .tag-button {
+    display: block; }
+    @media (min-width: 750px) {
+      .p-profile__edit .tag-button {
+        display: none; } }
   .p-profile__edit #fileInfoText {
     display: block; }
   .p-profile #editInterests {
@@ -1168,6 +1233,9 @@ nav {
   min-height: 80vh;
   position: relative;
   z-index: 1; }
+  @media (max-width: 900px) {
+    .p-home {
+      padding-top: 30px; } }
   .p-home__banner {
     width: 100%;
     padding: 200px 0; }
@@ -1269,9 +1337,15 @@ nav {
   min-height: 80vh;
   position: relative;
   z-index: 1; }
+  .p-matches .m-users {
+    padding: 80px; }
+    @media (max-width: 570px) {
+      .p-matches .m-users {
+        padding: 40px; } }
   .p-matches .go-home {
     font-family: 'Montserrat';
-    padding: 10px 20px;
+    text-align: center;
+    padding-top: 7px;
     font-size: 25px;
     margin-top: 30px;
     height: 50px;
@@ -1279,11 +1353,18 @@ nav {
     color: #F9F9F9;
     background-color: #100033;
     border: 3px solid #100033;
-    transition: all 200ms ease-in-out; }
+    transition: all 200ms ease-in-out;
+    display: block;
+    width: 360px; }
     .p-matches .go-home:hover {
       background-color: #F9F9F9;
       color: #100033;
       cursor: pointer; }
+    @media (max-width: 570px) {
+      .p-matches .go-home {
+        font-size: 20px;
+        width: 220px;
+        height: 70px; } }
 
 .p-other-profile {
   width: 100%;

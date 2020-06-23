@@ -1,18 +1,19 @@
 .m-background {
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffe7df+0,f8d4d9+100 */
     background: #ffe7df;
-    /* Old browsers */
     background: -moz-linear-gradient(top, #ffe7df 0%, #f8d4d9 100%);
-    /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #ffe7df 0%, #f8d4d9 100%);
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffe7df 0%, #f8d4d9 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe7df', endColorstr='#f8d4d9', GradientType=0);
-    /* IE6-9 */
-    // height: 100vh;
     background-attachment: fixed;
     z-index: -1;
+
+    &__container {
+        display: block;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
 
     .blob-1 {
         fill: #FFFBEA;
@@ -41,7 +42,7 @@
         opacity: .3;
         position: absolute;
         left: 70%;
-        top: 1200px;
+        top: 800px;
     }
 
     .blob-4 {
@@ -55,15 +56,17 @@
 
     .logo-1 {
         position: absolute;
-        right: -800px;
+        left: 0;
         top: 500px;
         z-index: 1;
+        max-width: 100%;
     }
 
     .logo-2 {
         position: absolute;
-        left: -800px;
+        right: 0;
         top: 1000px;
         z-index: 1;
+        max-width: 100%;
     }
 }

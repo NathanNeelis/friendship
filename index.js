@@ -45,6 +45,7 @@ app.use(session({
 	}
 }));
 
+
 app.use(
 	helmet(),
 	helmet.contentSecurityPolicy({
@@ -66,6 +67,7 @@ app.use(
 app.use(expectCt({
 	maxAge: 43200  //how long does the browser should cache the policy
 }));
+
 
 store.on('error', (err) => {
 	console.log('Session MongoDB error:' + err);

@@ -25,6 +25,32 @@
         }
     }
 
+    .tag-button {
+        font-family: 'Montserrat';
+        font-weight: lighter;
+        margin-top: 30px;
+        width: 120px;
+        height: 50px;
+        border-radius: 6px;
+        color: $white;
+        background-color: $purple;
+        border: 3px solid $purple;
+        transition: all 200ms ease-in-out;
+        text-align: center;
+        padding-top: 10px;
+        display: none;
+
+        &:hover {
+            background-color: $white;
+            color: $purple;
+            cursor: pointer;
+        }
+
+        @media (min-width: 750px) {
+            display: none;
+        }
+    }
+
     .edit-label {
         font-size: 25px;
     }
@@ -71,6 +97,14 @@
                 p {
                     display: inline;
                 }
+            }
+        }
+
+        .tag-button {
+            display: block;
+
+            @media (min-width: 750px) {
+                display: none;
             }
         }
 

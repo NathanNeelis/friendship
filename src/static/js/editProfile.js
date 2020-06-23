@@ -20,6 +20,7 @@ if (editProfile) {
     const tagContainer = document.querySelector('.tag-container');
     const input = document.querySelector('.tag-container input');
     const excistingTags = document.querySelectorAll('.tag span');
+    const button = document.querySelector('.tag-button');
 
     let tags = [];
 
@@ -54,6 +55,17 @@ if (editProfile) {
             tagContainer.prepend(createTag(tag));
         });
     };
+
+    button.addEventListener('click', () => {
+        if (input.value.replace(/\s/g, '') != '') {
+            input.value.split(',').forEach(tag => {
+                tags.push(tag);
+            });
+
+            addTags();
+            input.value = '';
+        }
+    });
 
     input.addEventListener('keyup', (e) => {
         if (e.keyCode === 13 && input.value.replace(/\s/g, '') != '' || e.keyCode === 32 && input.value.replace(/\s/g, '') != '') {
