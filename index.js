@@ -6,6 +6,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const expectCt = require('expect-ct');
 
 require('dotenv').config();
 
@@ -42,6 +43,29 @@ app.use(session({
 		sameSite: true,
 		secure: false
 	}
+}));
+
+
+app.use(
+	helmet(),
+	helmet.contentSecurityPolicy({
+		directives: {
+			"default-src": ["'self'", 'https://api.openweathermap.org'],
+			"script-src": ["'self'", 'https://kit.fontawesome.com', 'https://kit-free.fontawesome.com'],
+			"style-src": ["'self'",
+				"'unsafe-inline'",
+				'https://fonts.googleapis.com',
+				'http://fonts.googleapis.com',
+				'https://kit-free.fontawesome.com'
+			],
+			"font-src": ["'self'", 'https://fonts.gstatic.com', 'https://kit-free.fontawesome.com', 'http://fonts.gstatic.com', 'http://kit-free.fontawesome.com',]
+		}
+	}),
+	helmet.frameguard({ action: 'deny' }),
+	helmet.permittedCrossDomainPolicies()
+);
+app.use(expectCt({
+	maxAge: 43200  //how long does the browser should cache the policy
 }));
 
 
