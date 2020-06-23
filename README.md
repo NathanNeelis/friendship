@@ -75,7 +75,7 @@ If you want to find other users by their interest you can type in the activity y
 ### Like someone
 If you found someone that you would like to befriend, meet, or participate with for an activity you can like that user. Simply by going to their profile and hitting the like button!
 
-__need to make this image__
+<img width="600" alt="searchpage_friendship" src="https://user-images.githubusercontent.com/55492381/85375874-38dc1e80-b537-11ea-8703-0fa0fbddb67c.jpg">
 
 ### It's a match!
 When you both have liked each other then you have been matched. Your profiles will show up on both of your matches pages and when you go to the profile there is an option to get in contact.
