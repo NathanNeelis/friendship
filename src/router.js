@@ -1,6 +1,13 @@
+const router = require('express').Router();
+
+// Utils
+const 
+    upload = require('./utils/uploadImage'),
+    userRedirectLogin = require('./utils/userRedirectLogin'),
+    userRedirectProfile = require('./utils/userRedirectProfile');
+
+// Routes
 const
-    router = require('express').Router(),
-    upload = require('./multer'),
     registerpost = require('./routes/registerpost'),
     register = require('./routes/register'),
     index = require('./routes/index'),
@@ -14,24 +21,8 @@ const
     otherprofile = require('./routes/otherprofile'),
     matches = require('./routes/matches'),
     unmatch = require('./routes/unmatch'),
-    likepost = require('./routes/likepost'),
-    mymatches = require ('./routes/mymatches');
-
-const userRedirectLogin = (req, res, next) => {
-    if (!req.session.sessionID) {
-        res.redirect('/login');
-    } else {
-        next();
-    }
-};
-
-const userRedirectProfile = (req, res, next) => {
-    if (req.session.sessionID) {
-        res.redirect('/profile');
-    } else {
-        next();
-    }
-};
+    notfound = require('./routes/notfound'),
+    likepost = require('./routes/likepost');
 
 router
     .get('/', index)
@@ -42,12 +33,12 @@ router
     .get('/matches', userRedirectLogin, matches)
     .get('/activate', activate)
     .get('/otherprofile/:username', otherprofile)
-    .get('/mymatches/:username', mymatches)
-
     .get('/search', userRedirectLogin, search)
     .get('/apipage', index)
+    .get('*', notfound)
+    
     .post('/apipage', index)
-    .post('/matches', unmatch)
+    .post('/unmatch', unmatch)
     .post('/like', likepost)
     .post('/login', loginpost)
     .post('/search', search)

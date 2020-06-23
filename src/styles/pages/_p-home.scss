@@ -1,7 +1,14 @@
 .p-home {
-    background-color: $pink;
     padding-top: 100px;
+    padding-bottom: 70px;
     min-height: 80vh;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 900px) {
+        padding-top: 30px;
+    }
+
 
     &__banner {
         width: 100%;
@@ -9,6 +16,17 @@
 
         @media (max-width: 900px) {
             padding: 50px 0;
+        }
+
+        img {
+            position: absolute;
+            transform: translateY(150px);
+            z-index: 1;
+            top: 0;
+
+            @media (max-width: 900px) {
+                display: none;
+            }
         }
 
         &__container {
@@ -40,6 +58,8 @@
                 font-family: 'Playfair Display';
                 font-weight: bold;
                 font-size: 60px;
+                position: relative;
+                z-index: 2;
 
                 @media (max-width: 900px) {
                     width: 100%;
@@ -93,5 +113,9 @@
                 margin-top: 20px;
             }
         }
+    }
+
+    .userLocation {
+        display: none;
     }
 }

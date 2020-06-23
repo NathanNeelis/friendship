@@ -1,8 +1,13 @@
 .p-login {
     width: 100%;
     padding: 50px 30px;
-    background-color: $pink;
     min-height: 80vh;
+    position: relative;
+    z-index: 1;
+
+    .m-form {
+        max-width: 500px;
+    }
 
     &__form {
         animation: slideIn 600ms ease-in-out forwards;
@@ -18,6 +23,8 @@
         animation: slideIn 400ms ease-in-out forwards;
 
         h1 {
+            font-family: 'Playfair Display';
+            font-weight: bold;
             font-size: 44px;
         }
 

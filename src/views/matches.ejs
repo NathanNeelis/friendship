@@ -5,7 +5,7 @@
     <div class="p-matches">
         <div class="m-users">
             <div class="user-container">
-                <% if (locals.data) { %>
+                <% if (locals.data != '') { %>
                 <h2>Your matches</h2>
                 <p>These are your matches, you have both liked each other. Go to his/her profile and send them a
                     message!</p>
@@ -24,13 +24,14 @@
                     </a>
                 </div>
                 <% } %>
+                <% } if (locals.data == ''){ %>
+                    <h2>You have no matches yet</h2>
+                    <p>You can get matches to like someones profile</p>
+                    <a class="go-home" href="/">See interesting profiles</a>
+                    <% } %>
             </div>
         </div>
-        <% } if (locals.data == ''){ %>
-        <h1>You have no matches yet</h1>
-        <p>You can get matches to like someones profile</p>
-        <a href="/">See interesting profiles</a>
-        <% } %>
+       
     </div>
 </main>
 

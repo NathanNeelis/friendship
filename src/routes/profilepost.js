@@ -1,4 +1,4 @@
-const User = require('../user');
+const User = require('../models/user');
 
 const profilepost = (req, res) => {
     const updatedValues = {};
@@ -25,7 +25,6 @@ const profilepost = (req, res) => {
         }  
     };
 
-    //I will add the other fields here once i add them in the frontend code.
     const editInfo = () => {
         updatedValues.location = req.body.editLocation;
         updatedValues.description = req.body.editDescription;

@@ -3,6 +3,8 @@ nav {
     width: 100%;
     background-color: $white;
     padding: 30px;
+    position: relative;
+    z-index: 2;
 
     li {
         display: inline-block;
@@ -88,10 +90,10 @@ nav {
         left: 0;
         position: fixed;
         background-color: $pink;
-        z-index: 200;
         opacity: 0;
         transform: translateX(100vw);
         transition: all 150ms ease-in-out;
+        z-index: 2;
 
         ul {
             margin-top: 40px;

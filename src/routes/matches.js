@@ -1,4 +1,4 @@
-const User = require('../user');
+const User = require('../models/user');
 
 const matches = (req, res) => {
     const matchesItems = [];
@@ -18,10 +18,9 @@ const matches = (req, res) => {
                             matchesItems.push(userItem);
                         }
                     });
-
-
                     res.render('matches', {
-                        data: matchesItems
+                        data: matchesItems,
+                        user: user
                     });
                 }
             });
