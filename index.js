@@ -12,7 +12,7 @@ require('dotenv').config();
 
 const app = express();
 
-const port = 1900;
+const port = process.env.PORT || 1900;
 const url = process.env.DB_URL;
 
 const mongoose = require('mongoose');
@@ -58,14 +58,16 @@ app.use(
 				'http://fonts.googleapis.com',
 				'https://kit-free.fontawesome.com'
 			],
-			"font-src": ["'self'", 'https://fonts.gstatic.com', 'https://kit-free.fontawesome.com', 'http://fonts.gstatic.com', 'http://kit-free.fontawesome.com',]
+			"font-src": ["'self'", 'https://fonts.gstatic.com', 'https://kit-free.fontawesome.com', 'http://fonts.gstatic.com', 'http://kit-free.fontawesome.com', ]
 		}
 	}),
-	helmet.frameguard({ action: 'deny' }),
+	helmet.frameguard({
+		action: 'deny'
+	}),
 	helmet.permittedCrossDomainPolicies()
 );
 app.use(expectCt({
-	maxAge: 43200  //how long does the browser should cache the policy
+	maxAge: 43200 //how long does the browser should cache the policy
 }));
 
 
@@ -80,7 +82,9 @@ app
 	.use(bodyParser.urlencoded({
 		extended: true
 	}))
-	.use(express.json({ limit: '1mb' }))
+	.use(express.json({
+		limit: '1mb'
+	}))
 	.listen(port, () => {
 		console.log('The server is running on port ' + port);
 	});
